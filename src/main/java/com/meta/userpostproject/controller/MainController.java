@@ -7,8 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MainController {
     @GetMapping("/")
     public String loginPage(){
-
-        return "create_table_view";
+        return "/uploaded_post_single_view";
     }
 
 }
