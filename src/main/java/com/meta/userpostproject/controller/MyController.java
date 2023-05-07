@@ -12,7 +12,7 @@ public class MyController {
 
     @GetMapping("/register")
     public String registrationPage(){
-        return "/login/registrationrpage";
+        return "/login/registrationpage";
     }
 
 }
