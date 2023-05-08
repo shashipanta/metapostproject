@@ -26,22 +26,22 @@
                 </div>
 
                 <ul class="list-group mt-5">
-                    <li class="list-group-item  ">
+                    <a li class="list-group-item  " th:href="@{/create_table_view}">
                         <img src="image/cloud-computing.png" alt="" class="icons ms-3 me-2">
                         
                         Create
-                    </li>
+                    </li></a>
                    
-                    <li class="list-group-item ">
+                    <a li class="list-group-item " th:href="@{/#}">
                         <img src="image/bookmark.png" alt="" class="icons ms-3 me-2">
 
                         My Saved
-                    </li>
+                        </li></a>
                     
-                    <li class="list-group-item "> 
+                    <a li class="list-group-item" th:href="@{/}">
                         <img src="image/logout-svgrepo-com.png" alt="" class="icons ms-3 me-2">
 
-                        Log out</li>
+                        Log out</li></a>
                    
 
                 </ul>
@@ -70,7 +70,7 @@
                                             username
                                         </div>
                                         <div class="col-md-6">
-                                        <i class="fa-regular fa-eye card_icon me-2"></i>DD/MM/YYYY
+                                        <a i class="fa-regular fa-eye card_icon me-2" th:href="@{/uploaded_post_single_view}"></i></a>DD/MM/YYYY
                                         </div>
 
                                     </div>
