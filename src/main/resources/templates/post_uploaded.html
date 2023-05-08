@@ -12,7 +12,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kolker+Brush&family=Montserrat+Subrayada&display=swap"
         rel="stylesheet">
-        <link rel="stylesheet" th:href="@{css/post_uploaded.css}">
+
+    <link rel="stylesheet" th:href="@{css/post_uploaded.css}">
+
+    <script th:src="@{/javascript/popupbox.js}" ></script>
+
+
 
 </head>
 
@@ -42,7 +47,7 @@
                     </li>
                     </a>
 
-                    <a th:href="@{/}">
+                    <a  onclick="showPopup()">
                     <li class="list-group-item "> 
                         <img src="image/logout-svgrepo-com.png" alt="" class="icons ms-3 me-2">
 
@@ -53,6 +58,19 @@
                 </ul>
                 
             </div>
+
+<!--            this part is for logout popup box        -->
+
+            <div id="popup" class="popup">
+                <div class="popup-content">
+                    <p>Are you sure you want to logout?</p>
+                    <button class="popup-button" onclick="confirmLogout()">Yes</button>
+                    <button class="popup-button" onclick="hidePopup()">No</button>
+                </div>
+            </div>
+
+<!--            up to here - logout popup box      -->
+
 
             <div class="col-md-10 border main_slide ">
                 <div class="MPOS text-end me-2">
