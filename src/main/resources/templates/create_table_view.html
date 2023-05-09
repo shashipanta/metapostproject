@@ -13,7 +13,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Kolker+Brush&family=Montserrat+Subrayada&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" type="text/css" th:href="@{/css/create_table.css}">
-    
+    <style>
+        .list-group-item{
+            background-color: #FFFFFF;
+        }
+    </style>
 </head>
 <body>
     <div class="container-fluid">
@@ -22,7 +26,7 @@
 
                 <div class="mx-auto mt-5 text-center">
 
-                    <a div class="Dashboard"  th:href="@{/post_uploaded}">Dashboard</adiv></a>
+                    <a th:href="@{/post_uploaded}" class="text-decoration-none"> <div  class="Dashboard"  >Dashboard</div></a>
                 </div>
 
                 <ul class="list-group mt-5">
