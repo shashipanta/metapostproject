@@ -13,35 +13,39 @@
     <link href="https://fonts.googleapis.com/css2?family=Kolker+Brush&family=Montserrat+Subrayada&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" type="text/css" th:href="@{/css/create_table.css}">
-    
+    <style>
+        .list-group-item{
+            background-color: #FFFFFF;
+        }
+    </style>
 </head>
 <body>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-2 sidebar m-0">
+
                 <div class="mx-auto mt-5 text-center">
 
-                    <div class="Dashboard">Dashboard</div>
+                    <a th:href="@{/post_uploaded}" class="text-decoration-none"> <div  class="Dashboard"  >Dashboard</div></a>
                 </div>
 
                 <ul class="list-group mt-5">
-                    <li class="list-group-item  ">
+                    <a li class="list-group-item  " th:href="@{/create_table_view}">
                         <img src="image/cloud-computing.png" alt="" class="icons ms-3 me-2">
 
                         Create
-                    </li>
+                        </li></a>
 
-                    <li class="list-group-item ">
+                    <a li class="list-group-item " th:href="@{/#}">
                         <img src="image/bookmark.png" alt="" class="icons ms-3 me-2">
 
                         My Saved
-                    </li>
+                        </li></a>
 
-                    <li class="list-group-item ">
+                    <a li class="list-group-item" th:href="@{/}">
                         <img src="image/logout-svgrepo-com.png" alt="" class="icons ms-3 me-2">
 
-                        Log out
-                    </li>
+                        Log out</li></a>
 
 
                 </ul>

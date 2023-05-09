@@ -23,20 +23,7 @@
 
     }
 
-    .list-group-item {
 
-        color: #ffffff;
-        border: 0;
-        padding: 0;
-        color: #000000;
-        padding: 10px;
-        border-radius: 0px;
-        font-size: 1.2rem;
-
-        margin-bottom: 10px;
-        
-
-    }
 
     ul {
         margin-block-start: 0em;
@@ -84,8 +71,9 @@
         height: 40px;
     }
     .list-group{
-        --bs-list-group-bg:#F5F5F5;
+        --bs-list-group-bg: white;
     }
+
    
 
     .MPOS {
@@ -127,4 +115,17 @@
         /* background-image: url(Software-Developer.svg); */
         background-position:center ;
         background-size: cover;
+    }
+    .list-group-item {
+
+        background-color: #ffffff;
+        border: 0;
+        padding: 0;
+        color: #000000;
+        padding: 10px;
+        border-radius: 0px;
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+
+
     }
