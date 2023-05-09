@@ -27,6 +27,9 @@ public class Post {
     @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
+    @Column(name = "category", nullable = false, length = 30)
+    private String category;
+
     @Column(name = "image_path", length = 200, nullable = false)
     private String imagePath;
 

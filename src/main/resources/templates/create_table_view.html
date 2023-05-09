@@ -50,68 +50,36 @@
                     Log out</li></a>
 
 
-<<<<<<< HEAD
-                <div class="user_input_post  mt-5">
-                    <form  class="login" th:action="@{/uploaded_post_single_view}">
-                        <div class="MPOS">Create a new Post
-                        </div>
-                        <div class="mb-4 mt-4">
-=======
             </ul>
->>>>>>> 9f3cc2886f006792c4c23d6fbe971cd3a4768b46
+
 
         </div>
 
         <div class="col-md-4 border  mx-auto">
 
-
-<<<<<<< HEAD
-                        <div class="mb-4">
-                            <div class="form-floating">
-                                <textarea class="form-control" id="floatingTextarea2" style="height: 100px"></textarea>
-                                <label for="floatingTextarea2">Description</label>
-                            </div>
-                        </div>
-                        <div class="mb-4">
-                            <div class="input-group">
-                                <input type="file" class="form-control" id="inputGroupFile04"
-                                    aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                            </div>
-                        </div>
-                        <button class="btn btn-dark upload_btn mt-4 me-3" type="submit">Reset</button>
-                        <button class="btn  btn-primary upload_btn_submit ms-4 mt-4" type="submit" >Submit</button>
-                    </form>
-                </div>
-
-            </div>
-            <div class="col-md-6 border mx-auto">
-                <div class="user_table_post  mt-5">
-                    <div class="MPOS">My Creations
-=======
             <div class="user_input_post  mt-5">
                 <form class="login" th:action="@{/post}" method="post" th:object="${postDto}" enctype="multipart/form-data">
                     <div class="MPOS">Create a new Post
->>>>>>> 9f3cc2886f006792c4c23d6fbe971cd3a4768b46
                     </div>
                     <div class="mb-4 mt-4">
 
                         <div class="form-floating ">
-                            <input type="text" class="form-control" id="floatingInput" th:field="*{title}"
-                                   placeholder="name@example.com">
+                            <input type="text" class="form-control" id="floatingInput" th:field="*{title}">
                             <label for="floatingInput">Title</label>
 
                         </div>
 
                     </div>
-<!--                    <div class="mb-4">-->
-<!--                        <label for="Category" class=""> Category</label>-->
-<!--                        <select class="form-select mt-2" aria-label="Default select example" id="Category">-->
-<!--                            <option selected>Open</option>-->
-<!--                            <option value="1">One</option>-->
-<!--                            <option value="2">Two</option>-->
-<!--                            <option value="3">Three</option>-->
-<!--                        </select>-->
-<!--                    </div>-->
+                    <div class="mb-4">
+                        <label for="Category" class=""> Category</label>
+                        <select class="form-select mt-2" aria-label="Default select example" id="Category" th:field="*{category}">
+                            <option value="" DISABLED>---SELECT---</option>
+                            <option value="Anime">Anime</option>
+                            <option value="Nature">Nature</option>
+                            <option value="Culture">Culture</option>
+                            <option value="Football">Football</option>
+                        </select>
+                    </div>
 
                     <div class="mb-4">
                         <div class="form-floating">
@@ -135,7 +103,7 @@
             <div class="user_table_post  mt-5">
                 <div class="MPOS">My Creations
                 </div>
-                <table class="table table-bordered table-striped mt-3">
+                <table class="table table-bordered table-striped mt-3" th:each="p:${post}">
                     <thead>
                     <tr>
 
@@ -143,43 +111,23 @@
                         <th>Title</th>
                         <th>Category</th>
                         <th>Status</th>
-                        <th>Action</th>
+                        <th>Image</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>GuruPUrnima</td>
-                        <td>Festival</td>
-                        <td>ACTIVE</td>
+                    <tr >
+                        <td th:text="${p.id}"></td>
+                        <td th:text="${p.title}"></td>
+                        <td th:text="${p.category}"></td>
+                        <td th:text="${p.imagePath}"></td>
 
                         <td>
                             <button class="btn btn-warning text-light"> E
                             </button>
-                            <button class="btn btn-danger">
+                            <a th:href="@{/post/delete/} + ${p.id}"><button class="btn btn-danger" >
                                 D
-                            </button>
+                            </button></a>
                             <button class="btn btn-info">
-
-                                CS
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>GuruPUrnima</td>
-                        <td>Festival</td>
-                        <td>ACTIVE</td>
-
-                        <td>
-                            <button class="btn btn-warning text-light">
-                                E
-                            </button>
-                            <button class="btn btn-danger">
-                                D
-                            </button>
-                            <button class="btn btn-info">
-
                                 CS
                             </button>
                         </td>
