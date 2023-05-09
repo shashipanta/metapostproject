@@ -23,7 +23,7 @@
                     <div class="row">
                         <div class="col-5 ms-5">
                                 <div class="login_text">Login</div>
-                                <form action="" >
+                                <form th:action="@{/post_uploaded}" >
                                 <div class="form-floating mb-3 mt-4">
                                     <input type="email" class="form-control" id="floatingInput" placeholder="enter your email">
                                     <label for="floatingInput" class="text-muted">Email address</label>
@@ -35,10 +35,12 @@
                                   <div class="acc_text ">
                                    <ins class="underline">
                                       <a th:href="@{/register}" class="text-decoration-none text-dark">Create an Account</a> </ins>
-                                    <button class="btn btn-success ms-2" type="submit">
-                                        <a th:href="@{/post_uploaded}" class="text-decoration-none text-dark">Login</a>
 
+<!--                                      <a th:href="" class="text-decoration-none text-dark">-->
+                                      <button class="btn btn-success ms-2" type="submit">
+                                        Login
                                         </button>
+<!--                                      </a>-->
             
                                   </div>
                                 </form>
