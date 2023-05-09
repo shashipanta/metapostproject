@@ -65,12 +65,14 @@ form {
     top: 40%;
     margin-left: 2em;
     margin: 2em;
+
+    animation: slick-bounce 4s infinite ease-in-out;
 }
 
-#computer:hover{
-    transition:transform  0.9s;
-    transform: scale(1.2);
-}
+/*#computer:hover{*/
+/*    transition:transform  0.9s;*/
+/*    transform: scale(1.2);*/
+/*}*/
 
 #mug{
     position: absolute;
@@ -200,4 +202,38 @@ a:hover{
 }
 
 
-
+@keyframes slick-bounce{
+    0%{
+        transform: translateY(-10px);
+    }
+    20%{
+        transform: translateY(20px);
+    }
+    40%{
+        transform: translateY(-10px);
+    }
+    50%{
+        transform: rotateY(90deg);
+    }
+    60%{
+        transform: rotateY(90deg);
+    }
+    70%{
+        transform: rotateY(90deg);
+    }
+    80%{
+        transform: rotateY(90deg);
+    }
+    /*70%{*/
+    /*    transform: rotateY(270deg);*/
+    /*}*/
+    /*80%{*/
+    /*    transform: rotateY(270deg);*/
+    /*}*/
+    /*90%{*/
+    /*   transform: rotateY(180deg);*/
+    /*}*/
+    /*100%{*/
+    /*    transform: rotateY(90deg);*/
+    /*}*/
+}
