@@ -9,7 +9,7 @@ body{
 
 
 }
-.form{
+.form {
     display: flex;
     align-items: center;
     margin-top: 60px;
@@ -17,16 +17,19 @@ body{
     background-repeat: no-repeat;
     /* background-attachment: fixed; */
     background-size: cover;
-    /*box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;*/
+    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     width: 60%;
-    margin-top: 90px;
-    margin-left: 350px;
-    border-radius:8px ;
-
-
-
+    /* margin-top: 90px; */
+    /* margin-left: 350px; */
+    border-radius: 8px;
+    justify-content: space-between;
+    justify-content: space-between;
+    padding-inline: 2em;
+    gap: 2em;
+    margin-inline: auto;
 }
+
 
 form {
     display: flex;
@@ -38,19 +41,30 @@ form {
     border-radius: 10px;
     padding: 20px;
     padding-top: 30px;
-    margin-left: 80px;
+    /* margin-left: 80px; */
     width: 100%;
     margin-top: 70px;
-    margin-bottom: 120px;
+    /* margin-bottom: 120px; */
+}
 
+/* RIGHT CONTAINER FOR IMAGE */
+.right {
+    /* background: red; */
+    position: relative;
+    margin-top: 3em;
 }
 
 
-#computer{
-    position: absolute;
+#computer {
+    /* position: absolute; */
     height: 250px;
-    top: 250px;
-    left: 68rem;
+    /* top: 250px; */
+    left: 1em;
+    /* left: 3em; */
+    /* left: 4em; */
+    top: 40%;
+    margin-left: 2em;
+    margin: 2em;
 }
 
 #computer:hover{
@@ -61,23 +75,33 @@ form {
 #mug{
     position: absolute;
     height: 70px;
-    top: 19rem;
-    left: 66rem;
+    /*! top: 50%; */
+    /*! left: 66rem; */
 
+    right: 0;
+    bottom: 2em;
+    bottom: 1em;
 }
 #plant{
     position: absolute;
     height: 150px;
-    top: 21rem;
-    left: 81rem;
+    /*! top: 21rem; */
+    /*! left: 81rem; */
+    top: .5em;
+    left: 0;
+    margin-left: -2em;
 }
 
-#company{
+#company {
     position: absolute;
-    top: 7.5rem;
-    left: 72rem;
+    /* top: 7.5rem; */
+    /* left: 72rem; */
     color: white;
     font-weight: bolder;
+    margin-bottom: 3em;
+    top: 1em;
+    top: -3em;
+    color: black;
 }
 
 h2 {
