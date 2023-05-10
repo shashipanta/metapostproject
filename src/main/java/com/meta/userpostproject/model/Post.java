@@ -29,7 +29,10 @@ public class Post {
 
     private String description;
 
-    @Column(length = 200, nullable = false)
+    @Column(name = "category", nullable = false, length = 30)
+    private String category;
+
+    @Column(name = "image_path", length = 200, nullable = false)
     private String imagePath;
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = User.class)

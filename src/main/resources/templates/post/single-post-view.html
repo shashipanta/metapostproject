@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kolker+Brush&family=Montserrat+Subrayada&display=swap"
         rel="stylesheet">
-        <link rel="stylesheet" th:href="@{css/uploaded_post_single.css}">
+        <link rel="stylesheet" th:href="@{/css/single-post-view.css}">
 
 </head>
 
@@ -22,28 +22,24 @@
             <div class="col-md-2 sidebar m-0">
                 <div class="mx-auto mt-5 text-center">
 
-                   <a th:href="@{/post_uploaded}" class="text-decoration-none"> <div  class="Dashboard"  >Dashboard</div></a>
+                   <a th:href="@{/post}" class="text-decoration-none"> <div  class="Dashboard"  >Dashboard</div></a>
                 </div>
 
                 <ul class="list-group mt-5">
-<<<<<<< HEAD
-                    <a li class="list-group-item  " th:href="@{/create_table_view}">
-=======
-                    <a li class="list-group-item  " th:href="@{/post}">
->>>>>>> 9f3cc2886f006792c4c23d6fbe971cd3a4768b46
-                        <img src="image/cloud-computing.png" alt="" class="icons ms-3 me-2">
+                    <a li class="list-group-item  " th:href="@{/post/create}">
+                        <img src="/images/cloud-computing.png" alt="" class="icons ms-3 me-2">
 
                         Create
                         </li></a>
 
-                    <a li class="list-group-item " th:href="@{/}">
-                        <img src="image/bookmark.png" alt="" class="icons ms-3 me-2">
+                    <a li class="list-group-item " th:href="@{/static}">
+                        <img src="/images/bookmark.png" alt="" class="icons ms-3 me-2">
 
                         My Saved
                         </li></a>
 
-                    <a li class="list-group-item" th:href="@{/}">
-                        <img src="image/logout-svgrepo-com.png" alt="" class="icons ms-3 me-2">
+                    <a li class="list-group-item" th:href="@{/static}">
+                        <img src="/images/logout-svgrepo-com.png" alt="" class="icons ms-3 me-2">
 
                         Log out</li></a>
 
@@ -52,14 +48,14 @@
 
             </div>
 
-            <div class="col-md-6 mx-auto">
+            <div class="col-md-6 mx-auto" th:each="p:${post}">
                 <div class="main_post mt-5">
-                    <img src="image/house-g86e5813e1_1920.jpg" alt="" class="img-fluid">
+                    <img src="/images/house-g86e5813e1_1920.jpg" alt="" class="img-fluid">
                     <div class="row post_details ms-0 me-0 align-items-center">
 
-                        <div class="col-6  my-2 lh-1">
+                        <div class="col-6  my-2 lh-1" >
                             <!-- <i class="fa-solid fa-user me-3" ></i>    -->
-                            <img src="image/user-circle-svgrepo-com.png" alt="" class="icons_post">
+                            <img src="/images/user-circle-svgrepo-com.png" alt="" class="icons_post">
                            <span class="username">UserName</span> 
                             <br>
                                 
@@ -70,8 +66,8 @@
                         <div class="col-6  my-2">
                             <div class="row">
                                 <div class="col-6 text-end">
-                                    <img src="image/like-svgrepo-com.svg" alt="" class="img-fluid icons_post">
-                                    <img src="image/bookmark.svg" alt="" class="img-fluid icons_post">
+                                    <img src="/images/like-svgrepo-com.svg" alt="" class="img-fluid icons_post">
+                                    <img src="/images/bookmark.svg" alt="" class="img-fluid icons_post">
                                 </div>
                                 <div class="col-6 text-muted">View 12.5k
                                     <br>
@@ -83,16 +79,20 @@
 
                         </div>
                     </div>
-                    <div class="post_description my-3 fs-6 lh-base">
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni ipsum odio deleniti sint aliquam nostrum laudantium animi fugit esse, error doloremque quos vel veritatis dignissimos suscipit autem dolores sapiente commodi magnam et cum quas id. Possimus explicabo dolore aliquam non pariatur officiis. Odit placeat nihil fugiat vel corrupti voluptatum dolores rem, nisi minus repellat. Exercitationem voluptates quis eaque ea quia deleniti ipsa voluptatum quod doloribus nemo eos quo, quam maxime saepe dolorum at impedit, explicabo corrupti quidem. Dolorum quos sapiente architecto! Non iure eum aperiam deserunt recusandae laudantium reiciendis libero dolorum molestiae nesciunt, inventore consequuntur quia corporis voluptatibus, perferendis laborum.
+<!--                    post description start -->
+                    <div class="post_description my-3 fs-6 lh-base"  >
 
+                        <span th:text="${p.description}">
+
+                        </span>
                     </div>
+<!--                     post description end-->
                 </div>
             </div>
             <div class="col-md-3 mt-5 me-3 mx-auto">
                 <div class="comment_box ">
                     <div class="single_box mt-3 mb-3">
-                        <img src="image/user-circle-svgrepo-com.png" alt="" class="icons_post">
+                        <img src="/images/user-circle-svgrepo-com.png" alt="" class="icons_post">
                         <span class="ms-1 username">UserName</span> 
                         <div class="comment_inside_box">
                             Hi I love your work. <br>
@@ -101,7 +101,7 @@
                         </div>
                     </div>
                     <div class="single_box mb-3">
-                        <img src="image/user-circle-svgrepo-com.png" alt="" class="icons_post">
+                        <img src="/images/user-circle-svgrepo-com.png" alt="" class="icons_post">
                         <span class="ms-1 username">UserName</span> 
                         <div class="comment_inside_box">
                             Hi I love your work. <br>
@@ -110,7 +110,7 @@
                         </div>
                     </div>
                     <div class="single_box mb-3">
-                        <img src="image/user-circle-svgrepo-com.png" alt="" class="icons_post">
+                        <img src="/images/user-circle-svgrepo-com.png" alt="" class="icons_post">
                         <span class="ms-1 username">UserName</span> 
                         <div class="comment_inside_box">
                             Hi I love your work. <br>
@@ -122,7 +122,10 @@
                     <input type="text" class="send_comment" placeholder="Leave your comment here">
 
                     </div>
+                  
 
+                   
+                   
                     
                 </div>
                 

@@ -21,6 +21,8 @@ public class PostDto {
 
     private String title;
 
+    private String category;
+
     @NotEmpty(message = "description must be provided.")
     private String description;
 
