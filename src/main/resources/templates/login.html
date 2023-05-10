@@ -5,56 +5,56 @@
     <meta charset="UTF-8">
     <title>LOG IN</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kolker+Brush&family=Montserrat+Subrayada&display=swap"
-        rel="stylesheet">
-        <link rel="stylesheet" th:href="@{css/login.css}">
+          rel="stylesheet">
+    <link rel="stylesheet" th:href="@{css/login.css}">
 
 </head>
 <body>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 login">
-                    <div class="row">
-                        <div class="col-5 ms-5">
-                                <div class="login_text">Login</div>
-                                <form action="" >
-                                <div class="form-floating mb-3 mt-4">
-                                    <input type="email" class="form-control" id="floatingInput" placeholder="enter your email">
-                                    <label for="floatingInput" class="text-muted">Email address</label>
-                                  </div>
-                                  <div class="form-floating mb-4">
-                                    <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                                    <label for="floatingPassword" class="text-muted">Password</label>
-                                  </div>
-                                  <div class="acc_text ">
-                                   <ins class="underline">
-                                      <a th:href="@{/register}" class="text-decoration-none text-dark">Create an Account</a> </ins>
-                                    <button class="btn btn-success ms-2" type="submit">
-                                        <a th:href="@{/post_uploaded}" class="text-decoration-none text-dark">Login</a>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 login">
+            <div class="row">
+                <div class="col-5 ms-5">
+                    <div class="login_text">Login</div>
+                    <form action="">
+                        <div class="form-floating mb-3 mt-4">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="enter your email">
+                            <label for="floatingInput" class="text-muted">Email address</label>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <label for="floatingPassword" class="text-muted">Password</label>
+                        </div>
+                        <div class="acc_text ">
+                            <ins class="underline">
+                                <a th:href="@{/register}" class="text-decoration-none text-dark">Create an Account</a>
+                            </ins>
+                            <a th:href="@{/post_uploaded}" class="text-decoration-none text-dark">
+                                <button class="btn btn-success ms-2" type="submit">
+                            Login </button></a>
 
-                                        </button>
-            
-                                  </div>
-                                </form>
                         </div>
-                        <div class="col-6">
-                              <div class="MPS text-light text-end">Meta Post System</div>
-                               <div class="pic">
-                                <img src="image/laptop.png" alt="" class="img-fluid">
-                               </div>
-                        </div>
+                    </form>
+                </div>
+                <div class="col-6">
+                    <div class="MPS text-light text-end">Meta Post System</div>
+                    <div class="pic">
+                        <img src="image/laptop.png" alt="" class="img-fluid">
                     </div>
+                </div>
             </div>
         </div>
     </div>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
         crossorigin="anonymous"></script>
 </body>

@@ -9,10 +9,10 @@ public class MainController {
     public String loginPage(){
         return "/login";
     }
-//    @GetMapping("/register")
-//    public String registrationPage(){
-//        return "/registrationpage";
-  //  }
+    @GetMapping("/register")
+    public String registrationPage() {
+        return "/registrationpage";
+    }
     @GetMapping("/post_uploaded")
     public String postPage(){
         return "/post_uploaded";
@@ -22,6 +22,7 @@ public class MainController {
     public String commentPage(){
         return "/create_table_view";
     }
+
     @GetMapping("/uploaded_post_single_view")
     public String singlepostPage(){
         return "/uploaded_post_single_view";
