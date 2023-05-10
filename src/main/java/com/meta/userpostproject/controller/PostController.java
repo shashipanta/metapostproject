@@ -25,9 +25,11 @@ import java.util.List;
 public class PostController {
 
     private final PostService postService;
+    private final FileStoreUtils fileStoreUtils;
 
-    public PostController(PostService postService) {
+    public PostController(PostService postService, FileStoreUtils fileStoreUtils) {
         this.postService = postService;
+        this.fileStoreUtils = fileStoreUtils;
     }
 
     @GetMapping
@@ -48,18 +50,21 @@ public class PostController {
 
     @PostMapping
     public String createPost(@ModelAttribute PostDto postDto, RedirectAttributes redirectAttributes) throws TikaException, IOException {
+        Boolean isValidFileType = fileStoreUtils.imageExtensionValidator(postDto.getMultipartFile());
 
-        FileStoreUtils fileStoreUtils = new FileStoreUtils();
-        String type = fileStoreUtils.extensionvalidation(postDto.getMultipartFile());
-        if (type.equals("image/jpeg")) {
+        String redirectMessage = "";
+        String errorMessage = "";
+        if (isValidFileType) {
             postService.createPost(postDto);
-            String success_message = "Post Created Successfully";
-            redirectAttributes.addFlashAttribute("success_message",success_message);
+            redirectMessage = "Post Created Successfully";
         }
         else{
-            String message= "Failed! File type should be jpg";
-            redirectAttributes.addFlashAttribute("message",message);
+            errorMessage= "Failed! File type should be jpg/png/jpeg";
         }
+
+        redirectAttributes.addFlashAttribute("redirectMessage", redirectMessage);
+        redirectAttributes.addFlashAttribute("errorMessage", errorMessage);
+
         return "redirect:/post/create";
     }
 
