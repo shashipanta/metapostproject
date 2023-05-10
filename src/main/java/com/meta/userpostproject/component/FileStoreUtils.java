@@ -6,6 +6,7 @@ lightsuraj129@gmail.com
 Program was written in 2023-05-09 17:50
 */
 
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -22,7 +23,7 @@ public class FileStoreUtils {
      * @param multipartFile
      * @return
      */
-    public String saveMultipartFile(MultipartFile multipartFile) {
+    public String saveMultipartFile(MultipartFile multipartFile)  {
         String dirPath = System.getProperty("user.home") + "/Desktop/META_FILE_STORE";
         File directoryFile = new File(dirPath);
         if (!directoryFile.exists()) {

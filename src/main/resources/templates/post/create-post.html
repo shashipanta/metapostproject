@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kolker+Brush&family=Montserrat+Subrayada&display=swap"
           rel="stylesheet">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/create_table.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/create-post.css}">
     <style>
         .list-group-item {
             background-color: #FFFFFF;
@@ -32,30 +32,30 @@
             </div>
 
             <ul class="list-group mt-5">
-                <a li class="list-group-item  " th:href="@{/post}">
-                    <img src="image/cloud-computing.png" alt="" class="icons ms-3 me-2">
+                <a li class="list-group-item  " th:href="@{/templates/post}">
+                    <img src="/images/cloud-computing.png" alt="" class="icons ms-3 me-2">
 
                     Create
                     </li></a>
 
-                <a li class="list-group-item " th:href="@{/#}">
-                    <img src="image/bookmark.png" alt="" class="icons ms-3 me-2">
+                <a li class="list-group-item " th:href="@{/static}">
+                    <img src="/images/bookmark.png" alt="" class="icons ms-3 me-2">
 
                     My Saved
                     </li></a>
 
-                <a li class="list-group-item" th:href="@{/}">
-                    <img src="image/logout-svgrepo-com.png" alt="" class="icons ms-3 me-2">
+                <a li class="list-group-item" th:href="@{/static}">
+                    <img src="/images/logout-svgrepo-com.png" alt="" class="icons ms-3 me-2">
 
                     Log out</li></a>
 
 
             </ul>
 
+
         </div>
 
         <div class="col-md-4 border  mx-auto">
-
 
             <div class="user_input_post  mt-5">
                 <form class="login" th:action="@{/post}" method="post" th:object="${postDto}" enctype="multipart/form-data">
@@ -64,22 +64,22 @@
                     <div class="mb-4 mt-4">
 
                         <div class="form-floating ">
-                            <input type="text" class="form-control" id="floatingInput" th:field="*{title}"
-                                   placeholder="name@example.com">
+                            <input type="text" class="form-control" id="floatingInput" th:field="*{title}">
                             <label for="floatingInput">Title</label>
 
                         </div>
 
                     </div>
-<!--                    <div class="mb-4">-->
-<!--                        <label for="Category" class=""> Category</label>-->
-<!--                        <select class="form-select mt-2" aria-label="Default select example" id="Category">-->
-<!--                            <option selected>Open</option>-->
-<!--                            <option value="1">One</option>-->
-<!--                            <option value="2">Two</option>-->
-<!--                            <option value="3">Three</option>-->
-<!--                        </select>-->
-<!--                    </div>-->
+                    <div class="mb-4">
+                        <label for="Category" class=""> Category</label>
+                        <select class="form-select mt-2" aria-label="Default select example" id="Category" th:field="*{category}">
+                            <option value="" DISABLED >---SELECT---</option>
+                            <option value="Anime">Anime</option>
+                            <option value="Nature">Nature</option>
+                            <option value="Landscape">Landscape</option>
+                            <option value="Football">Football</option>
+                        </select>
+                    </div>
 
                     <div class="mb-4">
                         <div class="form-floating">
@@ -103,51 +103,33 @@
             <div class="user_table_post  mt-5">
                 <div class="MPOS">My Creations
                 </div>
-                <table class="table table-bordered table-striped mt-3">
+                <div class="table-responsive">
+                <table class="table table-bordered table-striped mt-3" >
                     <thead>
                     <tr>
 
                         <th>S.N.</th>
                         <th>Title</th>
                         <th>Category</th>
-                        <th>Status</th>
+                        <th>Image path</th>
                         <th>Action</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>GuruPUrnima</td>
-                        <td>Festival</td>
-                        <td>ACTIVE</td>
+                    <tbody th:each="p,index:${post}">
+                    <tr >
+                        <td th:text="${index.count}"></td>
+                        <td th:text="${p.title}"></td>
+                        <td th:text="${p.category}"></td>
+                        <td th:text="${p.imagePath}"></td>
 
                         <td>
-                            <button class="btn btn-warning text-light"> E
-                            </button>
-                            <button class="btn btn-danger">
-                                D
-                            </button>
-                            <button class="btn btn-info">
-
-                                CS
-                            </button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>GuruPUrnima</td>
-                        <td>Festival</td>
-                        <td>ACTIVE</td>
-
-                        <td>
-                            <button class="btn btn-warning text-light">
+                            <a  class="btn btn-warning text-light">
                                 E
-                            </button>
-                            <button class="btn btn-danger">
+                            </a>
+                            <a th:href="@{/post/delete/} + ${p.id}"><button class="btn btn-danger" >
                                 D
-                            </button>
+                            </button></a>
                             <button class="btn btn-info">
-
                                 CS
                             </button>
                         </td>
@@ -155,6 +137,7 @@
 
                     </tbody>
                 </table>
+               </div>
 
             </div>
 
