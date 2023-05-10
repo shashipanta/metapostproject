@@ -47,8 +47,6 @@
     border: 0;
 }
 
-
-
     .card_icon {
         font-size: 1rem;
         margin: 10px auto;
@@ -128,4 +126,14 @@
         margin-bottom: 10px;
 
 
+    }
+
+    a{
+        text-decoration: none
+    }
+
+    a:hover{
+        cursor: pointer;
+        transition:transform  0.9s;
+        transform: scale(1.1);
     }

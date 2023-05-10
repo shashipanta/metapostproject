@@ -21,6 +21,8 @@ public class PostDto {
 
     private String title;
 
+    private String category;
+
     private String description;
 
     private MultipartFile multipartFile;
