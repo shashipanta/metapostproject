@@ -1,8 +1,10 @@
 package com.meta.userpostproject.dto;
 
 import jakarta.persistence.Column;
-import jakarta.validation.constraints.NotEmpty;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.web.multipart.MultipartFile;
 
 /*
@@ -12,28 +14,20 @@ Program was written in 2023-05-09 17:40
 */
 @Data
 @Builder
+@NoArgsConstructor
 @AllArgsConstructor
-
 public class PostDto {
-
-
     private Short id;
 
     private String title;
 
     private String category;
 
-    @NotEmpty(message = "description must be provided.")
     private String description;
 
-    @NonNull
     private MultipartFile multipartFile;
 
     public PostDto(Short id) {
         this.id = id;
-    }
-
-    public PostDto() {
-
     }
 }
