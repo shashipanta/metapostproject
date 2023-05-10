@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Kolker+Brush&family=Montserrat+Subrayada&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" th:href="@{css/post_uploaded.css}">
+    <link rel="stylesheet" th:href="@{css/main-page.css}">
 
     <script th:src="@{/javascript/popupbox.js}" ></script>
 
@@ -35,15 +35,15 @@
 
 
 
-                    <a li class="list-group-item  " th:href="@{/post}">
-                        <img src="image/cloud-computing.png" alt="" class="icons ms-3 me-2">
+                    <a li class="list-group-item  " th:href="@{/post/create}">
+                        <img src="images/cloud-computing.png" alt="" class="icons ms-3 me-2">
                         <span id="createText">Create</span>
                     </li>
                     </a>
 
                     <a>
                     <li class="list-group-item ">
-                        <img src="image/bookmark.png" alt="" class="icons ms-3 me-2">
+                        <img src="images/bookmark.png" alt="" class="icons ms-3 me-2">
 
                         My Saved
                     </li>
@@ -51,7 +51,7 @@
 
                     <a  onclick="showPopup()">
                     <li class="list-group-item "> 
-                        <img src="image/logout-svgrepo-com.png" alt="" class="icons ms-3 me-2">
+                        <img src="images/logout-svgrepo-com.png" alt="" class="icons ms-3 me-2">
 
                         Log out
                     </li>
@@ -83,7 +83,7 @@
                     
                     <div class="col-md-3 mb-3 ">
                         <div class="card" style="width:100%;">
-                            <img src="image/house-g86e5813e1_1920.jpg" class="card-img-top" alt="...">
+                            <img src="images/house-g86e5813e1_1920.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <p class="card-text">
                                     Hi everyone this is the first post I have created hope you like and love my
@@ -97,7 +97,7 @@
                                         </div>
                                         <div class="col-md-6">
 
-                                        <a th:href="@{/uploaded_post_single_view}"><i class="fa-regular fa-eye card_icon me-2"></i> </a>DD/MM/YYYY
+                                        <a th:href="@{/post/view/1}"><i class="fa-regular fa-eye card_icon me-2"></i> </a>DD/MM/YYYY
                                         </div>
 
                                     </div>
@@ -109,32 +109,7 @@
                     </div>
                     <div class="col-md-3 mb-3 ">
                         <div class="card" style="width:100%;">
-                            <img src="image/house-g86e5813e1_1920.jpg" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <p class="card-text">
-                                    Hi everyone this is the first post I have created hope you like and love my
-                                    creation.
-                                </p>
-                                <div class="footer">
-                                    <div class="row user_date">
-                                        <div class="col-md-6">
-                                            <i class="fa-regular fa-pen-to-square card_icon ms-2 me-2"></i> 
-                                            username
-                                        </div>
-                                        <div class="col-md-6">
-                                            <a th:href="@{/uploaded_post_single_view}"><i class="fa-regular fa-eye card_icon me-2"></i> </a>DD/MM/YYYY
-                                        </div>
-
-                                    </div>
-                                    
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 mb-3 ">
-                        <div class="card" style="width:100%;">
-                            <img src="image/house-g86e5813e1_1920.jpg" class="card-img-top" alt="...">
+                            <img src="images/house-g86e5813e1_1920.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <p class="card-text">
                                     Hi everyone this is the first post I have created hope you like and love my
@@ -159,7 +134,7 @@
                     </div>
                     <div class="col-md-3 mb-3 ">
                         <div class="card" style="width:100%;">
-                            <img src="image/house-g86e5813e1_1920.jpg" class="card-img-top" alt="...">
+                            <img src="images/house-g86e5813e1_1920.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <p class="card-text">
                                     Hi everyone this is the first post I have created hope you like and love my
@@ -184,7 +159,7 @@
                     </div>
                     <div class="col-md-3 mb-3 ">
                         <div class="card" style="width:100%;">
-                            <img src="image/house-g86e5813e1_1920.jpg" class="card-img-top" alt="...">
+                            <img src="images/house-g86e5813e1_1920.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <p class="card-text">
                                     Hi everyone this is the first post I have created hope you like and love my
@@ -209,7 +184,7 @@
                     </div>
                     <div class="col-md-3 mb-3 ">
                         <div class="card" style="width:100%;">
-                            <img src="image/house-g86e5813e1_1920.jpg" class="card-img-top" alt="...">
+                            <img src="images/house-g86e5813e1_1920.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <p class="card-text">
                                     Hi everyone this is the first post I have created hope you like and love my
@@ -234,7 +209,7 @@
                     </div>
                     <div class="col-md-3 mb-3 ">
                         <div class="card" style="width:100%;">
-                            <img src="image/house-g86e5813e1_1920.jpg" class="card-img-top" alt="...">
+                            <img src="images/house-g86e5813e1_1920.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <p class="card-text">
                                     Hi everyone this is the first post I have created hope you like and love my
@@ -259,7 +234,32 @@
                     </div>
                     <div class="col-md-3 mb-3 ">
                         <div class="card" style="width:100%;">
-                            <img src="image/house-g86e5813e1_1920.jpg" class="card-img-top" alt="...">
+                            <img src="images/house-g86e5813e1_1920.jpg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    Hi everyone this is the first post I have created hope you like and love my
+                                    creation.
+                                </p>
+                                <div class="footer">
+                                    <div class="row user_date">
+                                        <div class="col-md-6">
+                                            <i class="fa-regular fa-pen-to-square card_icon ms-2 me-2"></i> 
+                                            username
+                                        </div>
+                                        <div class="col-md-6">
+                                            <a th:href="@{/uploaded_post_single_view}"><i class="fa-regular fa-eye card_icon me-2"></i> </a>DD/MM/YYYY
+                                        </div>
+
+                                    </div>
+                                    
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3 ">
+                        <div class="card" style="width:100%;">
+                            <img src="images/house-g86e5813e1_1920.jpg" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <p class="card-text">
                                     Hi everyone this is the first post I have created hope you like and love my

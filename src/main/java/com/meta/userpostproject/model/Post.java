@@ -16,6 +16,7 @@ Program was written in 2023-05-02 18:18
 })
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

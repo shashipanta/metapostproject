@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kolker+Brush&family=Montserrat+Subrayada&display=swap"
           rel="stylesheet">
-    <link rel="stylesheet" type="text/css" th:href="@{/css/create_table.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/create-post.css}">
     <style>
         .list-group-item {
             background-color: #FFFFFF;
@@ -32,20 +32,20 @@
             </div>
 
             <ul class="list-group mt-5">
-                <a li class="list-group-item  " th:href="@{/post}">
-                    <img src="image/cloud-computing.png" alt="" class="icons ms-3 me-2">
+                <a li class="list-group-item  " th:href="@{/templates/post}">
+                    <img src="/images/cloud-computing.png" alt="" class="icons ms-3 me-2">
 
                     Create
                     </li></a>
 
-                <a li class="list-group-item " th:href="@{/#}">
-                    <img src="image/bookmark.png" alt="" class="icons ms-3 me-2">
+                <a li class="list-group-item " th:href="@{/static}">
+                    <img src="/images/bookmark.png" alt="" class="icons ms-3 me-2">
 
                     My Saved
                     </li></a>
 
-                <a li class="list-group-item" th:href="@{/}">
-                    <img src="image/logout-svgrepo-com.png" alt="" class="icons ms-3 me-2">
+                <a li class="list-group-item" th:href="@{/static}">
+                    <img src="/images/logout-svgrepo-com.png" alt="" class="icons ms-3 me-2">
 
                     Log out</li></a>
 
@@ -73,10 +73,10 @@
                     <div class="mb-4">
                         <label for="Category" class=""> Category</label>
                         <select class="form-select mt-2" aria-label="Default select example" id="Category" th:field="*{category}">
-                            <option value="" DISABLED>---SELECT---</option>
+                            <option value="" DISABLED >---SELECT---</option>
                             <option value="Anime">Anime</option>
                             <option value="Nature">Nature</option>
-                            <option value="Culture">Culture</option>
+                            <option value="Landscape">Landscape</option>
                             <option value="Football">Football</option>
                         </select>
                     </div>
@@ -103,27 +103,28 @@
             <div class="user_table_post  mt-5">
                 <div class="MPOS">My Creations
                 </div>
-                <table class="table table-bordered table-striped mt-3" th:each="p:${post}">
+                <table class="table table-bordered table-striped mt-3" >
                     <thead>
                     <tr>
 
                         <th>S.N.</th>
                         <th>Title</th>
                         <th>Category</th>
-                        <th>Status</th>
-                        <th>Image</th>
+                        <th>Image path</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
-                    <tbody>
+                    <tbody th:each="p,index:${post}">
                     <tr >
-                        <td th:text="${p.id}"></td>
+                        <td th:text="${index.count}"></td>
                         <td th:text="${p.title}"></td>
                         <td th:text="${p.category}"></td>
                         <td th:text="${p.imagePath}"></td>
 
                         <td>
-                            <button class="btn btn-warning text-light"> E
-                            </button>
+                            <a th:href="@{/post/view/} + ${p.id}" class="btn btn-warning text-light">
+                                E
+                            </a>
                             <a th:href="@{/post/delete/} + ${p.id}"><button class="btn btn-danger" >
                                 D
                             </button></a>

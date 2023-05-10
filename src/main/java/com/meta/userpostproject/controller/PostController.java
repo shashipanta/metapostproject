@@ -25,23 +25,37 @@ public class PostController {
         this.postService = postService;
     }
 
-    @GetMapping
+    @GetMapping()
+    public String postPage(){
+
+        return "main-page";
+    }
+
+    @GetMapping("/create")
     public String openPostPage(Model model) {
         model.addAttribute("postDto", new PostDto());
         List<Post> allPost = postService.getALlPost();
         model.addAttribute("post",allPost);
-        return "create_table_view";
+        return "post/create-post";
     }
 
     @PostMapping
     public String createPost(@ModelAttribute PostDto postDto) {
         postService.createPost(postDto);
-        return "redirect:/post";
+        return "redirect:/post/create";
     }
 
     @RequestMapping ("/delete/{id}")
     public String deletePost(@PathVariable("id") short id){
         postService.deletePost(id);
-        return "redirect:/post";
+        return "redirect:/post/create";
+    }
+
+    @GetMapping("/view/{id}")
+    public String viewPost(@PathVariable("id") short id, Model model){
+       Post editPost = postService.viewPost(id);
+        System.out.println(editPost);
+    model.addAttribute("post",editPost);
+       return "/post/single-post-view";
     }
 }

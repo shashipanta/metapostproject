@@ -16,15 +16,9 @@ public class MainController {
     public String registrationPage(){
         return "login/registration-page";
     }
-    @GetMapping("/post_uploaded")
-    public String postPage(){
-        return "/post_uploaded";
-    }
 
-    @GetMapping("/uploaded_post_single_view")
-    public String singlepostPage(){
-        return "/uploaded_post_single_view";
-    }
+
+
 
 
 }

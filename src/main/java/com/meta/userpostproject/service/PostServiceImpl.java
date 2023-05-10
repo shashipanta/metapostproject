@@ -48,4 +48,10 @@ public class PostServiceImpl implements PostService {
     public void deletePost(short id) {
         postRepo.deleteById(id);
     }
+
+    @Override
+    public Post viewPost(short id) {
+       Post post =  postRepo.findById(id).get();
+        return post;
+    }
 }

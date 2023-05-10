@@ -10,4 +10,5 @@ public interface PostService {
     PostDto createPost(PostDto postDto);
     List<Post> getALlPost();
     void deletePost(short id);
+    Post viewPost(short id);
 }

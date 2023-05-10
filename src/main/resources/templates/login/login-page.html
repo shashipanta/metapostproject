@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kolker+Brush&family=Montserrat+Subrayada&display=swap"
         rel="stylesheet">
-        <link rel="stylesheet" th:href="@{css/login.css}">
+        <link rel="stylesheet" th:href="@{css/login-page.css}">
 
 </head>
 <body>
@@ -23,7 +23,7 @@
                     <div class="row">
                         <div class="col-5 ms-5">
                                 <div class="login_text">Login</div>
-                                <form th:action="@{/post_uploaded}" >
+                                <form th:action="@{/post}" >
                                 <div class="form-floating mb-3 mt-4">
                                     <input type="email" class="form-control" id="floatingInput" placeholder="enter your email">
                                     <label for="floatingInput" class="text-muted">Email address</label>
@@ -36,11 +36,9 @@
                                    <ins class="underline">
                                       <a th:href="@{/register}" class="text-decoration-none text-dark">Create an Account</a> </ins>
 
-<!--                                      <a th:href="" class="text-decoration-none text-dark">-->
                                       <button class="btn btn-success ms-2" type="submit">
                                         Login
-                                        </button>
-<!--                                      </a>-->
+                                      </button>
             
                                   </div>
                                 </form>
@@ -48,7 +46,7 @@
                         <div class="col-6">
                               <div class="MPS text-light text-end">Meta Post System</div>
                                <div class="pic">
-                                <img src="image/laptop.png" alt="" class="img-fluid">
+                                <img src="images/laptop-plant-cup.png" alt="" class="img-fluid" id="computer-plant-cup">
                                </div>
                         </div>
                     </div>
