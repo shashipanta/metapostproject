@@ -20,6 +20,7 @@ public class PostDto {
     private Short id;
 
     private String title;
+
     private String category;
 
     private String description;

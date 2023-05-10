@@ -16,6 +16,7 @@ Program was written in 2023-05-02 18:18
 })
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,6 +31,7 @@ public class Post {
 
     @Column(name = "description", columnDefinition = "TEXT")
     private String description;
+
 
     @Column(name = "image_path", length = 200, nullable = false)
     private String imagePath;

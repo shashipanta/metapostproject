@@ -9,6 +9,9 @@ import org.apache.tika.exception.TikaException;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.util.List;
+
+import java.io.IOException;
 import java.io.InputStream;
 
 /*
@@ -32,20 +35,38 @@ public class PostServiceImpl implements PostService {
 //        Tika tika = new Tika();
 //        String type = tika.detect((InputStream) postDto.getMultipartFile());
 //        if (type.equals("image/jpg")) {
-            Post post =
-                    Post.builder()
-                            .id(null)
-                            .title(postDto.getTitle())
-                            .category(postDto.getCategory())
-                            .description(postDto.getDescription())
-                            .imagePath(fileStoreUtils.saveMultipartFile(postDto.getMultipartFile()))
-                            .build();
-            post = postRepo.save(post);
-            return new PostDto(post.getId());
+        Post post =
+                Post.builder()
+                        .id(null)
+                        .title(postDto.getTitle())
+                        .category(postDto.getCategory())
+                        .description(postDto.getDescription())
+                        .imagePath(fileStoreUtils.saveMultipartFile(postDto.getMultipartFile()))
+                        .build();
+        post = postRepo.save(post);
+        return new PostDto(post.getId());
 //        }else {
 //            return null;
 //
 //
 //            }
-        }
     }
+
+
+    @Override
+    public List<Post> getALlPost() {
+        List<Post> allPost = postRepo.findAll();
+        return allPost;
+    }
+
+    @Override
+    public void deletePost(short id) {
+        postRepo.deleteById(id);
+    }
+
+    @Override
+    public Post viewPost(short id) {
+        Post post = postRepo.findById(id).get();
+        return post;
+    }
+}
