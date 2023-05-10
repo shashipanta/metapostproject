@@ -25,11 +25,13 @@ public class Post {
     @Column(name = "title", nullable = false, length = 100)
     private String title;
 
+    @Column(name = "category", nullable = false, length = 100)
+    private String category;
+
+
     @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
-    @Column(name = "category", nullable = false, length = 30)
-    private String category;
 
     @Column(name = "image_path", length = 200, nullable = false)
     private String imagePath;

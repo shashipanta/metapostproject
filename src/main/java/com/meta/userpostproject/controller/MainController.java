@@ -12,10 +12,10 @@ public class MainController {
         return "/login/login-page";
     }
 
-    @GetMapping("/register")
-    public String registrationPage(){
-        return "login/registration-page";
-    }
+//    @GetMapping("/register")
+//    public String registrationPage(){
+//        return "login/registration-page";
+//    }
 
 
 

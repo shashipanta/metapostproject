@@ -4,10 +4,15 @@ import com.meta.userpostproject.component.FileStoreUtils;
 import com.meta.userpostproject.dto.PostDto;
 import com.meta.userpostproject.model.Post;
 import com.meta.userpostproject.repo.PostRepo;
+import org.apache.tika.Tika;
+import org.apache.tika.exception.TikaException;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.List;
+
+import java.io.IOException;
+import java.io.InputStream;
 
 /*
 The author of this class is java-suraj
@@ -26,18 +31,27 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public PostDto createPost(PostDto postDto) {
+    public PostDto createPost(PostDto postDto) throws TikaException, IOException {
+//        Tika tika = new Tika();
+//        String type = tika.detect((InputStream) postDto.getMultipartFile());
+//        if (type.equals("image/jpg")) {
         Post post =
                 Post.builder()
                         .id(null)
                         .title(postDto.getTitle())
-                        .description(postDto.getDescription())
                         .category(postDto.getCategory())
+                        .description(postDto.getDescription())
                         .imagePath(fileStoreUtils.saveMultipartFile(postDto.getMultipartFile()))
                         .build();
         post = postRepo.save(post);
         return new PostDto(post.getId());
+//        }else {
+//            return null;
+//
+//
+//            }
     }
+
 
     @Override
     public List<Post> getALlPost() {
@@ -52,7 +66,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public Post viewPost(short id) {
-       Post post =  postRepo.findById(id).get();
+        Post post = postRepo.findById(id).get();
         return post;
     }
 }
