@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head >
+    <!--  title and bootstrap link-->
+    <th:block th:replace="fragments/post-base :: html_head('Meta Post System')"></th:block>
+    <!--    custom css-->
+    <link th:replace="fragments/post-base :: custom_css('single-post-view.css')">
+</head>
+<body>
+<!--SIDEBAR FRAGMENT-->
+<div th:replace="~{fragments/sidebar :: sidebar}"> </div>
+
+
+        <div class="col-md-6 mx-auto" th:each="p:${post}">
+            <div class="main_post mt-5">
+                <img src="/images/house-g86e5813e1_1920.jpg" alt="" class="img-fluid">
+                <div class="row post_details ms-0 me-0 align-items-center">
+
+                    <div class="col-6  my-2 lh-1" >
+                        <!-- <i class="fa-solid fa-user me-3" ></i>    -->
+                        <img src="/images/user-circle-svgrepo-com.png" alt="" class="icons_post">
+                        <span class="username">UserName</span>
+                        <br>
+
+                        <span class="date text-muted ms-5"> DD/MM/YYYY </span>
+
+
+                    </div>
+                    <div class="col-6  my-2">
+                        <div class="row">
+                            <div class="col-6 text-end">
+                                <img src="/images/like-svgrepo-com.svg" alt="" class="img-fluid icons_post">
+                                <img src="/images/bookmark.svg" alt="" class="img-fluid icons_post">
+                            </div>
+                            <div class="col-6 text-muted">View 12.5k
+                                <br>
+                                Like 12.5k
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+                <!--                    post description start -->
+                <div class="post_description my-3 fs-6 lh-base"  >
+
+                        <span th:text="${p.description}">
+
+                        </span>
+                </div>
+                <!--                     post description end-->
+            </div>
+        </div>
+        <div class="col-md-3 mt-5 me-3 mx-auto">
+            <div class="comment_box ">
+                <div class="single_box mt-3 mb-3">
+                    <img src="/images/user-circle-svgrepo-com.png" alt="" class="icons_post">
+                    <span class="ms-1 username">UserName</span>
+                    <div class="comment_inside_box">
+                        Hi I love your work. <br>
+                        Looking great.
+
+                    </div>
+                </div>
+                <div class="single_box mb-3">
+                    <img src="/images/user-circle-svgrepo-com.png" alt="" class="icons_post">
+                    <span class="ms-1 username">UserName</span>
+                    <div class="comment_inside_box">
+                        Hi I love your work. <br>
+                        Looking great.
+
+                    </div>
+                </div>
+                <div class="single_box mb-3">
+                    <img src="/images/user-circle-svgrepo-com.png" alt="" class="icons_post">
+                    <span class="ms-1 username">UserName</span>
+                    <div class="comment_inside_box">
+                        Hi I love your work. <br>
+                        Looking great.
+
+                    </div>
+                </div>
+                <div class="post_comment mt-5">
+                    <input type="text" class="send_comment" placeholder="Leave your comment here">
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

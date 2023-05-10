@@ -8,6 +8,7 @@ body{
     background-attachment: fixed;
 
 
+
 }
 .form {
     display: flex;
@@ -20,15 +21,16 @@ body{
     /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     width: 60%;
+    height: 100%;
     /* margin-top: 90px; */
     /* margin-left: 350px; */
     border-radius: 8px;
-    justify-content: space-between;
-    justify-content: space-between;
+    justify-content:space-around;
     padding-inline: 2em;
     gap: 2em;
     margin-inline: auto;
 }
+
 
 
 form {
@@ -68,11 +70,6 @@ form {
 
     animation: slick-bounce 4s infinite ease-in-out;
 }
-
-/*#computer:hover{*/
-/*    transition:transform  0.9s;*/
-/*    transform: scale(1.2);*/
-/*}*/
 
 #mug{
     position: absolute;
@@ -122,7 +119,12 @@ h2 {
     width: 100%;
 }
 
-
+label {
+    margin-bottom: 5px;
+    font-size: 19px;
+    font-weight: bold;
+    color: #06C5CF;
+}
 
 input[type="text"]
 {
@@ -130,12 +132,13 @@ input[type="text"]
     border-radius: 10px;
     background: #F2F2F2;
     width: 100%;
-    border: 1px #06C5CF solid;
-    /* margin: 0 0 15px; */
+    border: 0;
+    margin: 0 0 10px;
     padding: 15px;
     box-sizing: border-box;
     font-size: 14px;
-    margin-top: 25px;
+    margin-top: 20px;
+    border: 1px #06C5CF solid;
 }
 
 input[type="text"]:hover
@@ -158,10 +161,6 @@ select{
     width: fit-content;
 }
 
-input[type="radio"] {
-    margin-right: 10px;
-    margin-top: 8px;
-}
 
 button[type="submit"] {
     text-transform: uppercase;
@@ -171,13 +170,11 @@ button[type="submit"] {
     width: 100%;
     border: 0;
     padding: 15px;
-    padding-left: 30px;
-    padding-right: 30px;
     color: #FFFFFF;
     font-size: 15px;
     font-weight: bolder;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 
@@ -187,17 +184,15 @@ button[type="submit"]:hover {
     transition: all 1s ease 0s;
 }
 
-.message{
-    margin: 15px 0 0;
-    color: #B3B3B3;
-    font-size: 16px;
-    margin-top: 28px;
-}
-.message a{
+a{
     color: #1780e2;
+    font-size: 17px;
+    margin-bottom: 15px;
 }
 a:hover{
     color: #0303f9;
+    transition:transform  0.9s;
+    transform: scale(1.1);
     text-decoration: none;
 }
 

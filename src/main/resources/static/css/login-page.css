@@ -14,12 +14,22 @@
         border-radius: 5px;
         box-shadow: 0 0 30px 1px rgba(0, 0, 0, 0.25);
         backdrop-filter: blur(85px);
-        /*background: url(static/image/Artboard\ 1.png);*/
+        background: url(../images/form_background.png);
         background-size: cover; 
 
     }
     .form-control{
         border-radius: 30px;
+        border: 1px #06C5CF solid;
+    }
+    .form-control:hover{
+        background-color: #D3F8F9;
+        transition: all 1s ease 0s;
+    }
+    .form-control:focus{
+        background-color: #D3F8F9;
+        transition: all 1s ease 0s;
+        border: 0;
     }
     .btn-success{
         width:150px;
@@ -28,6 +38,10 @@
         border-radius:30px;
         background-color: #79D1C1;
         border:0;
+    }
+    .btn-success:hover{
+        background-color: #077efd;
+        transition: all 1s ease 0s;
     }
     .underline{
         font-size:0.8rem;
@@ -53,6 +67,11 @@
         margin-left:32px;
     }
 
+    #computer-plant-cup:hover{
+        cursor: pointer;
+        transition:transform  0.9s;
+        transform: scale(1.2);
+    }
 
 
-  
+
