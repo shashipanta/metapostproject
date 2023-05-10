@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th="https://www.thymeleaf.org">
+
+
+<body>
+<div th:fragment="post_card(postDto)" class="col-md-3 mb-3 ">
+  <div class="card" style="width:100%;">
+    <img src="/images/house-g86e5813e1_1920.jpg" class="card-img-top" alt="...">
+    <div class="card-body">
+      <p th:text="${postDto.description}" class="card-text">
+        Hi everyone this is the first post I have created hope you like and love my
+        creation.
+      </p>
+      <div class="footer">
+        <div class="row user_date">
+          <div class="col-md-6">
+            <i class="fa-regular fa-pen-to-square card_icon ms-2 me-2"></i>
+            username
+          </div>
+          <div class="col-md-6">
+
+            <a th:href="@{/post/view/}+${postDto.id}"><i class="fa-regular fa-eye card_icon me-2"></i> </a>DD/MM/YYYY
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
