@@ -1,42 +1,54 @@
 <!DOCTYPE html>
-<html  lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 
 
 <body>
-<div th:fragment="sidebar" class="container-fluid">
-  <div class="row">
-    <div class="col-md-2 sidebar m-0">
-      <div class="mx-auto mt-5 text-center">
 
-        <div class="Dashboard">Dashboard</div>
-      </div>
 
-      <ul class="list-group mt-5">
+<div th:fragment="sidebar" class="col-md-2 sidebar m-0">
+    <a th:href="@{/post}">
+        <div class="mx-auto mt-5 text-center">
+            <div class="Dashboard">Dashboard</div>
+        </div>
+    </a>
+    <ul class="list-group mt-5">
 
-        <a li class="list-group-item  " th:href="@{/post/create}">
-          <img src="/images/cloud-computing.png" alt="" class="icons ms-3 me-2">
-          <span id="createText">Create</span>
-          </li>
+        <a class="list-group-item  " th:href="@{/post/create}">
+            <li>
+                <img src="/images/cloud-computing.png" alt="" class="icons ms-3 me-2">
+                <span id="createText">Create</span>
+            </li>
         </a>
 
         <a>
-          <li class="list-group-item ">
-            <img src="/images/bookmark.png" alt="" class="icons ms-3 me-2">
-
-            My Saved
-          </li>
+            <li class="list-group-item ">
+                <img src="/images/bookmark.png" alt="" class="icons ms-3 me-2">
+                My Saved
+            </li>
         </a>
 
-        <a  onclick="showPopup()">
-          <li class="list-group-item ">
-            <img src="/images/logout-svgrepo-com.png" alt="" class="icons ms-3 me-2">
+        <a onclick="showPopup()">
+            <li class="list-group-item ">
+                <img src="/images/logout-svgrepo-com.png" alt="" class="icons ms-3 me-2">
 
-            Log out
-          </li>
+                Log out
+            </li>
         </a>
 
-      </ul>
+        <!--            this part is for logout popup box        -->
 
-    </div>
+        <div id="popup" class="popup">
+            <div class="popup-content">
+                <p>Are you sure you want to logout?</p>
+                <button class="popup-button" onclick="confirmLogout()">Yes</button>
+                <button class="popup-button" onclick="hidePopup()">No</button>
+            </div>
+        </div>
+
+        <!--            up to here - logout popup box      -->
+
+    </ul>
+</div>
+
 </body>
 </html>

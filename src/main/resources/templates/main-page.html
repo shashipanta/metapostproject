@@ -1,78 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 
-<head>
-    <meta charset="UTF-8">
+<head th:replace="~{fragments/post-base :: html_head(~{::title}, ~{::link})}">
     <title>All Post</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kolker+Brush&family=Montserrat+Subrayada&display=swap"
-          rel="stylesheet">
 
-    <!--    FONT AWESOME -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <link rel="stylesheet" th:href="@{css/main-page.css}">
-
-    <script th:src="@{/javascript/popupbox.js}"></script>
-
+    <!--    CUSTOM CSS -->
+    <!--    * Make sure to change the file name that this page needs -->
+    <link rel="stylesheet" th:href="@{/css/main-page.css}">
 
 </head>
 
 <body>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-2 sidebar m-0">
-            <div class="mx-auto mt-5 text-center">
 
-                <div class="Dashboard">Dashboard</div>
-            </div>
-
-            <ul class="list-group mt-5">
-
-
-                <a li class="list-group-item  " th:href="@{/post/create}">
-                    <img src="images/cloud-computing.png" alt="" class="icons ms-3 me-2">
-                    <span id="createText">Create</span>
-                    </li>
-                </a>
-
-                <a>
-                    <li class="list-group-item ">
-                        <img src="images/bookmark.png" alt="" class="icons ms-3 me-2">
-
-                        My Saved
-                    </li>
-                </a>
-
-                <a onclick="showPopup()">
-                    <li class="list-group-item ">
-                        <img src="images/logout-svgrepo-com.png" alt="" class="icons ms-3 me-2">
-
-                        Log out
-                    </li>
-                </a>
-
-            </ul>
-
-        </div>
-
-        <!--            this part is for logout popup box        -->
-
-        <div id="popup" class="popup">
-            <div class="popup-content">
-                <p>Are you sure you want to logout?</p>
-                <button class="popup-button" onclick="confirmLogout()">Yes</button>
-                <button class="popup-button" onclick="hidePopup()">No</button>
-            </div>
-        </div>
-
-        <!--            up to here - logout popup box      -->
-
+        <!--   SIDEBAR     -->
+        <sidebar th:replace="~{fragments/sidebar :: sidebar}"></sidebar>
 
         <div class="col-md-10 border main_slide ">
             <div class="MPOS text-end me-2">

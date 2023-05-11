@@ -13,15 +13,11 @@
         background-position: center;
         background-size: cover;
 
-
-
     }
-    /*.sidebar{*/
-    /*    background-color: red;*/
-    /*}*/
-.list-group{
-    --bs-list-group-bg:#F5F5F5;
-}
+
+    .list-group{
+        --bs-list-group-bg:#F5F5F5;
+    }
     .list-group-item {
 
         color: #ffffff;
@@ -84,7 +80,7 @@
     .comment_box{
         padding:10px;
         min-height: 90vh;
-        background: url(../image/comment_bg.png);
+        background: url(../images/comment_bg.png);
         background-position: center;
         background-size: cover;
         backdrop-filter: blur(20px);
@@ -124,4 +120,5 @@ border: 1px solid rgba(255, 255, 255, .25);
    bottom:5%;
    width: 100%;
 }
+
     .list-group-item {background-color: #ffffff;}
