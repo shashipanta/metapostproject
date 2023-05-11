@@ -13,6 +13,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Kolker+Brush&family=Montserrat+Subrayada&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" type="text/css" th:href="@{/css/create-post.css}">
+
+    <!--    FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
     <style>
         .list-group-item {
             background-color: #FFFFFF;
@@ -58,7 +64,7 @@
 
         <div class="col-md-4 border  mx-auto">
             <th:block th:if="${not #strings.isEmpty(redirectMessage)}">
-                <div  class="my-3">
+                <div class="my-3">
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
                             <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
@@ -77,7 +83,7 @@
             </th:block>
 
             <th:block th:if="${not #strings.isEmpty(errorMessage)}">
-                <div  class="my-3">
+                <div class="my-3">
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
                             <symbol id="exclamation-triangle-fill" viewBox="0 0 16 16">
@@ -96,12 +102,14 @@
             </th:block>
 
 
-
             <div class="user_input_post  mt-5">
+
                 <form class="login" th:action="@{/post}" method="post" th:object="${postDto}"
                       enctype="multipart/form-data">
                     <div class="MPOS">Create a new Post
                     </div>
+
+                    <input type="text" th:field="*{id}" hidden></input>
                     <div class="mb-4 mt-4">
 
                         <div class="form-floating ">
@@ -116,7 +124,7 @@
                         <select class="form-select mt-2" aria-label="Default select example" id="Category"
                                 th:field="*{category}">
                             <option value="" disabled>-- select --</option>
-                            <option th:each="i : ${categoryList}" th:value="${i}" th:text="${i}"></option>
+                            <option th:each="category : ${categoryList}" th:value="${category}" th:text="${category}"></option>
                         </select>
                     </div>
 
@@ -156,28 +164,29 @@
 
                         </tr>
                         </thead>
-                        <tbody >
-                        <tr th:each="p,index:${post}">
+                        <tbody>
+                        <tr th:each="post,index:${postList}" >
                             <td th:text="${index.count}"></td>
-                            <td th:text="${p.title}"></td>
-                            <td th:text="${p.category}"></td>
-<!--                            <td th:text="${p.imagePath}"></td>-->
-                            <td>
-                                <img th:src="'/uploads/' + ${p.imagePath}" th:alt="${p.title}" class="post-img">
+                            <td th:text="${post.title}"></td>
+                            <td th:text="${post.category}"></td>
+                            <!--                            <td th:text="${p.imagePath}"></td>-->
+                            <td >
+                                <a th:href="'/uploads/' + ${imageSrcList.get(index.index)}" target="_blank">
+<!--                                    <span th:text="${imageSrcList.get(index.index)}"></span>-->
+                                    <img th:src="'/uploads/' + ${imageSrcList.get(index.index)}" th:alt="${post.title}" class="post-img">
+                                </a>
                             </td>
 
-                            <td>
-                                <a class="btn btn-warning text-light">
-                                    E
+                            <td class="d-flex flex-column align-items-center">
+                                <a th:href="@{/post/edit/} + ${post.id}" class="icon-edit">
+                                    <i class="fa-solid fa-pen-to-square"></i>
                                 </a>
-                                <a th:href="@{/post/delete/} + ${p.id}">
-                                    <button class="btn btn-danger">
-                                        D
-                                    </button>
+                                <a th:href="@{/post/delete/} + ${post.id}" class="icon-delete">
+                                    <i class="fa-solid fa-trash"></i>
                                 </a>
-                                <button class="btn btn-info">
-                                    CS
-                                </button>
+                                <a th:href="@{/post/view/} + ${post.id}" class="icon-view">
+                                    <i class="fa-sharp fa-regular fa-eye"></i>
+                                </a>
                             </td>
                         </tr>
 

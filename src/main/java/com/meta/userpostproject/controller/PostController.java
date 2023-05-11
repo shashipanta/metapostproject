@@ -42,18 +42,30 @@ public class PostController {
     @GetMapping("/create")
     public String openPost(Model model){
         model.addAttribute("categoryList", Arrays.asList("Science and Fiction", "Society", "Entertainment","Technology"));
-        model.addAttribute("postDto",new PostDto());
-        List<Post> allPost = postService.getALlPost();
+
+        if(model.getAttribute("postDto") == null) {
+            model.addAttribute("postDto",new PostDto());
+        }
+        List<PostDto> postList = postService.getALlPost();
 
         // update filePath
-        List<Post> updatedPost = allPost.stream()
-                .map(post -> {
-                    int index = post.getImagePath().lastIndexOf("/")+1;
-                    post.setImagePath(post.getImagePath().substring(index));
-                    return post;
-                }).collect(Collectors.toList());
+//        List<Post> updatedPost = postList.stream()
+//                .map(post -> {
+//                    int index = post.getImagePath().lastIndexOf("/")+1;
+//                    post.setImagePath(post.getImagePath().substring(index));
+//                    return post;
+//                }).collect(Collectors.toList());
 
-        model.addAttribute("post",updatedPost);
+        List<String> imageSrcList = postList.stream()
+                                        .map(postDto -> {
+                                            System.out.println(postDto.getMultipartFile().getOriginalFilename());
+                                            return postDto.getMultipartFile().getOriginalFilename();
+                                        })
+                                        .collect(Collectors.toList());
+
+
+        model.addAttribute("postList",postList);
+        model.addAttribute("imageSrcList", imageSrcList);
         return "post/create-post";
     }
 
@@ -66,7 +78,11 @@ public class PostController {
         String errorMessage = "";
         if (isValidFileType) {
             postService.createPost(postDto);
-            redirectMessage = "Post Created Successfully";
+            if(postDto.getId() != null){
+                redirectMessage = "Post Updated Successfully!";
+            } else {
+                redirectMessage = "Post Created Successfully";
+            }
         }
         else{
             errorMessage= "Failed! File type should be jpg/png/jpeg";
@@ -87,9 +103,20 @@ public class PostController {
 
     @GetMapping("/view/{id}")
     public String viewPost(@PathVariable("id") short id, Model model){
-        Post editPost = postService.viewPost(id);
-        System.out.println(editPost.getImagePath());
-        model.addAttribute("post",editPost);
+        PostDto postDto = postService.viewPost(id);
+        System.out.println(postDto.getMultipartFile().getOriginalFilename());
+        model.addAttribute("postDto",postDto);
+        model.addAttribute("postImageName", postDto.getMultipartFile().getOriginalFilename());
         return "/post/single-post-view";
+    }
+
+    @GetMapping("/edit/{post-id}")
+    public String editPost(@PathVariable(value = "post-id") short id, RedirectAttributes redirectAttributes){
+        PostDto postDto = postService.viewPost(id);
+
+        // why postDto ? emptyform uses postDto
+        redirectAttributes.addFlashAttribute("postDto", postDto);
+
+        return "redirect:/post/create";
     }
 }

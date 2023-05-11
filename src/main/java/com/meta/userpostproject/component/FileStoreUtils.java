@@ -41,6 +41,11 @@ public class FileStoreUtils {
         String filePath = dirPath + "/" + originalFileName;
         File myFile = new File(filePath);
 
+        if(multipartFile instanceof PostMultipartFile){
+          PostMultipartFile tempPostMultipartFile = new PostMultipartFile(multipartFile.getOriginalFilename());
+          tempPostMultipartFile.transferTo(myFile);
+        }
+
         try {
             multipartFile.transferTo(myFile);
         } catch (IOException e) {
@@ -56,7 +61,7 @@ public class FileStoreUtils {
      */
     public Boolean imageExtensionValidator(MultipartFile multipartFile) {
 
-        List<String> validImageTypes = List.of("image/jpeg", "image/png", "image/jpg");
+        List<String> validImageTypes = List.of("image/jpeg", "image/png", "image/jpg", "application/octet-stream");
         String uploadedFileType = multipartFile.getContentType();
 
         Boolean isValidFileType = false;

@@ -11,9 +11,9 @@ public interface PostService {
 
     PostDto createPost(PostDto postDto) throws IOException, TikaException;
 
-    List<Post> getALlPost();
+    List<PostDto> getALlPost();
 
     void deletePost(short id);
 
-    Post viewPost(short id);
+    PostDto viewPost(short id);
 }
