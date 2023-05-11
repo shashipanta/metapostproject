@@ -137,3 +137,9 @@
         transition:transform  0.9s;
         transform: scale(1.1);
     }
+
+    /* table view for post-image */
+    .post-img{
+        width: 4em;
+        height: 4em;
+    }

@@ -19,6 +19,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/post")
@@ -43,7 +44,16 @@ public class PostController {
         model.addAttribute("categoryList", Arrays.asList("Science and Fiction", "Society", "Entertainment","Technology"));
         model.addAttribute("postDto",new PostDto());
         List<Post> allPost = postService.getALlPost();
-        model.addAttribute("post",allPost);
+
+        // update filePath
+        List<Post> updatedPost = allPost.stream()
+                .map(post -> {
+                    int index = post.getImagePath().lastIndexOf("/")+1;
+                    post.setImagePath(post.getImagePath().substring(index));
+                    return post;
+                }).collect(Collectors.toList());
+
+        model.addAttribute("post",updatedPost);
         return "post/create-post";
     }
 

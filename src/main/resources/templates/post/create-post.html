@@ -151,16 +151,20 @@
                             <th>S.N.</th>
                             <th>Title</th>
                             <th>Category</th>
-                            <th>Image path</th>
+                            <th>Image</th>
                             <th>Action</th>
+
                         </tr>
                         </thead>
-                        <tbody th:each="p,index:${post}">
-                        <tr>
+                        <tbody >
+                        <tr th:each="p,index:${post}">
                             <td th:text="${index.count}"></td>
                             <td th:text="${p.title}"></td>
                             <td th:text="${p.category}"></td>
-                            <td th:text="${p.imagePath}"></td>
+<!--                            <td th:text="${p.imagePath}"></td>-->
+                            <td>
+                                <img th:src="'/uploads/' + ${p.imagePath}" th:alt="${p.title}" class="post-img">
+                            </td>
 
                             <td>
                                 <a class="btn btn-warning text-light">
