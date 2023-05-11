@@ -39,7 +39,7 @@ public class PostServiceImpl implements PostService {
                         .title(postDto.getTitle())
                         .category(postDto.getCategory())
                         .description(postDto.getDescription())
-                        .imagePath(fileStoreUtils.saveMultipartFile(postDto.getMultipartFile()))
+                        .imagePath(fileStoreUtils.saveMultipartFile(postDto.getMultipartFile(), postDto))
                         .build();
         post = postRepo.save(post);
         return new PostDto(post.getId());
