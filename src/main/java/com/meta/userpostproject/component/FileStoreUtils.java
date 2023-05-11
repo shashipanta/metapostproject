@@ -92,12 +92,21 @@ public class FileStoreUtils {
         String fileUploadedTime = LocalDateTime.now().format(formatter);
         String fileFormat = multipartFile.getContentType().substring(multipartFile.getContentType().indexOf("/") + 1);
 
-        String imageFileName =  imageNameFormat.formatted(fileUploadedTime, "authorName") + "." + fileFormat;
+        String imageFileName =  imageNameFormat.formatted("PostImage", fileUploadedTime, "authorName") + "." + fileFormat;
 
         return imageFileName;
 
     }
 
+    // delete corresponding image file
+    public void deleteSavedImageFile(String imageFileName) {
+        File fileToDelete = new File(UPLOAD_DIR_PATH + File.separator + imageFileName);
 
+        if(!fileToDelete.exists()){
+            return;
+        }
+
+        fileToDelete.delete();
+    }
 
 }

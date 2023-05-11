@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -66,6 +67,17 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public void deletePost(short id) {
+        Optional<Post> post = postRepo.findById(id);
+
+        if(post.isPresent()){
+            String filePath = post.get().getImagePath();
+            int index = filePath.lastIndexOf(File.separator);
+            String fileName = filePath.substring(index + 1);
+
+            // delete the file
+            fileStoreUtils.deleteSavedImageFile(fileName);
+
+        }
         postRepo.deleteById(id);
     }
 
