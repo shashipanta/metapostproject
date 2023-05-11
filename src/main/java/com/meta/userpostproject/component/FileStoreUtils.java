@@ -53,9 +53,8 @@ public class FileStoreUtils {
     /**
      * @param multipartFile
      * @return boolean : whether imageExtension is valid or not
-     * @throws IOException
      */
-    public Boolean imageExtensionValidator(MultipartFile multipartFile) throws IOException {
+    public Boolean imageExtensionValidator(MultipartFile multipartFile) {
 
         List<String> validImageTypes = List.of("image/jpeg", "image/png", "image/jpg");
         String uploadedFileType = multipartFile.getContentType();
