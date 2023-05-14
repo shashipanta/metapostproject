@@ -67,10 +67,14 @@ public class FileStoreUtils {
      * @param multipartFile
      * @return boolean : whether imageExtension is valid or not
      */
-    public Boolean imageExtensionValidator(MultipartFile multipartFile) {
+    public Boolean imageExtensionValidator(MultipartFile multipartFile) throws IOException {
 
         List<String> validImageTypes = List.of("image/jpeg", "image/png", "image/jpg", "application/octet-stream");
-        String uploadedFileType = multipartFile.getContentType();
+        String uploadedFileType = "";
+
+        Tika tika = new Tika();
+
+        uploadedFileType = tika.detect(multipartFile.getInputStream());
 
         Boolean isValidFileType = false;
         // check if the file type is valid
