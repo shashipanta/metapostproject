@@ -1,119 +1,163 @@
 
-    body {
+body {
+    background-color: #F5F5F5;
+    font-family: 'Montserrat', sans-serif;
+}
 
-        background-color: #F5F5F5;
-        font-family: 'Montserrat', sans-serif;
+:root {
+    --animate-delay: 4s;
+}
 
-    }
-    
+.sidebar {
+    min-height: 100vh;
 
-    :root {
-        --animate-delay: 4s;
-    }
+    padding-left: 0;
+    padding-right: 0;
+    height: auto;
+    background-image: url(../image/sidebar_bg.png);
+    background-position: center;
+    background-size: cover;
+    background-color: #F5F5F5;
+}
 
+.list-group-item {
 
+    color: #ffffff;
+    border: 0;
+    padding: 0;
+    color: #000000;
+    padding: 10px;
+    border-radius: 0px;
+    font-size: 1.2rem;
+    background-color: #ffffff;
+    margin-bottom: 10px;
 
-    .sidebar {
-        min-height: 100vh;
+}
 
-        padding-left: 0;
-        padding-right: 0;
-        height: auto;
-        background-image: url(../image/sidebar_bg.png);
-        background-position:center ;
-        background-size: cover;
-        background-color: #F5F5F5;
+ul {
+    margin-block-start: 0em;
+}
 
-        
-    }
-
-    .list-group-item {
-
-        color: #ffffff;
-        border : 0;
-        padding: 0;
-       color:#000000;
-        padding: 10px;
-        border-radius: 0px;
-        font-size: 1.2rem;
-      background-color: #ffffff;
-        margin-bottom: 10px;
-
-    }
-
-    ul {
-        margin-block-start: 0em;
-    }
-
-    .list-group-item:first-child,
-    .list-group-item:nth-child(2),
-    .list-group-item:nth-child(3) {
-        border-radius: 0px;
-    }
+.list-group-item:first-child,
+.list-group-item:nth-child(2),
+.list-group-item:nth-child(3) {
+    border-radius: 0px;
+}
 
 
-    .upload_btn {
-        width: 100%;
-    }
+.upload_btn {
+    width: 100%;
+}
 
-  
+.card-img-top,
+.card {
+    border-radius: 0;
+}
 
-    .card-img-top,
-    .card {
-        border-radius: 0;
-    }
+.card-text {
+    font-size: 0.8rem;
+    padding: 8px;
+    text-align: center;
+}
 
-    .card-text {
-        font-size: 0.8rem;
-        padding: 8px;
-        text-align: center;
-    }
+.card-body {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 
-    .card-body {
-        padding: 0;
-    }
+.footer {
+    background-color: #79D1C1;
+}
 
-    .footer {
-        background-color: #79D1C1;
-    }
-    .card_icon{
-        font-size: 1rem;
-        margin:10px auto;
-       
-        /* color:#ffffff; */
-    }
-    .Dashboard{
-        font-size: 1.7rem;
-        font-weight: 600;
-        text-align: start;
-        margin-left:20px ;
-        color:#79D1C1;
+.card_icon {
+    font-size: 1rem;
+    margin: 10px auto;
+}
 
-    }
-    .icons{
-        color:#79D1C1;
-        width:40px;
-        height: 40px;
-    }
-    .list-group{
-        --bs-list-group-bg:#F5F5F5;
-    }
+.Dashboard {
+    font-size: 1.7rem;
+    font-weight: 600;
+    text-align: start;
+    margin-left: 20px;
+    color: #79D1C1;
 
-    .user_date{
-        font-size: 0.7rem;
-    }
-    .MPOS{
-        color:#79D1C1;
-        font-size: 2rem;
-        font-weight: 600;
-    }
+}
 
-a{
+.icons {
+    color: #79D1C1;
+    width: 40px;
+    height: 40px;
+}
+
+.list-group {
+    --bs-list-group-bg: #F5F5F5;
+}
+
+.user_date {
+    font-size: 0.7rem;
+}
+
+.MPOS {
+    color: #79D1C1;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+a {
     text-decoration: none
 }
 
-a:hover{
+
+
+a:hover {
     cursor: pointer;
-    transition:transform  0.9s;
+    transition: transform 0.9s;
     transform: scale(1.1);
+    color: gold;
+}
+
+/* RESPONSIVE CARD */
+.cs-card {
+    height: 100%;
+    max-height: 400px;
+}
+
+.cs-card-img-top {
+    max-height: 300px;
+    background: rebeccapurple;
+    aspect-ratio: 1/1;
+}
+
+/* CARD TRANSPARENT OVERLAY */
+.card-overlay {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    position: absolute;
+    aspect-ratio: 1/1;
+    opacity: 0;
+    animation: opacity 2s ease-in;
+}
+
+.card-overlay:hover{
+    opacity: 1;
+}
+
+.icon-like {
+    position: absolute;
+    color: white;
+    font-size: 3em;
+    margin-left: auto;
+    margin-right: auto;
+    right: 0;
+    left: 0;
+    text-align: center;
+    top: 45%;
+}
+
+.scale{
+    transform: scale(1.5);
+    color: red;
 }

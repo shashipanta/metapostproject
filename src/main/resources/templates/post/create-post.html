@@ -97,7 +97,7 @@
                                    aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                         </div>
                     </div>
-                    <button class="btn btn-dark upload_btn mt-4 me-3" type="submit">Reset</button>
+                    <button class="btn btn-dark upload_btn mt-4 me-3" type="reset" >Reset</button>
                     <button class="btn  btn-primary upload_btn_submit ms-4 mt-4" type="submit">Submit</button>
                 </form>
             </div>
@@ -137,8 +137,10 @@
                                 <a th:href="@{/post/edit/} + ${post.id}" class="icon-edit">
                                     <i class="fa-solid fa-pen-to-square"></i>
                                 </a>
-                                <a th:href="@{/post/delete/} + ${post.id}" class="icon-delete">
-                                    <i class="fa-solid fa-trash"></i>
+                                <a onclick="showPopup('Are you sure you want to delete?')" >
+                                    <a th:href="@{/post/delete/} + ${post.id}" class="icon-delete">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </a>
                                 </a>
                                 <a th:href="@{/post/view/} + ${post.id}" class="icon-view">
                                     <i class="fa-sharp fa-regular fa-eye"></i>

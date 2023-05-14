@@ -1,6 +1,7 @@
 package com.meta.userpostproject.service;
 
 import com.meta.userpostproject.dto.PostDto;
+import com.meta.userpostproject.dto.PostRequestDto;
 import com.meta.userpostproject.model.Post;
 import org.apache.tika.exception.TikaException;
 
@@ -16,4 +17,6 @@ public interface PostService {
     void deletePost(short id);
 
     PostDto viewPost(short id);
+
+    List<PostRequestDto> getMinifiedPostList();
 }

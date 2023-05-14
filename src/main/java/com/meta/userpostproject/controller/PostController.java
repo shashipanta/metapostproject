@@ -8,6 +8,7 @@ Program was written in 2023-05-09 17:38
 
 import com.meta.userpostproject.component.FileStoreUtils;
 import com.meta.userpostproject.dto.PostDto;
+import com.meta.userpostproject.dto.PostRequestDto;
 import com.meta.userpostproject.model.Post;
 import com.meta.userpostproject.service.PostService;
 import org.apache.tika.exception.TikaException;
@@ -36,7 +37,10 @@ public class PostController {
     @GetMapping
     public String postPage(Model model){
 
-        model.addAttribute("postDto", new PostDto());
+        List<PostRequestDto> minifiedPostRequestDto = postService.getMinifiedPostList();
+
+        model.addAttribute("minifiedPostRequestDto", minifiedPostRequestDto);
+
         return "main-page";
     }
     @GetMapping("/create")
