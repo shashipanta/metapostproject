@@ -43,6 +43,7 @@ public class PostController {
 
         return "main-page";
     }
+
     @GetMapping("/create")
     public String openPost(Model model){
         model.addAttribute("categoryList", Arrays.asList("Science and Fiction", "Society", "Entertainment","Technology"));

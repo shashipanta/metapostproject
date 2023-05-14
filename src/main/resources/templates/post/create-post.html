@@ -79,8 +79,9 @@
                         <label for="Category" class=""> Category</label>
                         <select class="form-select mt-2" aria-label="Default select example" id="Category"
                                 th:field="*{category}">
-                            <option value="" disabled>-- select --</option>
-                            <option th:each="category : ${categoryList}" th:value="${category}" th:text="${category}"></option>
+                            <option value="select" disabled selected>-- select a category --</option>
+                            <option th:each="category : ${categoryList}" th:value="${category}"
+                                    th:text="${category}"></option>
                         </select>
                     </div>
 
@@ -97,7 +98,7 @@
                                    aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                         </div>
                     </div>
-                    <button class="btn btn-dark upload_btn mt-4 me-3" type="reset" >Reset</button>
+                    <button class="btn btn-dark upload_btn mt-4 me-3" type="reset">Reset</button>
                     <button class="btn  btn-primary upload_btn_submit ms-4 mt-4" type="submit">Submit</button>
                 </form>
             </div>
@@ -105,8 +106,7 @@
         </div>
         <div class="col-md-6 border mx-auto">
             <div class="user_table_post  mt-5">
-                <div class="MPOS">My Creations
-                </div>
+                <div class="MPOS">My Creations</div>
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped mt-3">
                         <thead>
@@ -121,15 +121,16 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr th:each="post,index:${postList}" >
+                        <tr th:each="post,index:${postList}">
                             <td th:text="${index.count}"></td>
                             <td th:text="${post.title}"></td>
                             <td th:text="${post.category}"></td>
                             <!--                            <td th:text="${p.imagePath}"></td>-->
-                            <td >
+                            <td>
                                 <a th:href="'/uploads/' + ${imageSrcList.get(index.index)}" target="_blank">
-<!--                                    <span th:text="${imageSrcList.get(index.index)}"></span>-->
-                                    <img th:src="'/uploads/' + ${imageSrcList.get(index.index)}" th:alt="${post.title}" class="post-img">
+                                    <!--                                    <span th:text="${imageSrcList.get(index.index)}"></span>-->
+                                    <img th:src="'/uploads/' + ${imageSrcList.get(index.index)}" th:alt="${post.title}"
+                                         class="post-img">
                                 </a>
                             </td>
 
@@ -137,7 +138,7 @@
                                 <a th:href="@{/post/edit/} + ${post.id}" class="icon-edit">
                                     <i class="fa-solid fa-pen-to-square"></i>
                                 </a>
-                                <a onclick="showPopup('Are you sure you want to delete?')" >
+                                <a onclick="showPopup('Are you sure you want to delete?')">
                                     <a th:href="@{/post/delete/} + ${post.id}" class="icon-delete">
                                         <i class="fa-solid fa-trash"></i>
                                     </a>
@@ -151,6 +152,17 @@
                         </tbody>
                     </table>
                 </div>
+
+                <!-- PAGINATION -->
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
 
             </div>
 

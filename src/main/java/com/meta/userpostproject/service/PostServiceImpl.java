@@ -106,6 +106,7 @@ public class PostServiceImpl implements PostService {
                     PostRequestDto postRequestDto = PostRequestDto
                             .builder()
                             .id(post.getId())
+                            .title(post.getTitle())
                             .imageName(extractFileName(post))
                             .shortDescription(post.getDescription())
                             .publishedDate(LocalDateTime.now())
