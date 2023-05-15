@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create an account</title>
+  <link rel="stylesheet" th:href="@{/css/RegistrationPage.css}" >
+</head>
+<body>
+
+<div class="form">
+  <div class="left">
+    <form>
+      <h2>Register</h2>
+
+      <div class="form-group">
+        <input type="text" id="name" name="name"  placeholder='Enter your name' required />
+      </div>
+
+
+      <div class="form-group">
+        <input type="text" id="password" name="password" placeholder='Enter your password' required  />
+      </div>
+
+
+      <div class="form-group">
+        <input type="text" id="email" name="email" placeholder='Enter your email' required  />
+      </div>
+
+      <div class="form-group">
+        <input type="text" id="phone" name="phone" placeholder='Enter your mobile number' required  />
+      </div>
+
+      <div class="form-group">
+        <button type='submit'>Register</button>
+      </div>
+
+      <a class="message" th:href="@{/static}">Already have an account?</a>
+    </form>
+  </div>
+
+  <div class="right">
+    <h2 id="company">META POST SYSTEM</h2>
+    <img id="computer" th:src="@{/images/laptop.png}" alt="laptop image">
+    <img id="mug" th:src="@{/images/mug.png}" alt="coffee mug">
+    <img id="plant" th:src="@{/images/plant.png}" alt="plant pot">
+  </div>
+
+</div>
+</body>
+</html>
