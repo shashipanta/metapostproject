@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class DefaultController {
     @GetMapping
     public String redirect(){
-        return "/internal/postApprovalPage";
+        return "/internal/postActionPage";
     }
 }

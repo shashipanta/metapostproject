@@ -14,6 +14,6 @@ public class mainController {
     }
     @GetMapping("/decidePost")
     public String adminPostDecide(){
-        return "internal/postActionPage";
+        return "internal/postApprovalPage";
     }
 }
