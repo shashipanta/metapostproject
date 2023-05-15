@@ -10,12 +10,3 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
-user:
-  created:
-    value1: key1
-    value2: key2
-    value3: key3
-    value4:
-      - a
-      - b
-      - c

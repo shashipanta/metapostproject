@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:insert="~{fragments/sidebar_container.html :: main_head}">
+    <meta charset="UTF-8">
+    <title>Category Form</title>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+
+        <div th:replace="~{fragments/sidebar_container.html :: sidebars}"> </div>
+    </div>
+</div>
+
+<div class="col-md-10 ">
+
+    <h1>Create a new Category</h1>
+<form th:action="@{/admin/category/save}" th:object="${category}" method="post">
+    <TABLE>
+        <tr>
+            <td>Category Name</td>
+            <td><input type="text" th:field="*{category_name}"></td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td><input type="text" th:field="*{description}"></td>
+        </tr>
+        <tr>
+
+            <td>
+                <button type="submit">Submit</button>
+            </td>
+        </tr>
+
+    </TABLE>
+</form>
+<div>
+    <table id="category">
+        <tr>
+            <td>S.N</td>
+            <td>Category</td>
+            <td>Description</td>
+            <td>Status</td>
+            <td>Action</td>
+        </tr>
+        <tr th:each="i,index:${categoryList}">
+            <td th:text="${index.count}"></td>
+            <td th:text="${i.category_name}"></td>
+            <td th:text="${i.description}"></td>
+            <td th:text="${i.status}"></td>
+            <td> <a href="#">Enable</a>|<a href="#">Disable</a></td>
+        </tr>
+    </table>
+</div>
+
+</div>
+</body>
+
+
+</html>
