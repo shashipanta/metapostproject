@@ -1,4 +1,4 @@
-package com.meta.userpostproject.service;
+package com.meta.userpostproject.Service;
 
 import com.meta.userpostproject.dto.PostDto;
 import org.apache.tika.exception.TikaException;
