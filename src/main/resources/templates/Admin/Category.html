@@ -8,51 +8,61 @@
 <div class="container-fluid">
     <div class="row">
 
-        <div th:replace="~{fragments/sidebar_container.html :: sidebars}"> </div>
+        <div th:replace="~{fragments/sidebar_container.html :: sidebars}"></div>
+        <div class="col-md-4 ">
+            <div class="form-data border p-3 mt-5">
+                <div class="fs-3 text-center mb-3">Create a new Category</div>
+                <form th:action="@{/admin/category/save}" th:object="${category}" method="post">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" th:field="*{category_name}" id="floatingInput" placeholder="Category Name">
+                        <label for="floatingInput">Category Name</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" placeholder="Description" th:field="*{description}" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <label for="floatingTextarea2">Description</label>
+                    </div>
+                    <button class="btn btn-primary " type="submit">Submit</button>
+
+<!--                    <TABLE>-->
+<!--                        <tr>-->
+<!--                            <td>Category Name</td>-->
+<!--                            <td><input type="text" th:field="*{category_name}"></td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+<!--                            <td>Description</td>-->
+<!--                            <td><input type="text" th:field="*{description}"></td>-->
+<!--                        </tr>-->
+<!--                        <tr>-->
+
+<!--                            <td>-->
+<!--                                <button type="submit">Submit</button>-->
+<!--                            </td>-->
+<!--                        </tr>-->
+
+<!--                    </TABLE>-->
+                </form>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <table class="table table-striped mt-5">
+                <thead>
+                <td>S.N</td>
+                <td>Category</td>
+                <td>Description</td>
+                <td>Status</td>
+                <td>Action</td>
+                </thead>
+                <tr th:each="i,index:${categoryList}">
+                    <td th:text="${index.count}"></td>
+                    <td th:text="${i.category_name}"></td>
+                    <td th:text="${i.description}"></td>
+                    <td th:text="${i.status}"></td>
+                    <td><a href="#">Enable</a>|<a href="#">Disable</a></td>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
-
-<div class="col-md-10 ">
-
-    <h1>Create a new Category</h1>
-<form th:action="@{/admin/category/save}" th:object="${category}" method="post">
-    <TABLE>
-        <tr>
-            <td>Category Name</td>
-            <td><input type="text" th:field="*{category_name}"></td>
-        </tr>
-        <tr>
-            <td>Description</td>
-            <td><input type="text" th:field="*{description}"></td>
-        </tr>
-        <tr>
-
-            <td>
-                <button type="submit">Submit</button>
-            </td>
-        </tr>
-
-    </TABLE>
-</form>
-<div>
-    <table id="category">
-        <tr>
-            <td>S.N</td>
-            <td>Category</td>
-            <td>Description</td>
-            <td>Status</td>
-            <td>Action</td>
-        </tr>
-        <tr th:each="i,index:${categoryList}">
-            <td th:text="${index.count}"></td>
-            <td th:text="${i.category_name}"></td>
-            <td th:text="${i.description}"></td>
-            <td th:text="${i.status}"></td>
-            <td> <a href="#">Enable</a>|<a href="#">Disable</a></td>
-        </tr>
-    </table>
-</div>
-
 </div>
 </body>
 
