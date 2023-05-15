@@ -18,7 +18,6 @@ public class PostDto {
 
     private String category;
 
-
     private MultipartFile multipartFile;
 
     private String filePath;

@@ -1,0 +1,55 @@
+
+    body {
+         background: url(../image/Background1.jpg);
+        background-position:center ;
+         background-size: cover; 
+        font-family: 'Montserrat', sans-serif; 
+    }
+    .login {
+        margin-top:10%;
+        margin-left:20%;
+        height:450px;
+        padding: 13px;
+        /* border: 1px solid rgba(255, 255, 255, .25); */
+        border-radius: 5px;
+        box-shadow: 0 0 30px 1px rgba(0, 0, 0, 0.25);
+        backdrop-filter: blur(85px);
+        /*background: url(static/image/Artboard\ 1.png);*/
+        background-size: cover; 
+
+    }
+    .form-control{
+        border-radius: 30px;
+    }
+    .btn-success{
+        width:150px;
+        padding:10px;
+        font-size:0.8rem;
+        border-radius:30px;
+        background-color: #79D1C1;
+        border:0;
+    }
+    .underline{
+        font-size:0.8rem;
+        margin-left: 10px;
+    }
+    .login_text{
+        color:#79D1C1;
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-left: 10px;
+        margin-top:90px
+    }
+    .MPS{
+        font-size: 1.1rem;
+        font-weight: 700;
+    }
+    .col-md-8{
+        height: 500px;
+    }
+    .img-fluid{
+        max-width:80%;
+        margin-top: 80px;
+        margin-left:32px;
+    }
+  
