@@ -1,0 +1,77 @@
+body {
+    background: url(../images/background_image.jpg);
+    background-position:center ;
+    background-size: cover;
+    font-family: 'Montserrat', sans-serif;
+}
+.login {
+    margin-top:10%;
+    margin-left:20%;
+    height:450px;
+    padding: 13px;
+    /* border: 1px solid rgba(255, 255, 255, .25); */
+    border-radius: 5px;
+    box-shadow: 0 0 30px 1px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(85px);
+    background: url(../images/form_background.png);
+    background-size: cover;
+
+}
+.form-control{
+    border-radius: 30px;
+    border: 1px #06C5CF solid;
+}
+.form-control:hover{
+    background-color: #D3F8F9;
+    transition: all 1s ease 0s;
+}
+.form-control:focus{
+    background-color: #D3F8F9;
+    transition: all 1s ease 0s;
+    border: 0;
+}
+.btn-success{
+    width:150px;
+    padding:10px;
+    font-size:0.8rem;
+    border-radius:30px;
+    background-color: #79D1C1;
+    border:0;
+}
+.btn-success:hover{
+    background-color: #077efd;
+    transition: all 1s ease 0s;
+}
+.underline{
+    font-size:0.8rem;
+    margin-left: 10px;
+}
+.login_text{
+    color:#79D1C1;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-left: 10px;
+    margin-top:90px
+}
+.MPS{
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+.col-md-8{
+    height: 500px;
+}
+.img-fluid{
+    max-width:80%;
+    margin-top: 80px;
+    margin-left:32px;
+}
+
+#computer-plant-cup:hover{
+    cursor: pointer;
+    transition:transform  0.9s;
+    transform: scale(1.2);
+}
+a:hover{
+    color: blue;
+}
+
