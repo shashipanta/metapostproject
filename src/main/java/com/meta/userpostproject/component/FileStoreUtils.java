@@ -42,10 +42,14 @@ public class FileStoreUtils {
 
 
     }
+
+    //multipart fil validation
     public String extensionvalidation(MultipartFile multipartFile) throws IOException {
         Tika tika = new Tika();
         String type = tika.detect(multipartFile.getOriginalFilename());
         return type;
     }
+
+
 
 }
