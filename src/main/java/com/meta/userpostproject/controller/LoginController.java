@@ -2,10 +2,9 @@ package com.meta.userpostproject.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class MainController {
+public class LoginController {
 
     @GetMapping("/")
     public String loginPage(){
@@ -17,8 +16,4 @@ public class MainController {
         return "login/registration-page";
     }
 
-    @GetMapping("/post")
-    public String mainPage(){
-        return "external/main-page";
-    }
 }
