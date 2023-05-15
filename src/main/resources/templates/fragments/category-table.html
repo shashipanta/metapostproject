@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Category Dashboard</title>
@@ -9,6 +9,7 @@
 <body>
 
 <table th:fragment="category-table(categoryDtoList)" class="table table-hover">
+<!--    <th:block th:text="${categoryDtoList}"></th:block>-->
     <thead>
     <tr>
         <th scope="col">S.N</th>
@@ -19,20 +20,20 @@
     </thead>
 
     <tbody th:each="categoryDto, index:${categoryDtoList}">
+
     <!--    INDIVIDUAL CATEGORY ROW -->
-        <tr th:replace="fragments/category-table :: table_row(categoryDto)"></tr>
-
+        <tr th:object="${categoryDto}">
+            <td th:text="${index.count}"></td>
+            <td th:text="*{name}"></td>
+            <td th:text="*{description}"></td>
+            <td>
+                <i class="bi bi-pencil-square"></i>
+                <i class="bi bi-trash3"></i>
+                <!-- Enabled -->
+                <i class="fa-solid fa-check"></i>
+            </td>
+        </tr>
     </tbody>
-
-    <tr th:fragment="table_row(categoryDto)" th:object="${categoryDto}">
-        <td th:text="*{name}"></td>
-        <td th:text="*{description}"></td>
-        <td>
-            <i class="bi bi-pencil-square"></i>
-            <i class="bi bi-trash3"></i>
-        </td>
-
-    </tr>
 </table>
 
 </body>

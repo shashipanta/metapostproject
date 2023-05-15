@@ -44,8 +44,10 @@ public class CategoryController {
     public String getAllCategories(Model model){
         List<CategoryDto> categoryDtoList = categoryService.getCategories();
         model.addAttribute("categoryDtoList", categoryDtoList);
-        return "category/category";
+//        return "fragments/category-table.html";
+        return "category/category.html";
     }
+
 
     @PutMapping("/edit/{category-id}")
     public String updateCategory(CategoryDto categoryDto, @RequestParam(name = "category-id") Short categoryId){
