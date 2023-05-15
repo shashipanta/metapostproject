@@ -5,15 +5,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/admin")
-public class mainController {
+@RequestMapping("/")
+public class DefaultController {
     @GetMapping
-    public String postApproval() {
+    public String redirect(){
         return "/internal/postApprovalPage";
-
-    }
-    @GetMapping("/decidePost")
-    public String adminPostDecide(){
-        return "internal/postActionPage";
     }
 }
