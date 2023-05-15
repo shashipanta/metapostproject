@@ -74,32 +74,5 @@ public class PostServiceImpl implements PostService{
        }
     }
 
-    //update post
-    @Override
-    public PostDto updatePost(PostDto postDto, short id) {
-      Optional<Post> post =   postRepo.findById(id);
-      if(post.isPresent()){
-        Post updatedPost =   Post.builder()
-                  .id(postDto.getId())
-                  .title(postDto.getTitle())
-                  .category(postDto.getCategory())
-                  .description(postDto.getDescription())
-                  .imagePath(postDto.getFilePath()).build();
-        updatedPost =  postRepo.save(updatedPost);
-
-         return PostDto.builder()
-                  .id(updatedPost.getId())
-                  .title(updatedPost.getTitle())
-                  .description(updatedPost.getDescription())
-                  .filePath(updatedPost.getImagePath())
-                  .category(updatedPost.getCategory()).build();
-
-      }else {
-          return null;
-      }
-
-
-    }
-
 
 }
