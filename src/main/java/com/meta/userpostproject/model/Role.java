@@ -6,6 +6,7 @@ lightsuraj129@gmail.com
 Program was written in 2023-05-02 18:04
 */
 
+import com.meta.userpostproject.dto.RoleDto;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -30,5 +31,12 @@ public class Role {
     @Enumerated(EnumType.STRING)
     @Column(name = "role_type")
     private RoleType roleType;
+
+    public Role(RoleDto roleDto){
+        this.id=roleDto.getId();
+        this.name= roleDto.getName();
+        this.description= roleDto.getDescription();
+        this.roleType=roleDto.getRoleType();
+    }
 
 }
