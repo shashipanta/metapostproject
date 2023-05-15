@@ -22,7 +22,7 @@ public class AdminController {
 
     @GetMapping
     public String admin() {
-        return"Admin/Loginpage";
+        return"/internal/postActionPage";
     }
 
 
@@ -38,5 +38,14 @@ public class AdminController {
     public String saveCategory(@ModelAttribute("CategoryDto") CategoryDto categoryDto){
         categoryDto = categoryService.save(categoryDto);
         return "redirect:/admin/category";
+    }
+    @GetMapping("/ca")
+    public String postApproval() {
+        return "/internal/postApprovalPage";
+
+    }
+    @GetMapping("/decidePost")
+    public String adminPostDecide(){
+        return "internal/postApprovalPage";
     }
 }
