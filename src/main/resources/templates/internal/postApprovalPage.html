@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:insert="~{fragments/sidebar_container.html :: main_head}">
+    <title>internal menu creation</title>
+    <link th:href="@{/css/sidebar_container.css}">
+</head>
+
+<body>
+<div class="container-fluid">
+<div class="row">
+
+        <div th:replace="~{fragments/sidebar_container.html :: sidebars}"> </div>
+    <div class="col-md-10 border main_slide ">
+        <div class="MPOS text-end me-2">
+            MPOS
+        </div>
+        <table class="table table-bordered table-striped mt-3">
+            <thead>
+            <tr>
+
+                <th>S.N.</th>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+
+</div>
+
+      </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</body>
+</html>
