@@ -17,6 +17,4 @@ public class UserPostProjectApplication {
         SpringApplication.run(UserPostProjectApplication.class, args);
     }
 
-
-
 }
