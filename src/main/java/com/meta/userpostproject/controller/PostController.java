@@ -34,7 +34,6 @@ public class PostController {
     public String createPost(Model model){
         model.addAttribute("categoryList", Arrays.asList("Science and Fiction", "Society", "Entertainment", "Technology"));
         model.addAttribute("postDto", new PostDto());
-
         List<PostDto> allPost = postService.getALlPost();
         model.addAttribute("post", allPost);
         return "external/post/create-post";
@@ -44,7 +43,6 @@ public class PostController {
     public String createPost(@ModelAttribute PostDto postDto, RedirectAttributes redirectAttributes) throws TikaException, IOException {
         String type = fileStoreUtils.extensionvalidation(postDto.getMultipartFile());
         if (type.equals("image/jpeg")||type.equals("image/png")) {
-
             postService.createPost(postDto);
             String success_message = "Post Created Successfully";
             redirectAttributes.addFlashAttribute("success_message",success_message);
@@ -61,7 +59,6 @@ public class PostController {
         postService.deletePost(id);
         return "redirect:/post/create";
     }
-
 
 
 

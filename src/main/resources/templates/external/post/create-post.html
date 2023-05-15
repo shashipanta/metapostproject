@@ -58,8 +58,7 @@
 
 
             <div class="user_input_post  mt-5">
-                <form class="login" th:action="@{/post}" method="POST"
-                      th:object="${postDto}" enctype="multipart/form-data ">
+                <form class="login" th:action="@{/post}" method="post" th:object="${postDto}" enctype="multipart/form-data">
                     <div class="MPOS">Create a new Post
                     </div>
                     <div class="mb-4 mt-4">

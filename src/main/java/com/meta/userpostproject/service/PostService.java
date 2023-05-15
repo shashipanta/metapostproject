@@ -15,7 +15,7 @@ public interface PostService {
 
     PostDto getSinglePost(short id);
 
-    PostDto updatePost(PostDto postDto,short id);
+
 
 
 }
