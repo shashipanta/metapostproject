@@ -37,4 +37,8 @@ public class Post {
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = User.class)
     @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_post_userid"))
     private User user;
+
+    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Category.class)
+    @JoinColumn(name = "category_id", foreignKey = @ForeignKey(name = "fk_post_categoryid"))
+    private Category categorys;
 }
