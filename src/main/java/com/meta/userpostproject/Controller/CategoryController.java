@@ -13,10 +13,10 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/category")
-public class AdminController {
+public class CategoryController {
     private final CategoryService categoryService;
 
-    public AdminController(CategoryService categoryService) {
+    public CategoryController(CategoryService categoryService) {
         this.categoryService = categoryService;
     }
 //
@@ -31,7 +31,7 @@ public class AdminController {
         List<CategoryDto> categoryDtoList = categoryService.findAll();
         model.addAttribute("category",new CategoryDto());
         model.addAttribute("categoryList",categoryDtoList);
-        return "admin/Category";
+        return "/category/Category";
     }
 
     @PostMapping("/save")

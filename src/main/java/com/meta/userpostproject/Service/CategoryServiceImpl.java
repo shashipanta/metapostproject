@@ -22,7 +22,7 @@ public class CategoryServiceImpl implements CategoryService {
         Category category = Category
                 .builder()
                 .id(null)
-                .category_name(categoryDto.getCategory_name())
+                .categoryName(categoryDto.getCategoryName())
                 .description(categoryDto.getDescription())
                 .build();
         categoryRepo.save(category);
@@ -34,7 +34,7 @@ public class CategoryServiceImpl implements CategoryService {
         List<Category> categoryList = categoryRepo.findAll();
         return categoryList.stream().map(category -> CategoryDto.builder()
                 .id(category.getId())
-                .category_name(category.getCategory_name())
+                .categoryName(category.getCategoryName())
                 .description(category.getDescription())
                 .build()).collect(Collectors.toList());
     }

@@ -19,7 +19,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Short id;
     @Column(name = "category_name",length = 100,nullable = false)
-    private String category_name;
+    private String categoryName;
     @Column(name = "Description",nullable = false)
     private String description;
     @Column(name = "Status")
