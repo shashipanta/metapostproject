@@ -1,6 +1,6 @@
-package com.meta.userpostproject.Service;
+package com.meta.userpostproject.service;
 
-import com.meta.userpostproject.Dto.CategoryDto;
+import com.meta.userpostproject.dto.CategoryDto;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

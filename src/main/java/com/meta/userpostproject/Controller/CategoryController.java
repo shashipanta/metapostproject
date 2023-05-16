@@ -1,7 +1,7 @@
-package com.meta.userpostproject.Controller;
+package com.meta.userpostproject.controller;
 
-import com.meta.userpostproject.Dto.CategoryDto;
-import com.meta.userpostproject.Service.CategoryService;
+import com.meta.userpostproject.dto.CategoryDto;
+import com.meta.userpostproject.service.CategoryService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,40 +12,31 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/admin")
-public class AdminController {
+@RequestMapping("/category")
+public class CategoryController {
     private final CategoryService categoryService;
 
-    public AdminController(CategoryService categoryService) {
+    public CategoryController(CategoryService categoryService) {
         this.categoryService = categoryService;
     }
+//
+//    @GetMapping
+//    public String admin() {
+//        return"/internal/postActionPage";
+//    }
 
-    @GetMapping
-    public String admin() {
-        return"/internal/postActionPage";
-    }
 
-
-    @GetMapping("/category")
+    @GetMapping()
     public String adminCategory(Model model){
         List<CategoryDto> categoryDtoList = categoryService.findAll();
         model.addAttribute("category",new CategoryDto());
         model.addAttribute("categoryList",categoryDtoList);
-        return "Admin/Category";
+        return "/category/Category";
     }
 
-    @PostMapping("/category/save")
+    @PostMapping("/save")
     public String saveCategory(@ModelAttribute("CategoryDto") CategoryDto categoryDto){
         categoryDto = categoryService.save(categoryDto);
-        return "redirect:/admin/category";
-    }
-    @GetMapping("/ca")
-    public String postApproval() {
-        return "/internal/postApprovalPage";
-
-    }
-    @GetMapping("/decidePost")
-    public String adminPostDecide(){
-        return "internal/postApprovalPage";
+        return "redirect:/category";
     }
 }

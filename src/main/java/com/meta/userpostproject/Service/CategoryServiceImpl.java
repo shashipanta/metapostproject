@@ -1,12 +1,13 @@
-package com.meta.userpostproject.Service;
+package com.meta.userpostproject.service;
 
-import com.meta.userpostproject.Dto.CategoryDto;
+import com.meta.userpostproject.dto.CategoryDto;
 import com.meta.userpostproject.model.Category;
 import com.meta.userpostproject.repo.CategoryRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
+import com.meta.userpostproject.service.CategoryService;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
@@ -21,7 +22,7 @@ public class CategoryServiceImpl implements CategoryService {
         Category category = Category
                 .builder()
                 .id(null)
-                .category_name(categoryDto.getCategory_name())
+                .categoryName(categoryDto.getCategoryName())
                 .description(categoryDto.getDescription())
                 .build();
         categoryRepo.save(category);
@@ -33,7 +34,7 @@ public class CategoryServiceImpl implements CategoryService {
         List<Category> categoryList = categoryRepo.findAll();
         return categoryList.stream().map(category -> CategoryDto.builder()
                 .id(category.getId())
-                .category_name(category.getCategory_name())
+                .categoryName(category.getCategoryName())
                 .description(category.getDescription())
                 .build()).collect(Collectors.toList());
     }

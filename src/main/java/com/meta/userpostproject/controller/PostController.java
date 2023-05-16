@@ -1,6 +1,6 @@
-package com.meta.userpostproject.Controller;
+package com.meta.userpostproject.controller;
 
-import com.meta.userpostproject.Service.PostService;
+import com.meta.userpostproject.service.PostService;
 import com.meta.userpostproject.component.FileStoreUtils;
 import com.meta.userpostproject.dto.PostDto;
 import org.apache.tika.exception.TikaException;

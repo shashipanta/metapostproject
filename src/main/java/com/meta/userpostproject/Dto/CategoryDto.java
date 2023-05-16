@@ -1,4 +1,4 @@
-package com.meta.userpostproject.Dto;
+package com.meta.userpostproject.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class CategoryDto {
     private short id;
-    private String category_name;
+    private String categoryName;
     private String description;
     private boolean status;
 

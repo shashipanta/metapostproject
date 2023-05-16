@@ -1,6 +1,6 @@
-package com.meta.userpostproject.Controller;
+package com.meta.userpostproject.controller;
 
-import com.meta.userpostproject.Service.RoleService;
+import com.meta.userpostproject.service.RoleService;
 import com.meta.userpostproject.dto.RoleDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;

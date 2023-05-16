@@ -25,6 +25,7 @@ public class Role {
     private Short id;
     @Column(name = "name")
     private String name;
+
     @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 

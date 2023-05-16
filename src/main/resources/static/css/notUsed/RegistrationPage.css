@@ -2,35 +2,27 @@ body{
     padding: 0;
     margin: 0;
     background-size: cover;
-    background-image: url(../images/background_image.jpg);
+    background-image: url(notUsed/background_image.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-
-
 }
-.form {
+.form{
     display: flex;
     align-items: center;
     margin-top: 60px;
-    background-image: url(../images/form_background.png);
+    background-image: url(notUsed/form_background.png);
     background-repeat: no-repeat;
     /* background-attachment: fixed; */
     background-size: cover;
-    /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     width: 60%;
-    /* margin-top: 90px; */
-    /* margin-left: 350px; */
-    border-radius: 8px;
-    justify-content: space-between;
-    justify-content: space-between;
-    padding-inline: 2em;
-    gap: 2em;
-    margin-inline: auto;
+    margin-top: 90px;
+    margin-left: 350px;
+    border-radius:8px ;
+
+
 }
-
-
 form {
     display: flex;
     flex-direction: column;
@@ -41,30 +33,16 @@ form {
     border-radius: 10px;
     padding: 20px;
     padding-top: 30px;
-    /* margin-left: 80px; */
+    margin-left: 80px;
     width: 100%;
-    margin-top: 70px;
-    /* margin-bottom: 120px; */
+
 }
 
-/* RIGHT CONTAINER FOR IMAGE */
-.right {
-    /* background: red; */
-    position: relative;
-    margin-top: 3em;
-}
-
-
-#computer {
-    /* position: absolute; */
+#computer{
+    position: absolute;
     height: 250px;
-    /* top: 250px; */
-    left: 1em;
-    /* left: 3em; */
-    /* left: 4em; */
-    top: 40%;
-    margin-left: 2em;
-    margin: 2em;
+    top: 250px;
+    left: 68rem;
 }
 
 #computer:hover{
@@ -75,33 +53,23 @@ form {
 #mug{
     position: absolute;
     height: 70px;
-    /*! top: 50%; */
-    /*! left: 66rem; */
+    top: 19rem;
+    left: 66rem;
 
-    right: 0;
-    bottom: 2em;
-    bottom: 1em;
 }
 #plant{
     position: absolute;
     height: 150px;
-    /*! top: 21rem; */
-    /*! left: 81rem; */
-    top: .5em;
-    left: 0;
-    margin-left: -2em;
+    top: 21rem;
+    left: 81rem;
 }
 
-#company {
+#company{
     position: absolute;
-    /* top: 7.5rem; */
-    /* left: 72rem; */
+    top: 7.5rem;
+    left: 72rem;
     color: white;
     font-weight: bolder;
-    margin-bottom: 3em;
-    top: 1em;
-    top: -3em;
-    color: black;
 }
 
 h2 {
@@ -110,7 +78,6 @@ h2 {
     font-size: 26px;
     text-align: center;
     color: #06C5CF;
-
 }
 
 .form-group {
@@ -120,7 +87,12 @@ h2 {
     width: 100%;
 }
 
-
+label {
+    margin-bottom: 5px;
+    font-size: 19px;
+    font-weight: bold;
+    color: #06C5CF;
+}
 
 input[type="text"]
 {
@@ -128,12 +100,13 @@ input[type="text"]
     border-radius: 10px;
     background: #F2F2F2;
     width: 100%;
-    border: 1px #06C5CF solid;
-    /* margin: 0 0 15px; */
+    border: 0;
+    margin: 0 0 10px;
     padding: 15px;
     box-sizing: border-box;
     font-size: 14px;
-    margin-top: 25px;
+    margin-top: 20px;
+    border: 1px #06C5CF solid;
 }
 
 input[type="text"]:hover
@@ -156,10 +129,6 @@ select{
     width: fit-content;
 }
 
-input[type="radio"] {
-    margin-right: 10px;
-    margin-top: 8px;
-}
 
 button[type="submit"] {
     text-transform: uppercase;
@@ -169,13 +138,11 @@ button[type="submit"] {
     width: 100%;
     border: 0;
     padding: 15px;
-    padding-left: 30px;
-    padding-right: 30px;
     color: #FFFFFF;
     font-size: 15px;
     font-weight: bolder;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 
@@ -185,19 +152,14 @@ button[type="submit"]:hover {
     transition: all 1s ease 0s;
 }
 
-.message{
-    margin: 15px 0 0;
-    color: #B3B3B3;
-    font-size: 16px;
-    margin-top: 28px;
-}
-.message a{
+a{
     color: #1780e2;
+    font-size: 17px;
+    margin-bottom: 15px;
 }
 a:hover{
     color: #0303f9;
+    transition:transform  0.9s;
+    transform: scale(1.1);
     text-decoration: none;
 }
-
-
-
