@@ -1,5 +1,6 @@
-package com.meta.userpostproject.Service;
+package com.meta.userpostproject.service;
 
+import com.meta.userpostproject.Service.RoleService;
 import com.meta.userpostproject.dto.RoleDto;
 import com.meta.userpostproject.model.Role;
 import com.meta.userpostproject.repo.RoleRepo;
