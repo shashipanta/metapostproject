@@ -1,8 +1,8 @@
 package com.meta.userpostproject.controller;
 
+import com.meta.userpostproject.service.PostService;
 import com.meta.userpostproject.component.FileStoreUtils;
 import com.meta.userpostproject.dto.PostDto;
-import com.meta.userpostproject.service.PostService;
 import org.apache.tika.exception.TikaException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

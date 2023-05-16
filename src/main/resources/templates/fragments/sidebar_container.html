@@ -22,7 +22,7 @@
             <div class="mx-auto mt-5 text-center">
 
                 <div class="Dashboard">
-                    <a th:href="@{/}" class="text-decoration-none">Dashboard</a>
+                    <a th:href="@{/admin}" class="text-decoration-none">Dashboard</a>
 
                 </div>
             </div>
@@ -47,7 +47,7 @@
                             Master Data Setup
                         </span>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Category Setup</a></li>
+                            <li><a class="dropdown-item" th:href="@{/admin/category}">Category Setup</a></li>
                             <li><a class="dropdown-item" href="#">Category Setup</a></li>
                             <li><a class="dropdown-item" href="#">Category Setup</a></li>
                         </ul>

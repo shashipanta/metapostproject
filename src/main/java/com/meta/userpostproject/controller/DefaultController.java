@@ -15,4 +15,6 @@ public class DefaultController {
     public String adminPostDecide(){
         return "/internal/postApprovalPage";
     }
+
+
 }

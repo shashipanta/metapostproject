@@ -40,5 +40,5 @@ public class Post {
 
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = Category.class)
     @JoinColumn(name = "category_id", foreignKey = @ForeignKey(name = "fk_post_categoryid"))
-    private Category categoryy;
+    private Category categors;
 }
