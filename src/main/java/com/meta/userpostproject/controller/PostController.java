@@ -33,7 +33,10 @@ public class PostController {
     @GetMapping("/create")
     public String createPost(Model model){
         model.addAttribute("categoryList", Arrays.asList("Science and Fiction", "Society", "Entertainment", "Technology"));
-        model.addAttribute("postDto", new PostDto());
+
+        if(model.getAttribute("postDto") == null)
+            model.addAttribute("postDto", new PostDto());
+
         List<PostDto> allPost = postService.getALlPost();
         model.addAttribute("post", allPost);
         return "external/post/create-post";
@@ -54,12 +57,17 @@ public class PostController {
         return "redirect:/post/create";
     }
 
-    @RequestMapping("/delete/{id}")
+    @GetMapping ("/delete/{id}")
     public String deletePost ( @PathVariable("id") short id){
         postService.deletePost(id);
         return "redirect:/post/create";
     }
 
-
+    @GetMapping("/update/{id}")
+    public String updatePost(@PathVariable("id") short id,RedirectAttributes redirectAttributes){
+       PostDto postDto =  postService.getSinglePost(id);
+       redirectAttributes.addFlashAttribute("postDto",postDto);
+        return "redirect:/post/create";
+    }
 
 }

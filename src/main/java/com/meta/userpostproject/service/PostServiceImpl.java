@@ -47,8 +47,7 @@ public class PostServiceImpl implements PostService{
                         .id(post.getId())
                         .description(post.getDescription())
                         .title(post.getTitle())
-                        .category(post.getCategory())
-                        .filePath(post.getImagePath()).build())
+                        .category(post.getCategory()).build())
                 .collect(Collectors.toList());
     }
 

@@ -18,10 +18,7 @@ public class PostDto {
 
     private String category;
 
-
     private MultipartFile multipartFile;
-
-    private String filePath;
 
     public PostDto(Short id) {
         this.id = id;
