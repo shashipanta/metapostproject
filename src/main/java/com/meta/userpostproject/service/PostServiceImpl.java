@@ -1,4 +1,4 @@
-package com.meta.userpostproject.Service;
+package com.meta.userpostproject.service;
 
 import com.meta.userpostproject.component.FileStoreUtils;
 import com.meta.userpostproject.dto.PostDto;
@@ -13,7 +13,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class PostServiceImpl implements PostService {
+public class PostServiceImpl implements com.meta.userpostproject.service.PostService {
     private final PostRepo postRepo;
     private final FileStoreUtils fileStoreUtils;
 

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head th:insert="~{fragments/sidebar_container.html :: main_head}">
+<head th:insert="~{internal/fragments/sidebar_container.html :: main_head}">
     <title>internal menu creation</title>
     <link th:href="@{/css/sidebar_container.css}">
 </head>
@@ -9,7 +9,7 @@
 <div class="container-fluid">
 <div class="row">
 
-        <div th:replace="~{fragments/sidebar_container.html :: sidebars_master}"> </div>
+        <div th:replace="~{internal/fragments/sidebar_container.html :: sidebars_master}"> </div>
     <div class="col-md-10 border main_slide ">
         <div class="MPOS text-end me-2">
             MPOS

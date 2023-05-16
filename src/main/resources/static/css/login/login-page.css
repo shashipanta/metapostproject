@@ -1,5 +1,5 @@
 body {
-    background: url(../images/background_image.jpg);
+    background: url(../../image/Background1.jpg);
     background-position:center ;
     background-size: cover;
     font-family: 'Montserrat', sans-serif;
@@ -13,7 +13,7 @@ body {
     border-radius: 5px;
     box-shadow: 0 0 30px 1px rgba(0, 0, 0, 0.25);
     backdrop-filter: blur(85px);
-    background: url(../images/form_background.png);
+    background: url(../../image/form_background.png);
     background-size: cover;
 
 }
