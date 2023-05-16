@@ -124,11 +124,11 @@
                             <td th:text="${p.category}"></td>
 
                             <td>
-                                <a>
+                                <a th:href="@{/post/view/} + ${p.id}">
                                     <i class="fa-solid fa-eye"></i>
                                 </a>
-                                <a>
-                                    <i class="fa-solid fa-pen-to-square" th:href="@{/post/update/} + ${p.id}"></i>
+                                <a th:href="@{/post/update/} + ${p.id}">
+                                    <i class="fa-solid fa-pen-to-square" ></i>
                                 </a>
                                 <a th:href="@{/post/delete/} + ${p.id}">
                                     <i class="fa-solid fa-trash" style="color: #f50025;"></i>

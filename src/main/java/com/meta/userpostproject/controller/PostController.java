@@ -70,4 +70,12 @@ public class PostController {
         return "redirect:/post/create";
     }
 
+    @GetMapping("/view/{id}")
+    public String viewPost(@PathVariable("id") short id, Model model) throws IOException {
+        PostDto postDto = postService.postView(id);
+        model.addAttribute("post",postDto);
+
+        return "/external/post/single-post-view";
+    }
+
 }

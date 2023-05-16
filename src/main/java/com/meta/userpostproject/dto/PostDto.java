@@ -20,6 +20,8 @@ public class PostDto {
 
     private MultipartFile multipartFile;
 
+    private String filePath;
+
     public PostDto(Short id) {
         this.id = id;
     }

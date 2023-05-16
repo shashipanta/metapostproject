@@ -60,18 +60,35 @@ public class PostServiceImpl implements com.meta.userpostproject.service.PostSer
     //get single post
     @Override
     public PostDto getSinglePost(short id) {
-       Optional<Post> post =  postRepo.findById(id);
-       if(post.isPresent()){
-           Post post1 = post.get();
+       Optional<Post> singlePost =  postRepo.findById(id);
+       if(singlePost.isPresent()){
+           Post post = singlePost.get();
            return PostDto.builder()
-                   .id(post1.getId())
-                   .title(post1.getTitle())
-                   .category(post1.getCategory())
-                   .description(post1.getDescription()).build();
+                   .id(post.getId())
+                   .title(post.getTitle())
+                   .category(post.getCategory())
+                   .description(post.getDescription()).build();
        }else {
            return null;
        }
     }
 
+    //view post
+    @Override
+    public PostDto postView(short id) throws IOException {
+        Optional<Post> post =  postRepo.findById(id);
+        if(post.isPresent()){
+            Post viewPost = post.get();
+            return PostDto.builder()
+                    .id(viewPost.getId())
+                    .title(viewPost.getTitle())
+                    .category(viewPost.getCategory())
+                    .description(viewPost.getDescription())
+                    .filePath(fileStoreUtils.getBase64FormFilePath(viewPost.getImagePath()))
+                    .build();
+        }else {
+            return null;
+        }
+    }
 
 }
