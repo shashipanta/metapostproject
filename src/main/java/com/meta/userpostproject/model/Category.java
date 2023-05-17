@@ -3,6 +3,8 @@ package com.meta.userpostproject.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Builder
 @Getter
@@ -24,4 +26,11 @@ public class Category {
 
     @Column(name = "description")
     private String description;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "category")
+    private List<Post> postList;
+
+    Category(String name){
+        this.name=name;
+    }
 }

@@ -1,5 +1,6 @@
 package com.meta.userpostproject.dto;
 
+import com.meta.userpostproject.model.Category;
 import lombok.*;
 import org.springframework.stereotype.Component;
 

@@ -16,13 +16,17 @@ Program was written in 2023-05-02 18:18
 })
 @NoArgsConstructor
 @AllArgsConstructor
-public class Post {
+public class  Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Short id;
 
     @Column(name = "title", nullable = false, length = 100)
     private String title;
+
+//    @Column(name = "category", nullable = false, length = 100)
+//    private String category;
+
 
     @Column(name = "description", columnDefinition = "TEXT")
     private String description;
@@ -34,7 +38,8 @@ public class Post {
     @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_post_userid"))
     private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY, targetEntity = Category.class)
+    @ManyToOne(fetch = FetchType.EAGER, targetEntity = Category.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "category_id", foreignKey = @ForeignKey(name = "fk_post_categoryid"))
     private Category category;
+
 }
