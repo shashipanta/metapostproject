@@ -1,4 +1,4 @@
-package com.meta.userpostproject.service;
+package com.meta.userpostproject.service.serviceImpl;
 
 import com.meta.userpostproject.dto.CategoryDto;
 import com.meta.userpostproject.model.Category;
@@ -18,24 +18,26 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public CategoryDto save(CategoryDto categoryDto) {
+    public CategoryDto createCategory(CategoryDto categoryDto) {
         Category category = Category
                 .builder()
                 .id(null)
                 .categoryName(categoryDto.getCategoryName())
                 .description(categoryDto.getDescription())
+                .status(categoryDto.isStatus())
                 .build();
         categoryRepo.save(category);
         return new CategoryDto(categoryDto.getId());
     }
 
     @Override
-    public List<CategoryDto> findAll() {
+    public List<CategoryDto> getCategories() {
         List<Category> categoryList = categoryRepo.findAll();
         return categoryList.stream().map(category -> CategoryDto.builder()
                 .id(category.getId())
                 .categoryName(category.getCategoryName())
                 .description(category.getDescription())
+                .status(category.isStatus())
                 .build()).collect(Collectors.toList());
     }
 }

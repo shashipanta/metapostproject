@@ -8,38 +8,49 @@
 <div class="container-fluid">
     <div class="row">
 
+        <!-- SIDEBAR MENU -->
         <div th:replace="~{internal/fragments/sidebar_container.html :: sidebars_master}"></div>
+
         <div class="col-md-4 ">
             <div class="form-data border p-3 mt-5">
                 <div class="fs-3 text-center mb-3">Create a new Category</div>
-                <form th:action="@{/category/save}" th:object="${category}" method="post">
+                <form th:action="@{/category/save}" th:object="${categoryDto}" method="post">
                     <div class="form-floating mb-3">
-                        <input type="text" class="form-control" th:field="*{categoryName}" id="floatingInput" placeholder="Category Name">
+                        <input type="text" class="form-control" th:field="*{categoryName}" id="floatingInput"
+                               placeholder="Category Name">
                         <label for="floatingInput">Category Name</label>
                     </div>
+                    <!-- CATEGORY ACTIVE ? -->
                     <div class="form-floating mb-3">
-                        <textarea class="form-control" placeholder="Description" th:field="*{description}" id="floatingTextarea2" style="height: 100px"></textarea>
+                        <div class="form-check">
+                            <input th:field="*{status}" class="form-check-input" type="checkbox" th:value="*{status}" id="flexCheckChecked" checked>
+                            <label class="form-check-label" for="flexCheckChecked"> Active </label>
+                        </div>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" placeholder="Description" th:field="*{description}"
+                                  id="floatingTextarea2" style="height: 100px"></textarea>
                         <label for="floatingTextarea2">Description</label>
                     </div>
                     <button class="btn btn-primary " type="submit">Submit</button>
 
-<!--                    <TABLE>-->
-<!--                        <tr>-->
-<!--                            <td>Category Name</td>-->
-<!--                            <td><input type="text" th:field="*{category_name}"></td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
-<!--                            <td>Description</td>-->
-<!--                            <td><input type="text" th:field="*{description}"></td>-->
-<!--                        </tr>-->
-<!--                        <tr>-->
+                    <!--                    <TABLE>-->
+                    <!--                        <tr>-->
+                    <!--                            <td>Category Name</td>-->
+                    <!--                            <td><input type="text" th:field="*{category_name}"></td>-->
+                    <!--                        </tr>-->
+                    <!--                        <tr>-->
+                    <!--                            <td>Description</td>-->
+                    <!--                            <td><input type="text" th:field="*{description}"></td>-->
+                    <!--                        </tr>-->
+                    <!--                        <tr>-->
 
-<!--                            <td>-->
-<!--                                <button type="submit">Submit</button>-->
-<!--                            </td>-->
-<!--                        </tr>-->
+                    <!--                            <td>-->
+                    <!--                                <button type="submit">Submit</button>-->
+                    <!--                            </td>-->
+                    <!--                        </tr>-->
 
-<!--                    </TABLE>-->
+                    <!--                    </TABLE>-->
                 </form>
             </div>
         </div>
@@ -52,15 +63,16 @@
                 <td>Status</td>
                 <td>Action</td>
                 </thead>
-                <tr th:each="category,index:${categoryList}">
+                <tr th:each="category,index:${categoryDtoList}">
                     <td th:text="${index.count}"></td>
                     <td th:text="${category.categoryName}"></td>
                     <td th:text="${category.description}"></td>
                     <td th:text="${category.status}"></td>
                     <td>
                         <!-- Edit -->
-                        <a th:href="@{/category/delete/} + ${category.id}"></a>
+                        <a th:href="@{/category/edit/} + ${category.id}">Edit</a>
                         <!-- Delete -->
+                        <a th:href="@{/category/delete/} + ${category.id}">Delete</a>
                     </td>
                 </tr>
             </table>

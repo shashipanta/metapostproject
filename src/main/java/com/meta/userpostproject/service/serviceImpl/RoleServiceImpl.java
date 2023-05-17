@@ -1,4 +1,4 @@
-package com.meta.userpostproject.service;
+package com.meta.userpostproject.service.serviceImpl;
 
 import com.meta.userpostproject.dto.RoleDto;
 import com.meta.userpostproject.model.Role;

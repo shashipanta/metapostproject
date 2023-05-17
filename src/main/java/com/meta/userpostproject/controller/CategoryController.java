@@ -22,15 +22,15 @@ public class CategoryController {
 
     @GetMapping()
     public String adminCategory(Model model){
-        List<CategoryDto> categoryDtoList = categoryService.findAll();
-        model.addAttribute("category",new CategoryDto());
-        model.addAttribute("categoryList",categoryDtoList);
+        List<CategoryDto> categoryDtoList = categoryService.getCategories();
+        model.addAttribute("categoryDto",new CategoryDto());
+        model.addAttribute("categoryDtoList",categoryDtoList);
         return "/category/Category";
     }
 
     @PostMapping("/save")
     public String saveCategory(@ModelAttribute("CategoryDto") CategoryDto categoryDto){
-        categoryDto = categoryService.save(categoryDto);
+        categoryDto = categoryService.createCategory(categoryDto);
         return "redirect:/category";
     }
 }
