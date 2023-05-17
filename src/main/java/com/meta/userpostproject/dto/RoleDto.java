@@ -1,7 +1,7 @@
 package com.meta.userpostproject.dto;
 
 import com.meta.userpostproject.model.Role;
-import com.meta.userpostproject.model.RoleType;
+import com.meta.userpostproject.enums.RoleType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

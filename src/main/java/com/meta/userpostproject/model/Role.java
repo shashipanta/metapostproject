@@ -7,6 +7,7 @@ Program was written in 2023-05-02 18:04
 */
 
 import com.meta.userpostproject.dto.RoleDto;
+import com.meta.userpostproject.enums.RoleType;
 import jakarta.persistence.*;
 import lombok.*;
 

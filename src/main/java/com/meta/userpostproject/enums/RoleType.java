@@ -1,4 +1,4 @@
-package com.meta.userpostproject.model;
+package com.meta.userpostproject.enums;
 
 public enum RoleType {
 INTERNAL, EXTERNAL
