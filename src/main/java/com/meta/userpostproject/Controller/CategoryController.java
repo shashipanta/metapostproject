@@ -1,7 +1,8 @@
-package com.meta.userpostproject.controller;
+package com.meta.userpostproject.Controller;
 
+import com.meta.userpostproject.Service.CategoryService;
 import com.meta.userpostproject.dto.CategoryDto;
-import com.meta.userpostproject.service.CategoryService;
+//import com.meta.userpostproject.service.CategoryService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

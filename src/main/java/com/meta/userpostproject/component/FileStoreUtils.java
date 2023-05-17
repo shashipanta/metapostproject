@@ -22,8 +22,6 @@ public class FileStoreUtils {
      * @return
      */
     public String saveMultipartFile(MultipartFile multipartFile) throws IOException, TikaException {
-
-
         String dirPath = System.getProperty("user.home") + "/Desktop/META_FILE_STORE";
         File directoryFile = new File(dirPath);
         if (!directoryFile.exists()) {
@@ -32,16 +30,12 @@ public class FileStoreUtils {
         String originalFileName = multipartFile.getOriginalFilename();
         String filePath = dirPath + "/" + originalFileName;
         File myFile = new File(filePath);
-
-
         try {
             multipartFile.transferTo(myFile);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
         return filePath;
-
-
 
     }
 

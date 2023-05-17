@@ -38,7 +38,7 @@ public class PostController {
             model.addAttribute("postDto", new PostDto());
 
         List<PostDto> allPost = postService.getALlPost();
-        model.addAttribute("post", allPost);
+        model.addAttribute("posts", allPost);
         return "external/post/create-post";
     }
 
