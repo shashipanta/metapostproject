@@ -3,6 +3,7 @@ package com.meta.userpostproject.service.serviceImpl;
 import com.meta.userpostproject.component.FileStoreUtils;
 import com.meta.userpostproject.dto.CategoryDto;
 import com.meta.userpostproject.dto.PostDto;
+import com.meta.userpostproject.dto.PostTableViewDto;
 import com.meta.userpostproject.model.Category;
 import com.meta.userpostproject.model.Post;
 import com.meta.userpostproject.repo.CategoryRepo;
@@ -65,6 +66,20 @@ public class PostServiceImpl implements PostService {
                             .filePath(post.getImagePath()).build()
                         )
                 .collect(Collectors.toList());
+    }
+
+    public List<PostTableViewDto> getAllPosts() {
+        List<Post> postList = postRepo.findAll();
+
+        return postList.stream()
+                        .map(
+                                post -> PostTableViewDto.builder()
+                                        .id(post.getId())
+                                        .title(post.getTitle())
+                                        .category(post.getCategory().getName())
+                                        .description(PostTableViewDto.minifyPostDescription(post.getDescription()))
+                                        .build()
+                        ).collect(Collectors.toList());
     }
 
     //delete post

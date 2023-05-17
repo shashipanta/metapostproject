@@ -1,5 +1,6 @@
 package com.meta.userpostproject.controller;
 
+import com.meta.userpostproject.dto.PostTableViewDto;
 import com.meta.userpostproject.service.PostService;
 import com.meta.userpostproject.component.FileStoreUtils;
 import com.meta.userpostproject.dto.CategoryDto;
@@ -44,8 +45,11 @@ public class PostController {
 //        model.addAttribute("categoryList", Arrays.asList("Science and Fiction", "Society", "Entertainment", "Technology"));
         model.addAttribute("categoryDtoList", categoryDtoList);
         model.addAttribute("postDto", new PostDto());
-        List<PostDto> allPost = postService.getALlPost();
-        model.addAttribute("posts", allPost);
+//        List<PostDto> allPost = postService.getALlPost();
+
+        // table view of post
+        List<PostTableViewDto> tableViewDtos = postService.getAllPosts();
+        model.addAttribute("tableViewDtos", tableViewDtos);
         return "external/post/create-post";
     }
 

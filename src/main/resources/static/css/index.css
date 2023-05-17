@@ -1,9 +1,26 @@
 /* COMMON CSS */
+:root{
+    --clr-primary: red;
+    --clr-secondary: green;
+    --clr-tertiary: blue
+}
 
 
 /* ICONS */
 i{
     font-size: 1.5em;
+}
+
+.icon-delete{
+   color: var(--clr-primary);
+}
+
+.icon-view {
+    color: var(--clr-secondary);
+}
+
+.icon-update {
+    color: var(--clr-tertiary);
 }
 
 /* CATEGORY PAGE */

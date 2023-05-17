@@ -6,6 +6,7 @@
     <th:block th:replace="~{external/fragments/html-head :: html_head('create-post')}"></th:block>
 
     <link rel="stylesheet" type="text/css" th:href="@{/css/user/create-post.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/index.css}">
 
 </head>
 <body>
@@ -110,37 +111,34 @@
         </div>
         <div class="col-md-6 border mx-auto">
             <div class="user_table_post  mt-5">
-                <div class="MPOS">My Creations
-                </div>
+                <div class="MPOS">My Creations</div>
                 <div class="table-responsive">
                     <table class="table table-bordered table-striped mt-3">
                         <thead>
                         <tr>
-
                             <th>S.N.</th>
                             <th>Title</th>
-                            <!--                            <th>Image path</th>-->
                             <th>Category</th>
+                            <th>Description</th>
                             <th>Action</th>
                         </tr>
                         </thead>
-                        <tbody th:each="post,Index:${posts}">
+                        <tbody th:each="post,Index:${tableViewDtos}">
                         <tr>
                             <td th:text="${Index.count}"></td>
                             <td th:text="${post.title}"></td>
-                            <!-- CATEGORY BASED ON ID -->
-
-                            <td th:text="${post.categoryId}"></td>
+                            <td th:text="${post.category}"></td>
+                            <td th:text="${post.description}"></td>
 
                             <td>
                                 <a th:href="@{/post/view/} + ${post.id}">
-                                    <i class="fa-solid fa-eye"></i>
+                                    <i class="fa-solid fa-eye icon-view"></i>
                                 </a>
                                 <a th:href="@{/post/update/} + ${post.id}">
-                                    <i class="fa-solid fa-pen-to-square"></i>
+                                    <i class="fa-solid fa-pen-to-square icon-update"></i>
                                 </a>
                                 <a th:href="@{/post/delete/} + ${post.id}">
-                                    <i class="fa-solid fa-trash" style="color: #f50025;"></i>
+                                    <i class="fa-solid fa-trash icon-delete"></i>
                                 </a>
                             </td>
                         </tr>
