@@ -27,7 +27,6 @@ public class Post {
     @Column(name = "category", nullable = false, length = 100)
     private String category;
 
-
     @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 

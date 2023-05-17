@@ -25,6 +25,4 @@ public class Category {
     @Column(name = "Status")
     private boolean status;
 
-
-
 }

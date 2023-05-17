@@ -57,7 +57,11 @@
                     <td th:text="${category.categoryName}"></td>
                     <td th:text="${category.description}"></td>
                     <td th:text="${category.status}"></td>
-                    <td><a href="#">Enable</a>|<a href="#">Disable</a></td>
+                    <td>
+                        <!-- Edit -->
+                        <a th:href="@{/category/delete/} + ${category.id}"></a>
+                        <!-- Delete -->
+                    </td>
                 </tr>
             </table>
         </div>

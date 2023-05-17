@@ -19,12 +19,6 @@ public class CategoryController {
     public CategoryController(CategoryService categoryService) {
         this.categoryService = categoryService;
     }
-//
-//    @GetMapping
-//    public String admin() {
-//        return"/internal/postActionPage";
-//    }
-
 
     @GetMapping()
     public String adminCategory(Model model){

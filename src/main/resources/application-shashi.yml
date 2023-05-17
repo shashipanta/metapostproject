@@ -1,0 +1,22 @@
+server:
+  port: 8888
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/userpostproject
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+user:
+  created:
+    value1: dev_key1
+    value2: dev_key2
+    value3: dev_key3
+    value4:
+      - item1
+      - item2
+      - item3
+      - item4
