@@ -3,8 +3,9 @@ package com.meta.userpostproject.service.serviceImpl;
 import com.meta.userpostproject.dto.RoleDto;
 import com.meta.userpostproject.model.Role;
 import com.meta.userpostproject.repo.RoleRepo;
-import org.springframework.stereotype.Service;
 import com.meta.userpostproject.service.RoleService;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
