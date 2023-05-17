@@ -1,9 +1,5 @@
 package com.meta.userpostproject.service.serviceImpl;
 
-import com.meta.userpostproject.Service.CategoryService;
-import com.meta.userpostproject.dto.CategoryDto;
-import com.meta.userpostproject.model.Category;
-import com.meta.userpostproject.repo.CategoryRepo;
 import com.meta.userpostproject.dto.CategoryDto;
 import com.meta.userpostproject.model.Category;
 import com.meta.userpostproject.repo.CategoryRepo;
@@ -11,6 +7,7 @@ import com.meta.userpostproject.service.CategoryService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -25,8 +22,8 @@ public class CategoryServiceImpl implements CategoryService {
     public CategoryDto createCategory(CategoryDto categoryDto) {
         Category category = Category
                 .builder()
-                .id(null)
-                .categoryName(categoryDto.getCategoryName())
+                .id(categoryDto.getId())
+                .name(categoryDto.getCategoryName())
                 .description(categoryDto.getDescription())
                 .status(categoryDto.isStatus())
                 .build();
@@ -35,13 +32,45 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    public Boolean deleteCategory(Short categoryId) {
+        categoryRepo.deleteById(categoryId);
+        if(categoryRepo.findById(categoryId).isPresent()) return Boolean.FALSE;
+        return Boolean.TRUE;
+    }
+
+    @Override
+    public CategoryDto updateCategory(Short categoryId, CategoryDto categoryDto) {
+        Optional<Category> optionalCategory = categoryRepo.findById(categoryId);
+        if(optionalCategory.isPresent()){
+            Category categoryToUpdate = optionalCategory.get();
+
+            categoryToUpdate = categoryRepo.save(categoryToUpdate);
+
+            CategoryDto updatedCategoryDto =CategoryDto.builder()
+                    .id(categoryToUpdate.getId())
+                    .categoryName(categoryToUpdate.getName())
+                    .description(categoryToUpdate.getDescription())
+                    .status(categoryToUpdate.getStatus())
+                    .build();
+            return updatedCategoryDto;
+        }
+
+        return null;
+    }
+
+    @Override
     public List<CategoryDto> getCategories() {
         List<Category> categoryList = categoryRepo.findAll();
         return categoryList.stream().map(category -> CategoryDto.builder()
                 .id(category.getId())
-                .categoryName(category.getCategoryName())
+                .categoryName(category.getName())
                 .description(category.getDescription())
-                .status(category.isStatus())
+                .status(category.getStatus())
                 .build()).collect(Collectors.toList());
+    }
+
+    @Override
+    public CategoryDto getSingleCategory(Short categoryId) {
+        return null;
     }
 }

@@ -3,7 +3,9 @@ package com.meta.userpostproject.service.serviceImpl;
 import com.meta.userpostproject.component.FileStoreUtils;
 import com.meta.userpostproject.dto.CategoryDto;
 import com.meta.userpostproject.dto.PostDto;
+import com.meta.userpostproject.model.Category;
 import com.meta.userpostproject.model.Post;
+import com.meta.userpostproject.repo.CategoryRepo;
 import com.meta.userpostproject.repo.PostRepo;
 import com.meta.userpostproject.service.PostService;
 import org.apache.tika.exception.TikaException;
@@ -96,7 +98,7 @@ public class PostServiceImpl implements PostService {
             return PostDto.builder()
                     .id(viewPost.getId())
                     .title(viewPost.getTitle())
-                    .category(viewPost.getCategory())
+                    .categoryId(viewPost.getCategory().getId())
                     .description(viewPost.getDescription())
                     .filePath(fileStoreUtils.getBase64FormFilePath(viewPost.getImagePath()))
                     .build();

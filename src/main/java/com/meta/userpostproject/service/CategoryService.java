@@ -1,17 +1,15 @@
-package com.meta.userpostproject.Service;
-
-import com.meta.userpostproject.dto.CategoryDto;
-import org.springframework.stereotype.Service;
 package com.meta.userpostproject.service;
 
 import com.meta.userpostproject.dto.CategoryDto;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public interface CategoryService {
     CategoryDto createCategory(CategoryDto categoryDto);
 
-    void deleteCategory(Short categoryId);
+    Boolean deleteCategory(Short categoryId);
 
     CategoryDto updateCategory(Short categoryId, CategoryDto categoryDto);
 

@@ -1,10 +1,7 @@
 package com.meta.userpostproject.model;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
@@ -29,6 +26,9 @@ public class Category {
 
     @Column(name = "description")
     private String description;
+
+    @Column(name = "isActive")
+    private Boolean status;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "category")
     private List<Post> postList;

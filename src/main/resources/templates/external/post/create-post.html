@@ -5,7 +5,7 @@
     <!--  title and bootstrap link-->
     <th:block th:replace="~{external/fragments/html-head :: html_head('create-post')}"></th:block>
 
-     <link rel="stylesheet" type="text/css" th:href="@{/css/user/create-post.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/user/create-post.css}">
 
 </head>
 <body>
@@ -82,7 +82,7 @@
                             <option value="" disabled selected>-- select --</option>
                             <option th:each="category : ${categoryDtoList}"
                                     th:value="${category.id}"
-                                    th:text="${category.name}">
+                                    th:text="${category.categoryName}">
                             </option>
 
                         </select>
@@ -119,25 +119,25 @@
 
                             <th>S.N.</th>
                             <th>Title</th>
+                            <!--                            <th>Image path</th>-->
                             <th>Category</th>
-<!--                            <th>Image path</th>-->
-                             <th>Category</th>
                             <th>Action</th>
                         </tr>
                         </thead>
                         <tbody th:each="post,Index:${posts}">
                         <tr>
                             <td th:text="${Index.count}"></td>
-                            <td th:text="${p.title}"></td>
-                            <!--                        <td th:text="${p.category}"></td>-->
-                            <td th:text="${p.categoryId}"></td>
+                            <td th:text="${post.title}"></td>
+                            <!-- CATEGORY BASED ON ID -->
+
+                            <td th:text="${post.categoryId}"></td>
 
                             <td>
                                 <a th:href="@{/post/view/} + ${post.id}">
                                     <i class="fa-solid fa-eye"></i>
                                 </a>
                                 <a th:href="@{/post/update/} + ${post.id}">
-                                    <i class="fa-solid fa-pen-to-square" ></i>
+                                    <i class="fa-solid fa-pen-to-square"></i>
                                 </a>
                                 <a th:href="@{/post/delete/} + ${post.id}">
                                     <i class="fa-solid fa-trash" style="color: #f50025;"></i>
