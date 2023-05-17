@@ -106,10 +106,11 @@
                 <td>S.N</td>
                 <td>Category</td>
                 <td>Description</td>
-                <td>Is Active</td>
+                <td>Active</td>
                 <td>Action</td>
                 </thead>
-                <tr th:each="category,index:${categoryDtoList}">
+<!--                <span th:class="'base '+${condition ? 'condition-true' : 'condition-false'}">-->
+                <tr th:each="category,index:${categoryDtoList}" th:class="${category.status ? '' : 'disabled-category'}">
                     <td th:text="${index.count}"></td>
                     <td th:text="${category.categoryName}"></td>
                     <td th:text="${category.description}"></td>

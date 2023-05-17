@@ -1,7 +1,10 @@
 /* COMMON CSS */
 
 
-
+/* ICONS */
+i{
+    font-size: 1.5em;
+}
 
 /* CATEGORY PAGE */
 .disabled-category{
