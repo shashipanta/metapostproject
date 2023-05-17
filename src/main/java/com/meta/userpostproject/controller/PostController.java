@@ -45,9 +45,15 @@ public class PostController {
     @PostMapping
     public String createPost(@ModelAttribute PostDto postDto, RedirectAttributes redirectAttributes) throws TikaException, IOException {
         String type = fileStoreUtils.extensionvalidation(postDto.getMultipartFile());
+        String success_message="";
         if (type.equals("image/jpeg")||type.equals("image/png")) {
             postService.createPost(postDto);
-            String success_message = "Post Created Successfully";
+
+            if(postDto.getId()==null){
+                success_message = "Post Created Successfully";
+            }else {
+                success_message="Post updated Successfully!!";
+            }
             redirectAttributes.addFlashAttribute("success_message",success_message);
         }
         else{

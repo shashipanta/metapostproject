@@ -27,7 +27,7 @@ public class PostServiceImpl implements com.meta.userpostproject.service.PostSer
     public PostDto createPost(PostDto postDto) throws  TikaException, IOException {
         Post post =
                 Post.builder()
-                        .id(null)
+                        .id(postDto.getId())
                         .title(postDto.getTitle())
                         .description(postDto.getDescription())
                         .category(postDto.getCategory())
