@@ -2,7 +2,10 @@ package com.meta.userpostproject.controller;
 
 import com.meta.userpostproject.service.PostService;
 import com.meta.userpostproject.component.FileStoreUtils;
+import com.meta.userpostproject.dto.CategoryDto;
 import com.meta.userpostproject.dto.PostDto;
+import com.meta.userpostproject.service.CategoryService;
+import com.meta.userpostproject.service.PostService;
 import org.apache.tika.exception.TikaException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,17 +13,18 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 
 @Controller
 @RequestMapping("/post")
 public class PostController {
     private final PostService postService;
+    private final CategoryService categoryService;
     private final FileStoreUtils fileStoreUtils;
 
-    public PostController(PostService postService,FileStoreUtils fileStoreUtils) {
+    public PostController(PostService postService, CategoryService categoryService, FileStoreUtils fileStoreUtils) {
         this.postService = postService;
+        this.categoryService = categoryService;
         this.fileStoreUtils=fileStoreUtils;
     }
 
@@ -32,11 +36,14 @@ public class PostController {
 
     @GetMapping("/create")
     public String createPost(Model model){
-        model.addAttribute("categoryList", Arrays.asList("Science and Fiction", "Society", "Entertainment", "Technology"));
 
         if(model.getAttribute("postDto") == null)
             model.addAttribute("postDto", new PostDto());
 
+        List<CategoryDto> categoryDtoList = categoryService.getCategories();
+//        model.addAttribute("categoryList", Arrays.asList("Science and Fiction", "Society", "Entertainment", "Technology"));
+        model.addAttribute("categoryDtoList", categoryDtoList);
+        model.addAttribute("postDto", new PostDto());
         List<PostDto> allPost = postService.getALlPost();
         model.addAttribute("posts", allPost);
         return "external/post/create-post";

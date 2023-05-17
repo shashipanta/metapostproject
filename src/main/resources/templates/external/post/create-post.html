@@ -12,14 +12,14 @@
 <div class="container-fluid">
     <div class="row">
 
-        <div th:replace="~{external/fragments/sidebar :: sidebar}"> </div>
+        <div th:replace="~{external/fragments/sidebar :: sidebar}"></div>
 
 
         <!--        SUCCESS OR FAILED FILE UPLOAD INDICATION -->
 
         <div class="col-md-4 border  mx-auto">
             <th:block th:if="${not #strings.isEmpty(success_message)}">
-                <div  class="my-3">
+                <div class="my-3">
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
                             <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
@@ -38,7 +38,7 @@
             </th:block>
 
             <th:block th:if="${not #strings.isEmpty(message)}">
-                <div  class="my-3">
+                <div class="my-3">
                     <div class="alert alert-danger alert-dismissible fade show" role="alert">
                         <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
                             <symbol id="exclamation-triangle-fill" viewBox="0 0 16 16">
@@ -58,9 +58,9 @@
 
 
             <div class="user_input_post  mt-5">
-                <form class="login" th:action="@{/post}" method="post" th:object="${postDto}" enctype="multipart/form-data">
-                    <div class="MPOS">Create a new Post
-                    </div>
+                <form class="login" th:action="@{/post}" method="post" th:object="${postDto}"
+                      enctype="multipart/form-data">
+                    <div class="MPOS">Create a new Post</div>
                     <div class="mb-4 mt-4">
 
                         <div class="form-floating ">
@@ -68,7 +68,7 @@
                         </div>
 
                         <div class="form-floating ">
-                            <input type="text" class="form-control" id="floatingInput" th:field="*{title}" >
+                            <input type="text" class="form-control" id="floatingInput" th:field="*{title}">
                             <label for="floatingInput">Title</label>
 
                         </div>
@@ -77,21 +77,27 @@
 
                     <div class="mb-4">
                         <label for="Category" class=""> Category</label>
-                        <select class="form-select mt-2" aria-label="Default select example" id="Category" th:field="*{category}">
-                            <option value="" disabled>-- select --</option>
-                            <option th:each="i : ${categoryList}" th:value="${i}" th:text="${i}"></option>
+                        <select th:field="*{categoryId}" class="form-select mt-2" aria-label="Default select example"
+                                id="Category">
+                            <option value="" disabled selected>-- select --</option>
+                            <option th:each="category : ${categoryDtoList}"
+                                    th:value="${category.id}"
+                                    th:text="${category.name}">
+                            </option>
+
                         </select>
                     </div>
 
                     <div class="mb-4">
                         <div class="form-floating">
-                            <textarea class="form-control" id="floatingTextarea2" style="height: 100px"  th:field="*{description}"></textarea>
+                            <textarea class="form-control" id="floatingTextarea2" style="height: 100px"
+                                      th:field="*{description}"></textarea>
                             <label for="floatingTextarea2">Description</label>
                         </div>
                     </div>
                     <div class="mb-4">
                         <div class="input-group">
-                            <input type="file" class="form-control" id="inputGroupFile04"  th:field="*{multipartFile}"
+                            <input type="file" class="form-control" id="inputGroupFile04" th:field="*{multipartFile}"
                                    aria-describedby="inputGroupFileAddon04" aria-label="Upload">
                         </div>
                     </div>
@@ -107,21 +113,24 @@
                 <div class="MPOS">My Creations
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-bordered table-striped mt-3" >
+                    <table class="table table-bordered table-striped mt-3">
                         <thead>
                         <tr>
 
                             <th>S.N.</th>
                             <th>Title</th>
+                            <th>Category</th>
+<!--                            <th>Image path</th>-->
                              <th>Category</th>
                             <th>Action</th>
                         </tr>
                         </thead>
                         <tbody th:each="post,Index:${posts}">
-                        <tr >
+                        <tr>
                             <td th:text="${Index.count}"></td>
-                            <td th:text="${post.title}"></td>
-                            <td th:text="${post.category}"></td>
+                            <td th:text="${p.title}"></td>
+                            <!--                        <td th:text="${p.category}"></td>-->
+                            <td th:text="${p.categoryId}"></td>
 
                             <td>
                                 <a th:href="@{/post/view/} + ${post.id}">

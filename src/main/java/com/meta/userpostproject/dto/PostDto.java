@@ -16,14 +16,15 @@ public class PostDto {
 
     private String description;
 
-    private String category;
-
     private MultipartFile multipartFile;
 
     private String filePath;
 
+    private Short categoryId;
+
     public PostDto(Short id) {
         this.id = id;
     }
+
 }
 

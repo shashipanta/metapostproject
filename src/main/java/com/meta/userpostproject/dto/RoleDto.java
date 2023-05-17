@@ -17,7 +17,6 @@ public class RoleDto {
     private Short id;
     private String name;
     private String description;
-
     private RoleType roleType;
 
     public RoleDto(Role role){

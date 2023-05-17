@@ -9,20 +9,31 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Builder
-@Table(name = "Category")
+@Getter
+@Setter
+@Table(name = "category", uniqueConstraints = {
+        @UniqueConstraint(name = "uk_category_name", columnNames = "name")
+})
+@NoArgsConstructor
+@AllArgsConstructor
 public class Category {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Short id;
-    @Column(name = "category_name",length = 100, nullable = false)
-    private String categoryName;
-    @Column(name = "Description",nullable = false)
-    private String description;
-    @Column(name = "Status")
-    private boolean status;
 
+    @Column(name = "name", length = 100, nullable = false)
+    private String name;
+
+    @Column(name = "description")
+    private String description;
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "category")
+    private List<Post> postList;
+
+    Category(String name){
+        this.name=name;
+    }
 }

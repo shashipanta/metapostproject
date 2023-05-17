@@ -70,9 +70,13 @@
                     <td th:text="${category.status}"></td>
                     <td>
                         <!-- Edit -->
-                        <a th:href="@{/category/edit/} + ${category.id}">Edit</a>
+                        <a th:href="@{/category/edit/} + ${category.id}">
+                            <i class="fa-solid fa-pen-to-square" ></i>
+                        </a>
                         <!-- Delete -->
-                        <a th:href="@{/category/delete/} + ${category.id}">Delete</a>
+                        <a th:href="@{/category/delete/} + ${category.id}">
+                            <i class="fa-solid fa-trash" style="color: #f50025;"></i>
+                        </a>
                     </td>
                 </tr>
             </table>
