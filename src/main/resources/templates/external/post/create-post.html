@@ -85,7 +85,7 @@
 
                     <div class="mb-4">
                         <div class="form-floating">
-                            <textarea class="form-control" id="floatingTextarea2" style="height: 100px"  th:field="*{description}"></textarea>
+                            <textarea class="form-control" id="floatingTextarea2" style="height: 180px"  th:field="*{description}"></textarea>
                             <label for="floatingTextarea2">Description</label>
                         </div>
                     </div>
@@ -114,6 +114,7 @@
                             <th>S.N.</th>
                             <th>Title</th>
                              <th>Category</th>
+                            <th>Date-Time</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -122,6 +123,7 @@
                             <td th:text="${Index.count}"></td>
                             <td th:text="${post.title}"></td>
                             <td th:text="${post.category}"></td>
+                            <td th:text="${post.dateTime}"></td>
 
                             <td>
                                 <a th:href="@{/post/view/} + ${post.id}">

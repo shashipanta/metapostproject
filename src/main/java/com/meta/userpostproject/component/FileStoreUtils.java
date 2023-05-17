@@ -47,7 +47,7 @@ public class FileStoreUtils {
     }
 
 
-    //convert the image  into base64
+    //convert image  into base64
     public String getBase64FormFilePath(String filePath) throws IOException {
         File file = new File(filePath);
         if(file.exists()){
