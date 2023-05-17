@@ -49,6 +49,7 @@
         text-align: start;
         margin-left: 20px;
         color: #79D1C1;
+        text-decoration:none;
 
     }
 
@@ -65,13 +66,17 @@
     }
 
     .icons_post {
-        width: 44px;
-        height: 44px;
+        margin-top:10px;
+        font-size: 1.9rem;
+        color:#19d6b3;
     }
    
 
     .post_details{
         background-color: rgba(143, 148, 145,0.1);
+    }
+    .postTitle{
+        color:#19d6b3;
     }
     .username{
         color:#19d6b3;

@@ -24,10 +24,30 @@
                 <th>Status</th>
                 <th>Action</th>
             </tr>
-            </thead>
-            <tbody>
+            <tbody th:each="p,index:${post}">
+            <tr>
+                <td th:text="${index.count}"></td>
+                <td th:text="${p.title}"></td>
+                <!--                        <td th:text="${p.category}"></td>-->
+                <td th:text="${p.category}"></td>
+                <td>Status Enum</td>
+                <td>
+                    <a th:href="@{/post/view/}+${p.id}">
+                        <i class="fa-solid fa-eye"></i>
+                    </a>
+<!--                    <a>-->
+<!--                        <i class="fa-solid fa-pen-to-square"></i>-->
+<!--                    </a>-->
+<!--                    <a th:href="@{/post/delete/} + ${p.id}">-->
+<!--                        <i class="fa-solid fa-trash" style="color: #f50025;"></i>-->
+<!--                    </a>-->
+                </td>
+            </tr>
 
             </tbody>
+
+            </thead>
+
         </table>
 
 </div>

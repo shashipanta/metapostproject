@@ -19,19 +19,19 @@ public class PostController {
     private final PostService postService;
     private final FileStoreUtils fileStoreUtils;
 
-    public PostController(PostService postService,FileStoreUtils fileStoreUtils) {
+    public PostController(PostService postService, FileStoreUtils fileStoreUtils) {
         this.postService = postService;
-        this.fileStoreUtils=fileStoreUtils;
+        this.fileStoreUtils = fileStoreUtils;
     }
 
     @GetMapping()
-    public String postPage(){
+    public String postPage() {
         return "external/main-page";
     }
 
 
     @GetMapping("/create")
-    public String createPost(Model model){
+    public String createPost(Model model) {
         model.addAttribute("categoryList", Arrays.asList("Science and Fiction", "Society", "Entertainment", "Technology"));
         model.addAttribute("postDto", new PostDto());
         List<PostDto> allPost = postService.getALlPost();
@@ -42,24 +42,27 @@ public class PostController {
     @PostMapping
     public String createPost(@ModelAttribute PostDto postDto, RedirectAttributes redirectAttributes) throws TikaException, IOException {
         String type = fileStoreUtils.extensionvalidation(postDto.getMultipartFile());
-        if (type.equals("image/jpeg")||type.equals("image/png")) {
+        if (type.equals("image/jpeg") || type.equals("image/png")) {
             postService.createPost(postDto);
             String success_message = "Post Created Successfully";
-            redirectAttributes.addFlashAttribute("success_message",success_message);
-        }
-        else{
-            String message= "Failed! File type should be jpg or png or jpeg";
-            redirectAttributes.addFlashAttribute("message",message);
+            redirectAttributes.addFlashAttribute("success_message", success_message);
+        } else {
+            String message = "Failed! File type should be jpg or png or jpeg";
+            redirectAttributes.addFlashAttribute("message", message);
         }
         return "redirect:/post/create";
     }
 
+    @GetMapping("/view/{id}")
+    public String viewSinglePost(@PathVariable("id") short id,Model model){
+        model.addAttribute("postdetails",postService.getSinglePost(id));
+        return "external/post/uploaded_post_single_view";
+    }
     @RequestMapping("/delete/{id}")
-    public String deletePost ( @PathVariable("id") short id){
+    public String deletePost(@PathVariable("id") short id) {
         postService.deletePost(id);
         return "redirect:/post/create";
     }
-
 
 
 }
