@@ -64,6 +64,10 @@
                     <div class="mb-4 mt-4">
 
                         <div class="form-floating ">
+                            <input type="text" th:field="*{id}" hidden>
+                        </div>
+
+                        <div class="form-floating ">
                             <input type="text" class="form-control" id="floatingInput" th:field="*{title}" >
                             <label for="floatingInput">Title</label>
 
@@ -109,8 +113,7 @@
 
                             <th>S.N.</th>
                             <th>Title</th>
-<!--                            <th>Category</th>-->
-                            <th>Image path</th>
+                             <th>Category</th>
                             <th>Action</th>
                         </tr>
                         </thead>
@@ -118,15 +121,14 @@
                         <tr >
                             <td th:text="${Index.count}"></td>
                             <td th:text="${p.title}"></td>
-<!--                        <td th:text="${p.category}"></td>-->
-                            <td th:text="${p.filePath}"></td>
+                            <td th:text="${p.category}"></td>
 
                             <td>
-                                <a>
+                                <a th:href="@{/post/view/} + ${p.id}">
                                     <i class="fa-solid fa-eye"></i>
                                 </a>
-                                <a>
-                                    <i class="fa-solid fa-pen-to-square"></i>
+                                <a th:href="@{/post/update/} + ${p.id}">
+                                    <i class="fa-solid fa-pen-to-square" ></i>
                                 </a>
                                 <a th:href="@{/post/delete/} + ${p.id}">
                                     <i class="fa-solid fa-trash" style="color: #f50025;"></i>
