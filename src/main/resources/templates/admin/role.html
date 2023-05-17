@@ -76,7 +76,7 @@
                         <label for="Category" class=""> Category</label>
                         <select class="form-select mt-2" aria-label="Default select example" id="Category" th:field="*{roleType}" required>
                             <option value="" disabled>-- select --</option>
-                            <option th:each="roleOpt : ${T(com.meta.userpostproject.model.RoleType).values()}"
+                            <option th:each="roleOpt : ${T(com.meta.userpostproject.enums.RoleType).values()}"
                                     th:value="${roleOpt}" th:text="${roleOpt}"></option>
                         </select>
                     </div>
