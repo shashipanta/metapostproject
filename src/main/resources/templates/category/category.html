@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head th:insert="~{internal/fragments/sidebar_container.html :: main_head}">
     <meta charset="UTF-8">
     <title>Category Form</title>
@@ -15,7 +15,9 @@
         <div class="col-md-4 ">
             <div class="form-data border p-3 mt-5">
                 <!-- TOAST MESSAGE -->
-                <toast-message th:replace="~{fragments/toast-message-fragment :: toast_message(message=${message}, type=${messageType})}">
+
+                <toast-message
+                        th:replace="~{fragments/toast-message-fragment :: toast_message(message=${message}, type=${messageType})}">
 
                 </toast-message>
 
@@ -129,7 +131,7 @@
                         </a>
                         <!-- Delete -->
                         <a th:href="@{/category/delete/} + ${category.id}">
-                            <i class="fa-solid fa-trash" style="color: #f50025;"></i>
+                            <i class="fa-solid fa-trash" ></i>
                         </a>
                     </td>
                 </tr>

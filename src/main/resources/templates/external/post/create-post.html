@@ -123,14 +123,14 @@
                             <th>Action</th>
                         </tr>
                         </thead>
-                        <tbody th:each="post,Index:${tableViewDtos}">
-                        <tr>
+                        <tbody >
+                        <tr th:each="post,Index:${tableViewDtos}">
                             <td th:text="${Index.count}"></td>
                             <td th:text="${post.title}"></td>
                             <td th:text="${post.category}"></td>
                             <td th:text="${post.description}"></td>
 
-                            <td>
+                            <td class="icon-container">
                                 <a th:href="@{/post/view/} + ${post.id}">
                                     <i class="fa-solid fa-eye icon-view"></i>
                                 </a>

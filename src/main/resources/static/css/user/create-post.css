@@ -151,10 +151,6 @@ a:hover{
     transition:transform  0.9s;
     transform: scale(1.1);
 }
-i{
-    margin-left: 15px;
-}
-
 
 /*popup box style */
 .popup {
@@ -210,4 +206,14 @@ i{
 
 .popup-button:hover {
     background-color: #3e8e41;
+}
+
+/* Actions column in create post */
+.icon-container {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    height: 100px;
+    flex-direction: column;
+    justify-content: space-between;
 }

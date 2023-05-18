@@ -10,6 +10,9 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  thymeleaf:
+    enabled: true
+    cache: false
 user:
   created:
     value1: dev_key1
