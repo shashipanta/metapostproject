@@ -73,6 +73,25 @@ public class PostServiceImpl implements com.meta.userpostproject.service.PostSer
            return null;
        }
     }
+    //view post
+    @Override
+    public PostDto postView(short id) throws IOException {
+        Optional<Post> post =  postRepo.findById(id);
+        if(post.isPresent()){
+            Post viewPost = post.get();
+            return PostDto.builder()
+                    .id(viewPost.getId())
+                    .title(viewPost.getTitle())
+                    .category(viewPost.getCategory())
+                    .description(viewPost.getDescription())
+                    .filePath(fileStoreUtils.getBase64FormFilePath(viewPost.getImagePath()))
+                    .build();
+        }else {
+            return null;
+        }
+    }
+
+
 
 
 }

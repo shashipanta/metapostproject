@@ -54,9 +54,10 @@ public class PostController {
     }
 
     @GetMapping("/view/{id}")
-    public String viewSinglePost(@PathVariable("id") short id,Model model){
-        model.addAttribute("postdetails",postService.getSinglePost(id));
-        return "external/post/uploaded_post_single_view";
+    public String viewPost(@PathVariable("id") short id, Model model) throws IOException {
+        PostDto postDto = postService.postView(id);
+        model.addAttribute("post",postDto);
+        return "/external/post/uploaded_post_single_view";
     }
     @RequestMapping("/delete/{id}")
     public String deletePost(@PathVariable("id") short id) {

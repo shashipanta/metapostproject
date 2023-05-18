@@ -16,6 +16,8 @@ public interface PostService {
     PostDto getSinglePost(short id);
 
 
+    PostDto postView(short id) throws IOException;
+
 
 
 }

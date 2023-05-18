@@ -18,9 +18,9 @@
                 <div class="main_post mt-5">
 
 
-                    <div class="fs-5 my-2 postTitle" th:text="${postdetails.getTitle()}"></div>
-                    <img src="/images/house-g86e5813e1_1920.jpg" alt="image_from_db" class="img-fluid">
-                    <div class="row post_details ms-0 me-0 align-items-center" th:each="postdetails,index:${postdetails}">
+                    <div class="fs-5 my-2 postTitle" th:text="${post.getTitle()}"></div>
+                    <img th:src="${post.filePath}" alt="image_from_db" class="img-fluid border" width="700" height="600">
+                    <div class="row post_details ms-0 me-0 align-items-center" th:each="post,index:${post}">
 
 
                         <div class="col-6  my-2 lh-1" >
@@ -63,7 +63,7 @@
                         </div>
                     </div>
                     <div class="fs-5 mt-2">Description</div>
-                    <div class="post_description my-1 fs-6 lh-base" th:text="${postdetails.getDescription()}">
+                    <div class="post_description my-1 fs-6 lh-base" th:text="${post.getDescription()}">
 
                     </div>
                 </div>
