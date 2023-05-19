@@ -28,7 +28,7 @@
 }
 
 /* CATEGORY PAGE */
-.disabled-category{
-    background: grey;
-    color: black;
+.disabled-category {
+    font-style: italic;
+    color: gray;
 }
