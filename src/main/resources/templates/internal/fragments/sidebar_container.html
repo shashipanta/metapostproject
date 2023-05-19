@@ -23,40 +23,39 @@
             <div class="mx-auto mt-5 text-center">
 
                 <div class="Dashboard">
-                    <a th:href="@{/templates/admin}" class="text-decoration-none">Dashboard</a>
-
+                    <a th:href="@{/admin}" class="text-decoration-none">Dashboard</a>
                 </div>
             </div>
 
             <ul class="list-group mt-5">
-                <li class="list-group-item  ">
-                    <a th:href="@{/admin/decidePost}" class="text-decoration-none text-dark">
-                        <img src="/images/post-approval.svg" alt="" class="icons ms-2">
+                <li class="list-group-item d-flex align-items-center">
+                    <a th:href="@{/admin/approve-post}" class="text-decoration-none text-dark">
+                        <img src="/images/post-approval.svg" alt="" class="icons">
                         Post Approval
                     </a>
                 </li>
 
-                <li class="list-group-item ">
-                    <img src="/images/master-setup.svg" alt="" class="icons ms-2 ">
+                <li class="list-group-item d-flex align-items-center">
+                    <img src="/images/master-setup.svg" alt="" class="icons">
                     Approved List
                 </li>
 
-                <li class="list-group-item ">
-                    <img src="/images/master-setup.svg" alt="" class="icons ms-2">
+                <li class="list-group-item d-flex align-items-center">
+                    <img src="/images/master-setup.svg" alt="" class="icons">
                     <span class="dropend">
                         <span class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Master Data Setup
                         </span>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" th:href="@{/admin/category}">Category Setup</a></li>
-                            <li><a class="dropdown-item" href="#">Category Setup</a></li>
+                            <li><a class="dropdown-item" th:href="@{/category}">Category Setup</a></li>
+                            <li><a class="dropdown-item" href="#">Another Setup</a></li>
                             <li><a class="dropdown-item" href="#">Category Setup</a></li>
                         </ul>
                     </span>
                 </li>
 
                 <li class="list-group-item ">
-                    <img src="/images/logout-svgrepo-com.png" alt="" class="icons ms-2 ">
+                    <img src="/images/logout-svgrepo-com.png" alt="" class="icons">
                     Log out
                 </li>
 
