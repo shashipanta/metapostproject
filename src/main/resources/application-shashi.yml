@@ -13,6 +13,14 @@ spring:
   thymeleaf:
     enabled: true
     cache: false
+    prefix: file:src/main/resources/templates/
+
+      # Static resources reloading during development
+  resources:
+    cache-period: 0
+  web:
+    resources:
+      static-locations: file:src/main/resources/static/
 user:
   created:
     value1: dev_key1
