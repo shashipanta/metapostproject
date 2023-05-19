@@ -2,6 +2,7 @@ package com.meta.userpostproject.service.serviceImpl;
 
 import com.meta.userpostproject.dto.CategoryDto;
 import com.meta.userpostproject.model.Category;
+import com.meta.userpostproject.model.Post;
 import com.meta.userpostproject.repo.CategoryRepo;
 import com.meta.userpostproject.service.CategoryService;
 import org.springframework.stereotype.Service;
@@ -67,6 +68,24 @@ public class CategoryServiceImpl implements CategoryService {
                 .description(category.getDescription())
                 .status(category.getStatus())
                 .build()).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<CategoryDto> getEnabledCategories() {
+
+        List<Category> enabledCategories = categoryRepo.getEnabledCategories();
+
+        return enabledCategories.stream()
+                        .map(
+                                category -> CategoryDto.builder()
+                                                        .id(category.getId())
+                                                        .categoryName(category.getName())
+                                                        .description(category.getDescription())
+                                                        .build()
+                        ).collect(Collectors.toList());
+
+
+
     }
 
     @Override

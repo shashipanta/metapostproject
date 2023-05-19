@@ -41,7 +41,7 @@ public class PostController {
         if(model.getAttribute("postDto") == null)
             model.addAttribute("postDto", new PostDto());
 
-        List<CategoryDto> categoryDtoList = categoryService.getCategories();
+        List<CategoryDto> categoryDtoList = categoryService.getEnabledCategories();
 //        model.addAttribute("categoryList", Arrays.asList("Science and Fiction", "Society", "Entertainment", "Technology"));
         model.addAttribute("categoryDtoList", categoryDtoList);
         model.addAttribute("postDto", new PostDto());

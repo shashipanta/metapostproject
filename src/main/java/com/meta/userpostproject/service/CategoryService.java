@@ -15,6 +15,8 @@ public interface CategoryService {
 
     List<CategoryDto> getCategories();
 
+    List<CategoryDto> getEnabledCategories();
+
     CategoryDto getSingleCategory(Short categoryId);
 
 }
