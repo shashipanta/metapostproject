@@ -51,15 +51,17 @@ public class CategoryController {
             }
 
             redirectAttributes.addFlashAttribute("messageType", "error");
+            return "redirect:/category";
         }
 
         // either update or create
 
-        if(categoryId == null){
+        if(categoryId == 0){
             message = "Category : " + categoryDto.getCategoryName() + " created succesfully.";
             redirectAttributes.addFlashAttribute("messageType", "success");
         } else {
             message = "Category : " + categoryDto.getCategoryName() + " updated succesfully.";
+            redirectAttributes.addFlashAttribute("messageType", "update");
         }
 
         redirectAttributes.addFlashAttribute("message", message);

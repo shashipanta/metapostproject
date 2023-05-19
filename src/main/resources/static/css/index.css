@@ -28,7 +28,20 @@
 }
 
 /* CATEGORY PAGE */
-.disabled-category {
+/*.disabled-category {*/
+/*    font-style: italic;*/
+/*    color: purple !important; !* This is overridden by table's css *!*/
+/*}*/
+
+.disabled-category,
+.table-striped > tbody > tr:nth-of-type(2n+1):has(.disabled-category) > *
+{
     font-style: italic;
-    color: gray !important; /* This is overridden by table's css */
+    /*color: purple !important;*/
+    background-color: #80008059;
 }
+
+/*.table-striped > tbody > tr .disabled-category td {*/
+/*    font-style: italic;*/
+/*    color: gray !important;*/
+/*}*/
