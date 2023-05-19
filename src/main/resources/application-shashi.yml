@@ -14,13 +14,16 @@ spring:
     enabled: true
     cache: false
     prefix: file:src/main/resources/templates/
-
-      # Static resources reloading during development
   resources:
     cache-period: 0
+  # Static resources reloading during development
   web:
     resources:
       static-locations: file:src/main/resources/static/
+      cache-period: 0
+      cache:
+        cachecontrol:
+          s-max-age: 0
 user:
   created:
     value1: dev_key1

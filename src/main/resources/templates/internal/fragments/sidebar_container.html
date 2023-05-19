@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Kolker+Brush&family=Montserrat+Subrayada&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" type="text/css" th:href="@{/css/fragementAdmin/sidebar.css}">
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
 </head>
 
 <body>
@@ -53,6 +53,18 @@
                         </ul>
                     </span>
                 </li>
+
+                <div class="dropdown show">
+                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown link
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </div>
 
                 <li class="list-group-item ">
                     <img src="/images/logout-svgrepo-com.png" alt="" class="icons">

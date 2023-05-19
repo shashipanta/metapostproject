@@ -30,5 +30,5 @@
 /* CATEGORY PAGE */
 .disabled-category {
     font-style: italic;
-    color: gray;
+    color: gray !important; /* This is overridden by table's css */
 }
