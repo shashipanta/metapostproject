@@ -21,7 +21,7 @@ public class CategoryController {
     }
 
     @GetMapping()
-    public String adminCategory(Model model){
+    public String createCategory(Model model){
         List<CategoryDto> categoryDtoList = categoryService.getCategories();
 
         if(model.containsAttribute("categoryDtoToUpdate")){
