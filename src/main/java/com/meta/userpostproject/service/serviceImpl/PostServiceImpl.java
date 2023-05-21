@@ -13,6 +13,8 @@ import org.apache.tika.exception.TikaException;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -45,6 +47,7 @@ public class PostServiceImpl implements PostService {
                         .title(postDto.getTitle())
                         .description(postDto.getDescription())
                         .category(selectedCategory)
+                        .dateTime(LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME))
                         .imagePath(fileStoreUtils.saveMultipartFile(postDto.getMultipartFile()))
                         .build();
         post = postRepo.save(post);
@@ -61,6 +64,7 @@ public class PostServiceImpl implements PostService {
                         .map(post -> PostDto.builder()
                             .id(post.getId())
                             .description(post.getDescription())
+                                .dateTime(LocalDateTime.now().format(DateTimeFormatter.ISO_LOCAL_DATE_TIME))
                             .title(post.getTitle())
                             .categoryId(post.getCategory().getId())
                             .filePath(post.getImagePath()).build()

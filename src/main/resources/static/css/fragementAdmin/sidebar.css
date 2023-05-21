@@ -55,7 +55,7 @@ ul {
 }
 
 .icons {
-    color: #79D1C1;
+    color: #7EADDB;
     width: 40px;
     height: 40px;
 }
@@ -70,9 +70,9 @@ ul {
     font-weight: 500;
 }
 
-.list-group-item:hover,.dropdown-menu:hover,.Dashboard:hover{
-    transform: scale(1.1);
-}
+/*.list-group-item:hover{*/
+/*    transform: scale(1.1);*/
+/*}*/
 thead{
     background-color: #7EADDB;
     color: #ffffff;

@@ -196,7 +196,5 @@ a{
 }
 a:hover{
     color: #0303f9;
-    transition:transform  0.9s;
-    transform: scale(1.1);
     text-decoration: none;
 }

@@ -1,9 +1,9 @@
 package com.meta.userpostproject.controller;
 
+import com.meta.userpostproject.dto.CategoryDto;
 import com.meta.userpostproject.dto.PostTableViewDto;
 import com.meta.userpostproject.service.PostService;
 import com.meta.userpostproject.component.FileStoreUtils;
-import com.meta.userpostproject.dto.CategoryDto;
 import com.meta.userpostproject.dto.PostDto;
 import com.meta.userpostproject.service.CategoryService;
 import com.meta.userpostproject.service.PostService;
@@ -38,8 +38,9 @@ public class PostController {
     @GetMapping("/create")
     public String createPost(Model model){
 
-        if(model.getAttribute("postDto") == null)
+        if(model.getAttribute("postDto") == null) {
             model.addAttribute("postDto", new PostDto());
+        }
 
         List<CategoryDto> categoryDtoList = categoryService.getEnabledCategories();
 //        model.addAttribute("categoryList", Arrays.asList("Science and Fiction", "Society", "Entertainment", "Technology"));
