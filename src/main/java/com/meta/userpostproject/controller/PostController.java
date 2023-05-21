@@ -38,8 +38,9 @@ public class PostController {
     @GetMapping("/create")
     public String createPost(Model model){
 
-        if(model.getAttribute("postDto") == null)
+        if(model.getAttribute("postDto") == null) {
             model.addAttribute("postDto", new PostDto());
+        }
 
         List<CategoryDto> categoryDtoList = categoryService.getEnabledCategories();
 //        model.addAttribute("categoryList", Arrays.asList("Science and Fiction", "Society", "Entertainment", "Technology"));
