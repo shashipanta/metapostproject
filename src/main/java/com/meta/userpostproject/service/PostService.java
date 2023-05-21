@@ -1,4 +1,4 @@
-package com.meta.userpostproject.Service;
+package com.meta.userpostproject.service;
 
 import com.meta.userpostproject.dto.PostDto;
 import org.apache.tika.exception.TikaException;
@@ -15,6 +15,8 @@ public interface PostService {
 
     PostDto getSinglePost(short id);
 
+
+    PostDto postView(short id) throws IOException;
 
 
 

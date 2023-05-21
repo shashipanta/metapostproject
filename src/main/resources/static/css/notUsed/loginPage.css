@@ -2,11 +2,10 @@ body{
     padding: 0;
     margin: 0;
     background-size: cover;
-    background-image: url(../images/background_image.jpg);
+    background-image: url(notUsed/background_image.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-
 
 
 }
@@ -14,23 +13,22 @@ body{
     display: flex;
     align-items: center;
     margin-top: 60px;
-    background-image: url(../images/form_background.png);
+    background-image: url(notUsed/form_background.png);
     background-repeat: no-repeat;
     /* background-attachment: fixed; */
     background-size: cover;
     /* box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; */
     box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
     width: 60%;
-    height: 100%;
     /* margin-top: 90px; */
     /* margin-left: 350px; */
     border-radius: 8px;
-    justify-content:space-around;
+    justify-content: space-between;
+    justify-content: space-between;
     padding-inline: 2em;
     gap: 2em;
     margin-inline: auto;
 }
-
 
 
 form {
@@ -96,26 +94,24 @@ form {
 
 #company {
     position: absolute;
+    /* top: 7.5rem; */
+    /* left: 72rem; */
     color: white;
     font-weight: bolder;
     margin-bottom: 3em;
-    top: 0.5em;
-    left: 5em;
-    top: -7em;
-    width: 100%;
-
+    top: 1em;
+    top: -3em;
+    color: black;
 }
 
 h2 {
     margin-top: 8px;
     margin-bottom: 26px;
-    font-size: 1.1rem;
-    font-weight: 700;
+    font-size: 26px;
     text-align: center;
     color: #06C5CF;
 
 }
-
 
 .form-group {
     display: flex;
@@ -124,12 +120,7 @@ h2 {
     width: 100%;
 }
 
-label {
-    margin-bottom: 5px;
-    font-size: 19px;
-    font-weight: bold;
-    color: #06C5CF;
-}
+
 
 input[type="text"]
 {
@@ -137,13 +128,12 @@ input[type="text"]
     border-radius: 10px;
     background: #F2F2F2;
     width: 100%;
-    border: 0;
-    margin: 0 0 10px;
+    border: 1px #06C5CF solid;
+    /* margin: 0 0 15px; */
     padding: 15px;
     box-sizing: border-box;
     font-size: 14px;
-    margin-top: 20px;
-    border: 1px #06C5CF solid;
+    margin-top: 25px;
 }
 
 input[type="text"]:hover
@@ -166,6 +156,10 @@ select{
     width: fit-content;
 }
 
+input[type="radio"] {
+    margin-right: 10px;
+    margin-top: 8px;
+}
 
 button[type="submit"] {
     text-transform: uppercase;
@@ -175,11 +169,13 @@ button[type="submit"] {
     width: 100%;
     border: 0;
     padding: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
     color: #FFFFFF;
     font-size: 15px;
     font-weight: bolder;
     cursor: pointer;
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 
@@ -189,14 +185,19 @@ button[type="submit"]:hover {
     transition: all 1s ease 0s;
 }
 
-a{
+.message{
+    margin: 15px 0 0;
+    color: #B3B3B3;
+    font-size: 16px;
+    margin-top: 28px;
+}
+.message a{
     color: #1780e2;
-    font-size: 17px;
-    margin-bottom: 15px;
 }
 a:hover{
     color: #0303f9;
-    transition:transform  0.9s;
-    transform: scale(1.1);
     text-decoration: none;
 }
+
+
+

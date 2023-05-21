@@ -1,4 +1,4 @@
-package com.meta.userpostproject.Service;
+package com.meta.userpostproject.service;
 
 import com.meta.userpostproject.component.FileStoreUtils;
 import com.meta.userpostproject.dto.PostDto;
@@ -8,12 +8,16 @@ import org.apache.tika.exception.TikaException;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
-public class PostServiceImpl implements PostService {
+public class PostServiceImpl implements com.meta.userpostproject.service.PostService {
+
+
     private final PostRepo postRepo;
     private final FileStoreUtils fileStoreUtils;
 
@@ -25,12 +29,17 @@ public class PostServiceImpl implements PostService {
     //create post
     @Override
     public PostDto createPost(PostDto postDto) throws  TikaException, IOException {
+        LocalDateTime localDateTime = LocalDateTime.now();
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/YYYY -- E H:m a");
+        String myDate = localDateTime.format(df);
+        System.out.println(myDate);
         Post post =
                 Post.builder()
                         .id(null)
                         .title(postDto.getTitle())
                         .description(postDto.getDescription())
                         .category(postDto.getCategory())
+                        .dateTime(myDate)
                         .imagePath(fileStoreUtils.saveMultipartFile(postDto.getMultipartFile()))
                         .build();
         post = postRepo.save(post);
@@ -48,6 +57,7 @@ public class PostServiceImpl implements PostService {
                         .description(post.getDescription())
                         .title(post.getTitle())
                         .category(post.getCategory())
+                        .dateTime(post.getDateTime())
                         .filePath(post.getImagePath()).build())
                 .collect(Collectors.toList());
     }
@@ -67,12 +77,33 @@ public class PostServiceImpl implements PostService {
            return PostDto.builder()
                    .id(post1.getId())
                    .title(post1.getTitle())
+                   .dateTime(post1.getDateTime())
                    .category(post1.getCategory())
                    .description(post1.getDescription()).build();
        }else {
            return null;
        }
     }
+    //view post
+    @Override
+    public PostDto postView(short id) throws IOException {
+        Optional<Post> post =  postRepo.findById(id);
+        if(post.isPresent()){
+            Post viewPost = post.get();
+            return PostDto.builder()
+                    .id(viewPost.getId())
+                    .title(viewPost.getTitle())
+                    .category(viewPost.getCategory())
+                    .dateTime(viewPost.getDateTime())
+                    .description(viewPost.getDescription())
+                    .filePath(fileStoreUtils.getBase64FormFilePath(viewPost.getImagePath()))
+                    .build();
+        }else {
+            return null;
+        }
+    }
+
+
 
 
 }

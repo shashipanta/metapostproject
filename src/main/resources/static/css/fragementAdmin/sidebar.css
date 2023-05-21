@@ -10,7 +10,7 @@ body {
     padding-left: 0;
     padding-right: 0;
     height: auto;
-    background-image: url(../images/sidebar_bg.png);
+    background-image: url(../../images/sidebar_bg.png);
     background-position: center;
     background-size: cover;
 
@@ -55,9 +55,9 @@ ul {
 }
 
 .icons {
-    color: #79D1C1;
-    width: 40px;
-    height: 40px;
+    color: #7EADDB;
+    /*width: 40px;*/
+    /*height: 40px;*/
 }
 .list-group{
     --bs-list-group-bg:#F5F5F5;
@@ -70,9 +70,9 @@ ul {
     font-weight: 500;
 }
 
-.list-group-item:hover,.dropdown-menu:hover,.Dashboard:hover{
-    transform: scale(1.1);
-}
+/*.list-group-item:hover{*/
+/*    transform: scale(1.1);*/
+/*}*/
 thead{
     background-color: #7EADDB;
     color: #ffffff;
