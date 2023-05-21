@@ -10,6 +10,7 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+
 user:
   created:
     value1: dev_key1

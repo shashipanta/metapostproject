@@ -25,6 +25,7 @@ public class RoleServiceImpl implements RoleService {
         Role role = new Role(roleDto);
         Role savedRole = roleRepo.save(role);
         return new RoleDto(savedRole);
+
     }
 
     @Override

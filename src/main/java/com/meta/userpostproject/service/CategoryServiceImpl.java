@@ -1,5 +1,6 @@
 package com.meta.userpostproject.service;
 
+import com.meta.userpostproject.Service.CategoryService;
 import com.meta.userpostproject.dto.CategoryDto;
 import com.meta.userpostproject.model.Category;
 import com.meta.userpostproject.repo.CategoryRepo;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
+//import com.meta.userpostproject.service.CategoryService;
 
 @Service
 class CategoryServiceImpl implements CategoryService {

@@ -3,6 +3,8 @@ package com.meta.userpostproject.dto;
 import lombok.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.time.LocalDateTime;
+
 
 @Data
 @Builder
@@ -17,6 +19,8 @@ public class PostDto {
     private String description;
 
     private String category;
+
+    private String dateTime;
 
     private MultipartFile multipartFile;
 
