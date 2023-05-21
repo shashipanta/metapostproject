@@ -1,11 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Single Post View</title>
+    <th:block th:replace="~{internal/fragments/sidebar_container.html :: html_head('Single Post')}"></th:block>
+
+    <link rel="stylesheet" href="@{/css/index.css}">
 </head>
 <body>
-  <p th:text="${postDto}">constructing</p>
+<div class="container-fluid">
+    <div class="row">
+
+        <!-- SIDEBAR MENU -->
+        <div th:replace="~{internal/fragments/sidebar_container.html :: sidebars_master}"></div>
+
+        <!-- Main Content -->
+        <div class="col-md-8 ">
+            <p th:text="${postDto}">constructing</p>
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
+<!-- Bootstrap scripts -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</body>
 
 </body>
 </html>
