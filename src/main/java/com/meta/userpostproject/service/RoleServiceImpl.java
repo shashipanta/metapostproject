@@ -4,7 +4,7 @@ import com.meta.userpostproject.dto.RoleDto;
 import com.meta.userpostproject.model.Role;
 import com.meta.userpostproject.repo.RoleRepo;
 import org.springframework.stereotype.Service;
-import com.meta.userpostproject.service.RoleService;
+
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,6 +21,7 @@ public class RoleServiceImpl implements RoleService {
         Role role = new Role(roleDto);
         Role savedRole = roleRepo.save(role);
         return new RoleDto(savedRole);
+
     }
 
     @Override

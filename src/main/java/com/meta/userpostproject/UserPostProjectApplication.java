@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
 @SpringBootApplication
 public class UserPostProjectApplication {
 
@@ -16,6 +17,7 @@ public class UserPostProjectApplication {
     public String key2;
     @Value("${user.created.value3}")
     public String key3;
+
 
     @Autowired
     private Key key;

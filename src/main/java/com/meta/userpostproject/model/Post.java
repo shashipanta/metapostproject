@@ -3,6 +3,8 @@ package com.meta.userpostproject.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 /*
 The author of this class is java-suraj
 lightsuraj129@gmail.com

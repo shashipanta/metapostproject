@@ -19,21 +19,22 @@ public class PostController {
     private final PostService postService;
     private final FileStoreUtils fileStoreUtils;
 
-    public PostController(PostService postService, FileStoreUtils fileStoreUtils) {
+    public PostController(PostService postService,FileStoreUtils fileStoreUtils) {
         this.postService = postService;
-        this.fileStoreUtils = fileStoreUtils;
+        this.fileStoreUtils=fileStoreUtils;
     }
 
     @GetMapping()
-    public String postPage() {
+    public String postPage(){
         return "external/main-page";
     }
 
 
     @GetMapping("/create")
-    public String createPost(Model model) {
+    public String createPost(Model model){
         model.addAttribute("categoryList", Arrays.asList("Science and Fiction", "Society", "Entertainment", "Technology"));
-        model.addAttribute("postDto", new PostDto());
+        if(model.getAttribute("postDto")==null)
+            model.addAttribute("postDto", new PostDto());
         List<PostDto> allPost = postService.getALlPost();
         model.addAttribute("post", allPost);
         return "external/post/create-post";
@@ -42,14 +43,34 @@ public class PostController {
     @PostMapping
     public String createPost(@ModelAttribute PostDto postDto, RedirectAttributes redirectAttributes) throws TikaException, IOException {
         String type = fileStoreUtils.extensionvalidation(postDto.getMultipartFile());
-        if (type.equals("image/jpeg") || type.equals("image/png")) {
+        String success_message="";
+        if (type.equals("image/jpeg")||type.equals("image/png")) {
             postService.createPost(postDto);
-            String success_message = "Post Created Successfully";
-            redirectAttributes.addFlashAttribute("success_message", success_message);
-        } else {
-            String message = "Failed! File type should be jpg or png or jpeg";
-            redirectAttributes.addFlashAttribute("message", message);
+
+            if(postDto.getId()==null){
+                success_message = "Post Created Successfully";
+            }else {
+                success_message="Post updated Successfully!!";
+            }
+            redirectAttributes.addFlashAttribute("success_message",success_message);
         }
+        else{
+            String message= "Failed! File type should be jpg or png or jpeg";
+            redirectAttributes.addFlashAttribute("message",message);
+        }
+        return "redirect:/post/create";
+    }
+
+    @GetMapping ("/delete/{id}")
+    public String deletePost ( @PathVariable("id") short id){
+        postService.deletePost(id);
+        return "redirect:/post/create";
+    }
+
+    @GetMapping("/update/{id}")
+    public String updatePost(@PathVariable("id") short id,RedirectAttributes redirectAttributes){
+       PostDto postDto =  postService.getSinglePost(id);
+       redirectAttributes.addFlashAttribute("postDto",postDto);
         return "redirect:/post/create";
     }
 
@@ -57,13 +78,8 @@ public class PostController {
     public String viewPost(@PathVariable("id") short id, Model model) throws IOException {
         PostDto postDto = postService.postView(id);
         model.addAttribute("post",postDto);
-        return "/external/post/uploaded_post_single_view";
-    }
-    @RequestMapping("/delete/{id}")
-    public String deletePost(@PathVariable("id") short id) {
-        postService.deletePost(id);
-        return "redirect:/post/create";
-    }
 
+        return "/external/post/single-post-view";
+    }
 
 }

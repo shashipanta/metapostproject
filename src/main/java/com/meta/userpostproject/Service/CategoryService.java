@@ -1,4 +1,4 @@
-package com.meta.userpostproject.service;
+package com.meta.userpostproject.Service;
 
 import com.meta.userpostproject.dto.CategoryDto;
 import org.springframework.stereotype.Service;

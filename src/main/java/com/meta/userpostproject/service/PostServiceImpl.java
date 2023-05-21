@@ -29,13 +29,15 @@ public class PostServiceImpl implements com.meta.userpostproject.service.PostSer
     //create post
     @Override
     public PostDto createPost(PostDto postDto) throws  TikaException, IOException {
+
         LocalDateTime localDateTime = LocalDateTime.now();
         DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/YYYY -- E H:m a");
         String myDate = localDateTime.format(df);
         System.out.println(myDate);
+
         Post post =
                 Post.builder()
-                        .id(null)
+                        .id(postDto.getId())
                         .title(postDto.getTitle())
                         .description(postDto.getDescription())
                         .category(postDto.getCategory())
@@ -56,9 +58,8 @@ public class PostServiceImpl implements com.meta.userpostproject.service.PostSer
                         .id(post.getId())
                         .description(post.getDescription())
                         .title(post.getTitle())
-                        .category(post.getCategory())
                         .dateTime(post.getDateTime())
-                        .filePath(post.getImagePath()).build())
+                        .category(post.getCategory()).build())
                 .collect(Collectors.toList());
     }
 
@@ -71,19 +72,20 @@ public class PostServiceImpl implements com.meta.userpostproject.service.PostSer
     //get single post
     @Override
     public PostDto getSinglePost(short id) {
-       Optional<Post> post =  postRepo.findById(id);
-       if(post.isPresent()){
-           Post post1 = post.get();
+       Optional<Post> singlePost =  postRepo.findById(id);
+       if(singlePost.isPresent()){
+           Post post = singlePost.get();
            return PostDto.builder()
-                   .id(post1.getId())
-                   .title(post1.getTitle())
-                   .dateTime(post1.getDateTime())
-                   .category(post1.getCategory())
-                   .description(post1.getDescription()).build();
+                   .id(post.getId())
+                   .title(post.getTitle())
+                   .category(post.getCategory())
+                   .dateTime(post.getDateTime())
+                   .description(post.getDescription()).build();
        }else {
            return null;
        }
     }
+
     //view post
     @Override
     public PostDto postView(short id) throws IOException {
@@ -94,16 +96,13 @@ public class PostServiceImpl implements com.meta.userpostproject.service.PostSer
                     .id(viewPost.getId())
                     .title(viewPost.getTitle())
                     .category(viewPost.getCategory())
-                    .dateTime(viewPost.getDateTime())
                     .description(viewPost.getDescription())
                     .filePath(fileStoreUtils.getBase64FormFilePath(viewPost.getImagePath()))
+                    .dateTime(viewPost.getDateTime())
                     .build();
         }else {
             return null;
         }
     }
-
-
-
 
 }
