@@ -94,7 +94,36 @@
             <div class="role_table  mt-5">
                 <div class="MPOS">Role Table
                 </div>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-striped mt-3" >
+                        <thead>
+                        <tr>
 
+                            <th>S.N.</th>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody th:each="role,Index:${roles}">
+                        <tr >
+                            <td th:text="${Index.count}"></td>
+                            <td th:text="${role.name}"></td>
+                            <td th:text="${role.roleType}"></td>
+
+                            <td>
+                                <a th:href="@{/role/edit/}+${role.id}">
+                                    <i class="fa-solid fa-pen-to-square" ></i>
+                                </a>
+                                <a th:href="@{/role/delete/}+${role.id}">
+                                    <i class="fa-solid fa-trash" style="color: #f50025;"></i>
+                                </a>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
