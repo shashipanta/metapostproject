@@ -34,7 +34,7 @@
                             </div>
                             <div class="col-10 text-muted">
                                 <span class="username">Username</span> <br>
-                                <span class="date text-muted"> DD/MM/YYYY </span>
+                                <span class="date text-muted"  th:text="${post.dateTime}"></span>
                             </div>
                         </div>
 
@@ -65,13 +65,16 @@
     <div class="col-md-3 mt-5 me-3 mx-auto">
 
       <div class="fs-5 my-2 postTitle">Title</div>
-      <div class="fs-6 my-2" th:text="${post.getTitle()}"></div>
+      <div class="fs-6 my-2" th:text="${post.getTitle}"></div>
 
       <div class="fs-5 my-2 postTitle">Description</div>
 
       <div class="fs-6 mt-2" th:text="${post.getDescription()}">Description</div>
 
-      <div class="fs-5 my-2 postTitle">Submitted Date</div>
+      <div class="fs-5 my-2 postTitle">Submitted Date
+
+      </div>
+        <div th:text="${post.dateTime}"></div>
         <div class="admin-buttons mt-5">
             <button class="btn btn-outline-danger me-5">Reject</button>
 

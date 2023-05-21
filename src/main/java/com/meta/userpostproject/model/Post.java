@@ -34,6 +34,9 @@ public class Post {
     @Column(name = "image_path", length = 200, nullable = false)
     private String imagePath;
 
+    @Column(name = "date_time", length = 200, nullable = false)
+    private String dateTime;
+
     @ManyToOne(fetch = FetchType.LAZY, targetEntity = User.class)
     @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_post_userid"))
     private User user;

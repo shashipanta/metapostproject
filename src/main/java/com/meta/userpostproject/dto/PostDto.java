@@ -18,6 +18,7 @@ public class PostDto {
 
     private String category;
 
+    private String dateTime;
 
     private MultipartFile multipartFile;
 

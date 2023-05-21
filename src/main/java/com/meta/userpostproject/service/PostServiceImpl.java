@@ -8,12 +8,16 @@ import org.apache.tika.exception.TikaException;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 public class PostServiceImpl implements com.meta.userpostproject.service.PostService {
+
+
     private final PostRepo postRepo;
     private final FileStoreUtils fileStoreUtils;
 
@@ -25,12 +29,17 @@ public class PostServiceImpl implements com.meta.userpostproject.service.PostSer
     //create post
     @Override
     public PostDto createPost(PostDto postDto) throws  TikaException, IOException {
+        LocalDateTime localDateTime = LocalDateTime.now();
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/YYYY -- E H:m a");
+        String myDate = localDateTime.format(df);
+        System.out.println(myDate);
         Post post =
                 Post.builder()
                         .id(null)
                         .title(postDto.getTitle())
                         .description(postDto.getDescription())
                         .category(postDto.getCategory())
+                        .dateTime(myDate)
                         .imagePath(fileStoreUtils.saveMultipartFile(postDto.getMultipartFile()))
                         .build();
         post = postRepo.save(post);
@@ -48,6 +57,7 @@ public class PostServiceImpl implements com.meta.userpostproject.service.PostSer
                         .description(post.getDescription())
                         .title(post.getTitle())
                         .category(post.getCategory())
+                        .dateTime(post.getDateTime())
                         .filePath(post.getImagePath()).build())
                 .collect(Collectors.toList());
     }
@@ -67,6 +77,7 @@ public class PostServiceImpl implements com.meta.userpostproject.service.PostSer
            return PostDto.builder()
                    .id(post1.getId())
                    .title(post1.getTitle())
+                   .dateTime(post1.getDateTime())
                    .category(post1.getCategory())
                    .description(post1.getDescription()).build();
        }else {
@@ -83,6 +94,7 @@ public class PostServiceImpl implements com.meta.userpostproject.service.PostSer
                     .id(viewPost.getId())
                     .title(viewPost.getTitle())
                     .category(viewPost.getCategory())
+                    .dateTime(viewPost.getDateTime())
                     .description(viewPost.getDescription())
                     .filePath(fileStoreUtils.getBase64FormFilePath(viewPost.getImagePath()))
                     .build();
