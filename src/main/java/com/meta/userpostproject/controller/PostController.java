@@ -33,12 +33,10 @@ public class PostController {
     @GetMapping("/create")
     public String createPost(Model model){
         model.addAttribute("categoryList", Arrays.asList("Science and Fiction", "Society", "Entertainment", "Technology"));
-
-        if(model.getAttribute("postDto") == null)
+        if(model.getAttribute("postDto")==null)
             model.addAttribute("postDto", new PostDto());
-
         List<PostDto> allPost = postService.getALlPost();
-        model.addAttribute("posts", allPost);
+        model.addAttribute("post", allPost);
         return "external/post/create-post";
     }
 
