@@ -22,6 +22,8 @@ public class FileStoreUtils {
      * @return
      */
     public String saveMultipartFile(MultipartFile multipartFile) throws IOException, TikaException {
+
+
         String dirPath = System.getProperty("user.home") + "/Desktop/META_FILE_STORE";
         File directoryFile = new File(dirPath);
         if (!directoryFile.exists()) {
@@ -30,6 +32,8 @@ public class FileStoreUtils {
         String originalFileName = multipartFile.getOriginalFilename();
         String filePath = dirPath + "/" + originalFileName;
         File myFile = new File(filePath);
+
+
         try {
             multipartFile.transferTo(myFile);
         } catch (IOException e) {
@@ -37,17 +41,16 @@ public class FileStoreUtils {
         }
         return filePath;
 
-    }
 
-    //multipart fil validation
+
+    }
     public String extensionvalidation(MultipartFile multipartFile) throws IOException {
         Tika tika = new Tika();
         String type = tika.detect(multipartFile.getOriginalFilename());
         return type;
     }
 
-
-    //convert the image  into base64
+    //convert image  into base64
     public String getBase64FormFilePath(String filePath) throws IOException {
         File file = new File(filePath);
         if(file.exists()){
@@ -61,8 +64,5 @@ public class FileStoreUtils {
             return  null;
         }
     }
-
-
-
 
 }

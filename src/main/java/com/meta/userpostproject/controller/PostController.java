@@ -1,9 +1,9 @@
 package com.meta.userpostproject.controller;
 
+import com.meta.userpostproject.dto.CategoryDto;
 import com.meta.userpostproject.dto.PostTableViewDto;
 import com.meta.userpostproject.service.PostService;
 import com.meta.userpostproject.component.FileStoreUtils;
-import com.meta.userpostproject.dto.CategoryDto;
 import com.meta.userpostproject.dto.PostDto;
 import com.meta.userpostproject.service.CategoryService;
 import com.meta.userpostproject.service.PostService;

@@ -1,0 +1,21 @@
+
+.postTitle{
+    color:#077efd;
+}
+.icons_post {
+    margin-top:10px;
+    font-size: 1.9rem;
+    color:#077efd;
+}
+body{
+    background-color: #ffffff;
+}
+.post_details{
+    background-color: #F5F5F5;
+}
+.btn-outline-danger,.btn-outline-success{
+    width:100px;
+    text-align: center;
+    border-radius: 0;
+
+}

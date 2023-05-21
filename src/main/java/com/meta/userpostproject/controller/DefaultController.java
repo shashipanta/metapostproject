@@ -24,7 +24,7 @@ public class DefaultController {
     }
 
     @GetMapping()
-    public String redirect(){
+    public String redirect() {
         return "/internal/postActionPage";
     }
     @GetMapping("/approve-post")
