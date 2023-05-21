@@ -3,7 +3,10 @@
 <head>
     <th:block th:replace="~{internal/fragments/sidebar_container.html :: html_head('Single Post')}"></th:block>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="@{/css/index.css}">
+
+    <link rel="stylesheet" th:href="@{/css/admin/postApprove.css}">
 </head>
 <body>
 <div class="container-fluid">
@@ -13,17 +16,103 @@
         <div th:replace="~{internal/fragments/sidebar_container.html :: sidebars_master}"></div>
 
         <!-- Main Content -->
-        <div class="col-md-8 ">
-            <p th:text="${postDto}">constructing</p>
+        <div class="col-md-6 mx-auto">
+            <div class="main_post mt-5">
+
+
+                <img src="/images/house-g86e5813e1_1920.jpg" alt="image_from_db" class="img-fluid">
+                <div class="row post_details ms-0 me-0 align-items-center" th:object="${postDto}">
+
+
+                    <div class="col-6  my-2 lh-1">
+                        <div class="row">
+                            <div class="col-2">
+                                <i class="fa-solid fa-user icons_post"></i>
+
+                            </div>
+                            <div class="col-10 text-muted">
+                                <span class="username">Username</span> <br>
+                                <span class="date text-muted"> DD/MM/YYYY </span>
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-6 ">
+                        <div class="row">
+                            <div class="col-6 text-end">
+                                <i class="fas fa-thumbs-up me-3 icons_post"></i>
+                                <i class="fas fa-bookmark icons_post"></i>
+                            </div>
+                            <div class="col-6 text-muted">View 12.5k
+                                <br>
+                                Like 12.5k
+                            </div>
+                        </div>
+
+
+                        </div>
+                    <div class="post_description my-1 fs-6 lh-base" th:text="${postDto.description}">
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 mt-5 me-3 mx-auto">
+
+            <div class="single_box mt-3 mb-3">
+                <!--                        <img src="image/user-circle-svgrepo-com.png" alt="" class="icons_post">-->
+                <h2 class="ms-1 postTitle" th:text="${postDto.title}"></h2>
+                <label for="post-description"></label>
+                <p id="post-description" class="post_description my-1 fs-6 lh-base" th:text="${postDto.description}">
+                </p>
+                <div>Status :</div>
+                <div class="ms-1 postTitle" th:text="*{'PENDING'}"></div>
+                <button class="btn btn-primary" onclick="showApprovePopup()">Approve</button>
+                <button class="btn btn-primary" onclick="showRejectPopup()">Reject</button>
+                <div id="popups" class="popup">
+                    <div class="popup-content">
+                        <p>Are you sure you want to approve?</p>
+                        <h1>
+                            <button class="popup-button" type="button" id="button1"
+                                    th:attr="onclick='sendButtonValue(\'Yes\', \'' + ${id} + '\')'">Yes
+                            </button>
+                        </h1>
+                        <button class="popup-button" onclick="declineApprove()">No</button>
+                    </div>
+                </div>
+                <div id="Rejectpopups" class="popup">
+                    <div class="popup-content">
+                        <p>Are you sure you want to reject?</p>
+                        <h1>
+                            <button class="popup-button" type="button" id="button2"
+                                    th:attr="onclick='sendButtonValueReject(\'Yes\', \'' + ${id} + '\')'">Yes
+                            </button>
+                        </h1>
+                        <button class="popup-button" onclick="declineReject()">No</button>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
     </div>
+
 </div>
 
 
+</div>
+
+</div>
 
 
+</div>
+</div>
+
+<!--Custom JS for Approve and reject-->
+<script th:src="@{/javascript/postApprove.js}" ></script>
 <!-- Bootstrap scripts -->
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
