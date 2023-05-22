@@ -5,9 +5,12 @@
     --clr-tertiary: blue
 }
 
+/* clear defaults */
+a{
+    text-decoration: none !important;
+}
 
 /* ICONS */
-
 
 .icon-container{
     min-width: 3em;
